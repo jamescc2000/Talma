@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Talma</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_registrar">registrar</string>
 </resources>
