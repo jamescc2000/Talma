@@ -15,14 +15,22 @@
         android:orientation="vertical"
         android:padding="15dp">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Talma"
+            android:textSize="24dp"/>
+
 
         <!--Boto login-->
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_login"
             android:layout_marginTop="50dp"
+            android:text="@string/btn_login"
             android:textColor="#fff" />
 
         <!--Boton registro-->
@@ -33,6 +41,8 @@
             android:layout_marginTop="10dp"
             android:text="@string/btn_registrar"
             android:textColor="#fff" />
+
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
