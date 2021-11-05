@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_home"
+        android:title="@string/nav_home"
+        android:icon="@drawable/home_black_icon"/>
+
+    <item android:id="@+id/nav_perfil"
+        android:title="@string/nav_perfil"
+        android:icon="@drawable/perfil_black_icon"/>
+
+    <item android:id="@+id/nav_usuarios"
+        android:title="@string/nav_usuarios"
+        android:icon="@drawable/usuarios_black_icon"/>
+
+    <item android:id="@+id/nav_RSIRe"
+        android:title="@string/nav_RSIRe"
+        android:icon="@drawable/rsire_icon"/>
+
+    <item android:id="@+id/nav_notificaciones"
+        android:title="@string/nav_notificaciones"
+        android:icon="@drawable/notifi_icon"/>
+</menu>
