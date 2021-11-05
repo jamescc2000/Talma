@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/drawable/bg_receiver.xml" value="0.2203125" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/drawable/btn_personalizado.xml" value="0.2203125" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_login_cliente.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_login_empleados.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
