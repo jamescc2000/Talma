@@ -78,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_personalizado"
             android:text="@string/btnIngresar"
-            app:backgroundtint="0071B9"
+            app:backgroundTint="@color/teal_700"
             android:textColor="#ffff" />
 
         <!--Boton Google-->

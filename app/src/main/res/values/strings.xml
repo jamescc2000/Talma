@@ -23,11 +23,31 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--Menu de navegacion-->
+    <!--RSIRe Fragment-->
     <string name="btn_Registrar_Rsire">Registrar RSIRe</string>
     <string name="btn_revisar_servicios">Revisar Servicios</string>
     <string name="btn_atender_reclamos">Atender Reclamos</string>
+    <string name="btn_facturacion">Facturacion</string>
     <string name="Rsire_titulo">RSIRe</string>
+
+    <!--Registro de RSIRe Fragment-->
+    <string name="txt_registro">Registro de RSIRe</string>
+    <string name="txt_datos_generales">Datos Generales de Vuelo</string>
+    <string name="txt_datos_llegada">Datos de Llegada</string>
+    <string name="txt_datos_salida">Datos de Salida</string>
+    <string name="txt_aeropueto">Aeropuerto: </string>
+    <string name="txt_compañia">Compañia</string>
+    <string name="txt_origen">Origen</string>
+    <string name="txt_destino">Destino</string>
+    <string name="txt_aeronave">Aeronave: </string>
+    <string name="txt_matricula">Matricula</string>
+    <string name="txt_a_cargo_de">A cargo de</string>
+    <string name="txt_pago">Forma de pago: </string>
+    <string name="txt_fecha">Fecha: dd/mm/yyyy</string>
+    <string name="txt_hora">Hora: hh/mm</string>
+    <string name="txt_nvuelo">N° vuelo</string>
+    <string name="txt_pea">PEA</string>
+    <string name="regsitrarUsuario">Registrarme</string>
 
 
 </resources>
