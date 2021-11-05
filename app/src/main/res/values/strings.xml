@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Talma</string>
+
     <string name="btn_login">LOGIN</string>
     <string name="btn_registrar">registrar</string>
+
+
+    <!--Login de empleados-->
+    <string name="login_titulo">Empleados de Talma</string>
+    <string name="emailLogin">Correo electronico</string>
+    <string name="Passwordlogin">Contraseña</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="btnIngresarGoogle">Ingresar con Google</string>
+
 </resources>

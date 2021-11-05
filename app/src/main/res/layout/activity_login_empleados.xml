@@ -1,48 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".MainActivity">
+    android:backgroundTint="#FFFFFF"
+    tools:context=".login_cliente">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="15sp">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lOGIN DE EMPLEADOS"
-            android:textSize="24dp" />
-
-
-        <!--Boto login-->
-
-        <Button
-            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/btn_login"
-            android:textColor="#fff" />
+            android:gravity="center"
+            android:text="@string/login_titulo"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <!--Boton registro-->
-        <Button
-            android:id="@+id/btn_registrar"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/empleados_icon" />
+
+        <!--Email-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/emailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/user_icon"
+                android:drawablePadding="5dp"
+                android:hint="@string/emailLogin"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#fff" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Contraseña-->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/btn_registrar"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/passwordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/pass_icon"
+                android:drawablePadding="5dp"
+                android:hint="@string/Passwordlogin"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColorHint="#fff" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Boton Ingresar-->
+        <Button
+            android:id="@+id/btn_Ingresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_personalizado"
+            android:text="@string/btnIngresar"
             android:textColor="#fff" />
 
+        <!--Boton Google-->
+        <Button
+            android:id="@+id/btn_ingresarGoogle"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:background="@drawable/btn_personalizado"
+            android:drawableLeft="@drawable/google_ico"
+            android:drawablePadding="15dp"
+            app:backgroundTint="@color/white"
+            android:textColor="#000"
+            android:padding="10dp"
+            android:text="@string/btnIngresarGoogle"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
