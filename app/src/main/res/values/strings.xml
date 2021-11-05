@@ -18,7 +18,16 @@
     <string name="nav_usuarios">Usuarios</string>
     <string name="nav_RSIRe">RSIRe</string>
     <string name="nav_notificaciones">Notificaciones</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Menu de navegacion-->
+    <string name="btn_Registrar_Rsire">Registrar RSIRe</string>
+    <string name="btn_revisar_servicios">Revisar Servicios</string>
+    <string name="btn_atender_reclamos">Atender Reclamos</string>
+    <string name="Rsire_titulo">RSIRe</string>
+
 
 </resources>
