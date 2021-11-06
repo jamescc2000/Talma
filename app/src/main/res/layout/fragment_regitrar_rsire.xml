@@ -31,7 +31,8 @@
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:src="@drawable/registro"/>
+            android:src="@drawable/registro"
+            android:layout_marginBottom="15dp"/>
 
         <!--Datos generales del vuelo-->
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -238,15 +239,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/et_hora_llegada"
-                android:hint="@string/txt_hora"
-                android:inputType="time"
-                android:textColorHint="#000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:importantForAutofill="no"/>
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--N° vuelo-->
@@ -367,14 +359,23 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <Button
-            android:id="@+id/btn_registarUsuario"
-            android:text="@string/regsitrarUsuario"
+            android:id="@+id/btn_siguiente"
+            android:text="@string/btn_siguiente"
             android:background="@drawable/btn_personalizado"
             android:textColor="#fff"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:backgroundTint="@color/teal_700"/>
+
+        <EditText
+            android:id="@+id/et_hora_llegada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_hora"
+            android:importantForAutofill="no"
+            android:inputType="time"
+            android:textColorHint="#000" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

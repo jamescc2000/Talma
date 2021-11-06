@@ -47,7 +47,7 @@
     <string name="txt_hora">Hora: hh/mm</string>
     <string name="txt_nvuelo">N° vuelo</string>
     <string name="txt_pea">PEA</string>
-    <string name="regsitrarUsuario">Registrarme</string>
+    <string name="btn_siguiente">Siguiente</string>
 
 
 </resources>

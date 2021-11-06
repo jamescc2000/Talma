@@ -81,19 +81,6 @@
             app:backgroundTint="@color/teal_700"
             android:textColor="#ffff" />
 
-        <!--Boton Google-->
-        <Button
-            android:id="@+id/btn_ingresarGoogle"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:background="@drawable/btn_personalizado"
-            android:drawableLeft="@drawable/google_ico"
-            android:drawablePadding="15dp"
-            app:backgroundTint="@color/white"
-            android:textColor="#000"
-            android:padding="10dp"
-            android:text="@string/btnIngresarGoogle"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
