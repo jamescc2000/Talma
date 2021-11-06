@@ -49,5 +49,9 @@
     <string name="txt_pea">PEA</string>
     <string name="btn_siguiente">Siguiente</string>
 
+    <!--Registro de servicio-->
+    <string name="btn_agregar">Agregar servicio</string>
+    <string name="btn_finalizar">Finalizar</string>
+
 
 </resources>

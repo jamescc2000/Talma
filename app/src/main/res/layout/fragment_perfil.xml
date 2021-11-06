@@ -8,12 +8,5 @@
 
 
 
-    <EditText
-        android:id="@+id/et_compañia"
-        android:hint="@string/txt_compañia"
-        android:inputType="textCapWords"
-        android:textColorHint="#000"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+
 </FrameLayout>
