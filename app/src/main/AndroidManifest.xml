@@ -13,10 +13,10 @@
             android:name=".Dashboard_empleados"
             android:exported="true" />
         <activity
-            android:name=".login_cliente"
+            android:name=".LoginClientes"
             android:exported="false" />
         <activity
-            android:name=".login_empleados"
+            android:name=".LoginEmpleados"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

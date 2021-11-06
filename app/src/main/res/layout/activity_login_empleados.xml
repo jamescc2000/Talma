@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:backgroundTint="#FFFFFF"
-    tools:context=".login_cliente">
+    tools:context=".LoginClientes">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
