@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Talma</string>
 
-    <string name="btn_login">LOGIN</string>
-    <string name="btn_registrar">registrar</string>
+    <!--Interfaz principal-->
+    <string name="btn_login_cliente">LOGIN CLIENTE</string>
+    <string name="btn_login_empleado">LOGIN EMPLEADO</string>
 
 
     <!--Login de empleados-->

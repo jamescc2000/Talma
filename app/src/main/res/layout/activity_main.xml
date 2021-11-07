@@ -25,23 +25,23 @@
         <!--Boto login-->
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_login_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="@string/btn_login"
+            android:text="@string/btn_login_cliente"
             android:textColor="#fff"
             app:backgroundTint="@color/teal_700" />
 
         <!--Boton registro-->
         <Button
-            android:id="@+id/btn_registrar"
+            android:id="@+id/btn_login_empleado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/btn_registrar"
-            app:backgroundTint="@color/teal_700"
-            android:textColor="#fff" />
+            android:text="@string/btn_login_empleado"
+            android:textColor="#fff"
+            app:backgroundTint="@color/teal_700" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -82,7 +82,7 @@ public class Dashboard_empleados extends AppCompatActivity {
 
                         case R.id.nav_RSIRe:
                             //Transaccion del fragmento usuarios
-                            actionBar.setTitle("Chats");
+                            actionBar.setTitle("RSIRe");
                             RsireFragment fragment4 = new RsireFragment();
                             FragmentTransaction ft4 = getSupportFragmentManager().beginTransaction();
                             ft4.replace(R.id.content, fragment4, "");
