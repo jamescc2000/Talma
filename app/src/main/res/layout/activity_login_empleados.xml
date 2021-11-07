@@ -15,6 +15,13 @@
         android:orientation="vertical"
         android:padding="15sp">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/emplados_icon" />
+
+        <!--Email-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,13 +31,6 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/emplados_icon" />
-
-        <!--Email-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
