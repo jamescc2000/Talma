@@ -62,7 +62,7 @@ public class TablaDinamica {
         String info;
         for(indexR = 1; indexR <= header.length; indexR++){
             newRow();
-            for(indexC = 0; indexC <= header.length; indexC++){
+            for(indexC = 0; indexC < header.length; indexC++){
                 newCell();
                 String [] row = data.get(indexR - 1);
                 info = (indexC < row.length)? row[indexC] : "";
@@ -100,8 +100,8 @@ public class TablaDinamica {
 
     public void backgroundData(int firstColor, int secondColor){
         for(indexR = 1; indexR <= header.length; indexR++){
-           multicolor = !multicolor;
-            for(indexC = 0; indexC <= header.length; indexC++){
+            multicolor =! multicolor;
+            for(indexC = 0; indexC < header.length; indexC++){
                 txtCell = getCell(indexR, indexC);
                 txtCell.setBackgroundColor((multicolor)? firstColor: secondColor);
             }
@@ -119,8 +119,8 @@ public class TablaDinamica {
 
     public void textColorData (int color){
         for(indexR = 1; indexR <= header.length; indexR++){
-            for(indexC = 0; indexC <= header.length; indexC++)
-                 getCell(indexR, indexC).setTextColor(color);
+            for(indexC = 0; indexC < header.length; indexC++)
+                getCell(indexR, indexC).setTextColor(color);
 
             this.textcolor = color;
         }

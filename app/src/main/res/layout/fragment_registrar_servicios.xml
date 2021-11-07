@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,41 +9,92 @@
     tools:context=".RegistrarServiciosFragment">
 
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/registrarServicioFL">
 
-        <HorizontalScrollView
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fillViewport="true">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <TableLayout
-                android:id="@+id/table_servicios"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-        </HorizontalScrollView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_agregar"
-            android:text="@string/btn_agregar"
-            android:background="@drawable/btn_personalizado"
-            android:textColor="#fff"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:backgroundTint="@color/teal_700"/>
+                <EditText
+                    android:id="@+id/et_nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre" />
 
-        <Button
-            android:id="@+id/btn_finalizar"
-            android:text="@string/btn_finalizar"
-            android:background="@drawable/btn_personalizado"
-            android:textColor="#fff"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:backgroundTint="@color/teal_700"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </ScrollView>
+            <!--Boton Agregar servicio-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal">
 
-</LinearLayout>
+                <Button
+                    android:id="@+id/btn_agregar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_personalizado"
+                    android:text="@string/btn_agregar"
+                    android:textColor="#fff"
+                    app:backgroundTint="@color/teal_700" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Boton Finalizar-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_finalizar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_personalizado"
+                    android:text="@string/btn_finalizar"
+                    android:textColor="#fff"
+                    app:backgroundTint="@color/teal_700" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Tabla dinamica-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true">
+
+                    <TableLayout
+                        android:id="@+id/tabla_servicios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </HorizontalScrollView>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
