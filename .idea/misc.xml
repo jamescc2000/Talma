@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_atencion_reclamos.xml" value="0.18" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_atencion_reclamos.xml" value="0.33" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_dashboard_empleados.xml" value="0.25" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_login_cliente.xml" value="0.1213768115942029" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_login_empleados.xml" value="0.16" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_login_empleados.xml" value="0.25" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/activity_registro_usuarios.xml" value="0.25" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/fragment_inicio.xml" value="0.2" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/talma/app/src/main/res/layout/sp_aeronaves.xml" value="0.22" />
       </map>
