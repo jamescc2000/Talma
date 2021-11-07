@@ -44,8 +44,8 @@
     <string name="txt_matricula">Matricula</string>
     <string name="txt_a_cargo_de">A cargo de</string>
     <string name="txt_pago">Forma de pago: </string>
-    <string name="txt_fecha">Fecha: dd/mm/yyyy</string>
-    <string name="txt_hora">Hora: hh/mm</string>
+    <string name="txt_fecha">Fecha dd/mm/yyyy</string>
+    <string name="txt_hora">Hora hh:mm</string>
     <string name="txt_nvuelo">N° vuelo</string>
     <string name="txt_pea">PEA</string>
     <string name="btn_siguiente">Siguiente</string>
@@ -53,6 +53,17 @@
     <!--Registro de servicio-->
     <string name="btn_agregar">Agregar servicio</string>
     <string name="btn_finalizar">Finalizar</string>
+
+    <!--Agregar de servicio-->
+    <string name="txt_agregar_servicio">Agregar servicio</string>
+    <string name="txt_nombre_servicio">Nombre: </string>
+    <string name="txt_Codigo">Codigo </string>
+    <string name="btn_guardar_servicio">Guardar</string>
+    <string name="txt_hora_desde">Hora desde hh:mm</string>
+    <string name="txt_hora_hasta">Hora hasta hh:mm</string>
+    <string name="txt_cantidad">Cantidad</string>
+    <string name="txt_cantidad_total">Cantidad Total: </string>
+    <string name="cantidad_total">--</string>
 
     <!--Atención de reclamos-->
     <string name="ar_col1">RSIR</string>

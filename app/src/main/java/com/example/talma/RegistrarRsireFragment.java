@@ -44,15 +44,15 @@ public class RegistrarRsireFragment extends Fragment {
         btn_siguiente = (Button) view.findViewById(R.id.btn_siguiente);
 
         String [] opciones_aeropuertos = {"Jorge Cahvez","Alfredo Rodríguez Ballón","Alfredo Mendívil Duarte","Armando Revoredo Iglesias", "Chiclayo", "Alejandro Velasco Astete de Cusco"};
-        ArrayAdapter<String> adapter_aeropuetos = new ArrayAdapter<String>(view.getContext(), R.layout.sp_aeropuertos,opciones_aeropuertos);
+        ArrayAdapter<String> adapter_aeropuetos = new ArrayAdapter<String>(view.getContext(), R.layout.spinner,opciones_aeropuertos);
         sp_aeropuertos.setAdapter(adapter_aeropuetos);
 
         String [] opciones_aeronaves = {"Avión de carga", "Avion comercial"};
-        ArrayAdapter<String> adapter_aeronaves = new ArrayAdapter<String>(view.getContext(), R.layout.sp_aeronaves,opciones_aeronaves);
+        ArrayAdapter<String> adapter_aeronaves = new ArrayAdapter<String>(view.getContext(), R.layout.spinner,opciones_aeronaves);
         sp_aeronaves.setAdapter(adapter_aeronaves);
 
         String [] opciones_pagos = {"Contado", "Credito"};
-        ArrayAdapter<String> adapter_pagos = new ArrayAdapter<String>(view.getContext(), R.layout.sp_pagos,opciones_pagos);
+        ArrayAdapter<String> adapter_pagos = new ArrayAdapter<String>(view.getContext(), R.layout.spinner,opciones_pagos);
         sp_pagos.setAdapter(adapter_pagos);
 
         btn_siguiente.setOnClickListener(new View.OnClickListener() {

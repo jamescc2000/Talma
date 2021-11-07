@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".AgregarServiciosFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <!--Titulo-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/txt_agregar_servicio"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!--Imagen-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/registro"
+            android:layout_marginBottom="15dp"/>
+
+        <!--Datos generales del servicios-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginBottom="15dp">
+
+            <!--Nombre del servicio-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_nombre_servicio"
+                    android:layout_weight="2"
+                    android:textSize="17sp"
+                    android:textColor="#2B2B2B"/>
+
+                <Spinner
+                    android:id="@+id/sp_aeropuertos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Codigo-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_codigo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_Codigo"
+                    android:importantForAutofill="no"
+                    android:inputType="time"
+                    android:textColorHint="#000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Datos de llegada-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginBottom="15dp">
+
+            !--Titulo-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_datos_llegada"
+                android:textColor="#000"
+                android:textSize="18sp"/>
+
+            <!--Hora Desde-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_hora_desde_llegada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_hora_desde"
+                    android:importantForAutofill="no"
+                    android:inputType="time"
+                    android:textColorHint="#000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Hora Hasta-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_hora_hasta_llegada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_hora_hasta"
+                    android:importantForAutofill="no"
+                    android:inputType="time"
+                    android:textColorHint="#000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Cantidad-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_cantidad_llegada"
+                    android:hint="@string/txt_cantidad"
+                    android:inputType="textCapWords"
+                    android:textColorHint="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Datos de salida-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginBottom="15dp">
+
+            !--Titulo-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_datos_salida"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <!--Hora Desde-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_hora_desde_salida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_hora_desde"
+                    android:importantForAutofill="no"
+                    android:inputType="time"
+                    android:textColorHint="#000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Hora Hasta-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_hora_hasta_salida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_hora_hasta"
+                    android:importantForAutofill="no"
+                    android:inputType="time"
+                    android:textColorHint="#000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Cantidad-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_cantidad_salida"
+                    android:hint="@string/txt_cantidad"
+                    android:inputType="textCapWords"
+                    android:textColorHint="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Total cantisdad-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginBottom="15dp">
+
+            <!--TVCantidad Total-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/txt_cantidad_total"
+                    android:layout_weight="2"
+                    android:textSize="17sp"
+                    android:textColorHint="#000"/>
+
+                <TextView
+                    android:id="@+id/tv_cantidad_total"
+                    android:hint="@string/cantidad_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="time"
+                    android:layout_weight="2"
+                    android:textColorHint="#000" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Button
+            android:id="@+id/btn_guardar_servicio"
+            android:text="@string/btn_guardar_servicio"
+            android:background="@drawable/btn_personalizado"
+            android:textColor="#fff"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/teal_700"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
