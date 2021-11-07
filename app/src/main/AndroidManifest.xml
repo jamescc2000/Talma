@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma">
         <activity
+            android:name=".Atencion_reclamos"
+            android:exported="false" />
+        <activity
             android:name=".Dashboard_empleados"
             android:exported="true" />
         <activity

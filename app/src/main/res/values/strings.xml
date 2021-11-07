@@ -53,5 +53,25 @@
     <string name="btn_agregar">Agregar servicio</string>
     <string name="btn_finalizar">Finalizar</string>
 
+    <!--Atención de reclamos-->
+    <string name="ar_col1">RSIR</string>
+    <string name="ar_col2">Cliente</string>
+    <string name="ar_col3">Estado</string>
+    <string name="fila1_RSIR">1001</string>
+    <string name="fila1_Cliente">C141</string>
+    <string name="fila1_Estado">En Reclamo</string>
+    <string name="fila2_RSIR">1002</string>
+    <string name="fila2_Cliente">C102</string>
+    <string name="fila2_Estado">Normal</string>
+    <string name="fila3_RSIR">1003</string>
+    <string name="fila3_Cliente">C201</string>
+    <string name="fila3_Estado">Reclamo atendido</string>
+    <string name="fila4_RSIR">1004</string>
+    <string name="fila4_Cliente">C136</string>
+    <string name="fila4_Estado">Normal</string>
+    <string name="fila5_RSIR">1005</string>
+    <string name="fila5_Cliente">C162</string>
+    <string name="fila5_Estado">En reclamo</string>
+
 
 </resources>
