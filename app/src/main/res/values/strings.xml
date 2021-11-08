@@ -5,6 +5,9 @@
     <string name="btn_login_cliente">LOGIN CLIENTE</string>
     <string name="btn_login_empleado">LOGIN EMPLEADO</string>
 
+    <!--Login de clientes-->
+    <string name="login_titulo2">Clientes</string>
+
 
     <!--Login de empleados-->
     <string name="login_titulo">Empleados de Talma</string>
@@ -19,6 +22,12 @@
     <string name="nav_usuarios">Usuarios</string>
     <string name="nav_RSIRe">RSIRe</string>
     <string name="nav_notificaciones">Notificaciones</string>
+
+    <!--Menu de navegacion cliente-->
+    <string name="nav_reclamos">Reclamaciones</string>
+    <string name="nav_facturas">Facturas</string>
+    <string name="nav_serv">Servicios</string>
+    <string name="nav_pedidos">Pedir</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
