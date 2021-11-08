@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.talma.R;
-import com.example.talma.RegistrarRsireFragment;
+import com.example.talma.RegistrarRsire;
 
 
 public class RsireFragment extends Fragment {
@@ -47,13 +47,10 @@ public class RsireFragment extends Fragment {
         btn_registrar_rsire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction =  fragmentManager.beginTransaction();
-                transaction.setReorderingAllowed(true);
 
-                transaction.replace(R.id.content, RegistrarRsireFragment.class, null);
-                transaction.commit();
-                transaction.addToBackStack(null);
+                Intent intent = new Intent(view.getContext(), RegistrarRsire.class);
+                startActivity(intent);
+
             }
         });
 

@@ -53,6 +53,11 @@
     <!--Registro de servicio-->
     <string name="btn_agregar">Agregar servicio</string>
     <string name="btn_finalizar">Finalizar</string>
+    <string name="tv_nombre_servicio">Nombre</string>
+    <string name="tv_hora">hh:hh - hh:mm</string>
+    <string name="tv_guion"> - </string>
+    <string name="tv_codigo">Codigo </string>
+    <string name="tv_cantidad_total_servicios">S/. 00.00 </string>
 
     <!--Agregar de servicio-->
     <string name="txt_agregar_servicio">Agregar servicio</string>

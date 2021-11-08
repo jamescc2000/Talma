@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:background="@drawable/btn_personalizado"
             android:text="@string/btn_login_cliente"
             android:textColor="#fff"
             app:backgroundTint="@color/teal_700" />
@@ -41,6 +42,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/btn_login_empleado"
             android:textColor="#fff"
+            android:background="@drawable/btn_personalizado"
             app:backgroundTint="@color/teal_700" />
 
 
