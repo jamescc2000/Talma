@@ -31,7 +31,7 @@
     <string name="btn_facturacion">Facturacion</string>
     <string name="Rsire_titulo">RSIRe</string>
 
-    <!--Registro de RSIRe Fragment-->
+    <!--Registro de RSIRe-->
     <string name="txt_registro">Registro de RSIRe</string>
     <string name="txt_datos_generales">Datos Generales de Vuelo</string>
     <string name="txt_datos_llegada">Datos de Llegada</string>
@@ -48,7 +48,7 @@
     <string name="txt_hora">Hora hh:mm</string>
     <string name="txt_nvuelo">N° vuelo</string>
     <string name="txt_pea">PEA</string>
-    <string name="btn_siguiente">Siguiente</string>
+    <string name="btn_siguiente">EDITAR RSIR</string>
 
     <!--Registro de servicio-->
     <string name="btn_agregar">Agregar servicio</string>
@@ -58,6 +58,7 @@
     <string name="tv_guion"> - </string>
     <string name="tv_codigo">Codigo </string>
     <string name="tv_cantidad_total_servicios">S/. 00.00 </string>
+    <string name="btn_editar_rsire">Editar Rsir </string>
 
     <!--Agregar de servicio-->
     <string name="txt_agregar_servicio">Agregar servicio</string>

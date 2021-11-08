@@ -32,339 +32,349 @@
             android:src="@drawable/registro"
             android:layout_marginBottom="15dp"/>
 
-        <!--Datos generales del vuelo-->
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
+            android:id="@+id/ll_registrar_rsire"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginBottom="15dp">
+            android:visibility="gone"
+            android:orientation="vertical">
 
-            <!--Titulo-->
-            <TextView
+            <!--Datos generales del vuelo-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_datos_generales"
-                android:textColor="#000"
-                android:textSize="18sp" />
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginBottom="15dp">
 
-            <!--Aeropuerto-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
+                <!--Titulo-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_aeropueto"
-                    android:layout_weight="2"
-                    android:textSize="17sp"
-                    android:textColor="#2B2B2B"/>
+                    android:text="@string/txt_datos_generales"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
 
-                <Spinner
-                    android:id="@+id/sp_aeropuertos"
+                <!--Aeropuerto-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_aeropueto"
+                        android:layout_weight="2"
+                        android:textSize="17sp"
+                        android:textColor="#2B2B2B"/>
 
-            <!--Compañia-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <Spinner
+                        android:id="@+id/sp_aeropuertos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/et_compañia"
-                    android:hint="@string/txt_compañia"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Compañia-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_compañia"
+                        android:hint="@string/txt_compañia"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Origen-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_origen"
+                        android:hint="@string/txt_origen"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Destino-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_destino"
+                        android:hint="@string/txt_destino"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Aeronaves-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_aeronave"
+                        android:layout_weight="2"
+                        android:textSize="17sp"
+                        android:textColor="#000"/>
 
-            <!--Origen-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <Spinner
+                        android:id="@+id/sp_aeronaves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/et_origen"
-                    android:hint="@string/txt_origen"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Matricula-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_matricula"
+                        android:hint="@string/txt_matricula"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Forma de Pago-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_pago"
+                        android:layout_weight="2"
+                        android:textSize="17sp"
+                        android:textColor="#000"/>
 
-            <!--Destino-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <Spinner
+                        android:id="@+id/sp_pagos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/et_destino"
-                    android:hint="@string/txt_destino"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--A cargo de-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/et_a_cargo_de"
+                        android:hint="@string/txt_a_cargo_de"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
 
-            <!--Aeronaves-->
-            <androidx.appcompat.widget.LinearLayoutCompat
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!--Datos de llegada-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginBottom="15dp">
 
+                !--Titulo-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_aeronave"
-                    android:layout_weight="2"
-                    android:textSize="17sp"
-                    android:textColor="#000"/>
+                    android:text="@string/txt_datos_llegada"
+                    android:textColor="#000"
+                    android:textSize="18sp"/>
 
-                <Spinner
-                    android:id="@+id/sp_aeronaves"
+                <!--Fecha-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"/>
+                    android:layout_marginTop="10dp">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <EditText
+                        android:id="@+id/et_fecha_llegada"
+                        android:hint="@string/txt_fecha"
+                        android:inputType="date"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
 
-            <!--Matricula-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_matricula"
-                    android:hint="@string/txt_matricula"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
+                <!--Hora-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/et_hora_llegada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/txt_hora"
+                        android:importantForAutofill="no"
+                        android:inputType="time"
+                        android:textColorHint="#000" />
 
-            <!--Forma de Pago-->
-            <androidx.appcompat.widget.LinearLayoutCompat
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--N° vuelo-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_nvuelo_llegada"
+                        android:hint="@string/txt_nvuelo"
+                        android:inputType="number"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--N° vuelo-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_pea_llegada"
+                        android:hint="@string/txt_pea"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!--Datos de salida-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginBottom="15dp">
 
+                !--Titulo-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_pago"
-                    android:layout_weight="2"
-                    android:textSize="17sp"
-                    android:textColor="#000"/>
+                    android:text="@string/txt_datos_salida"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
 
-                <Spinner
-                    android:id="@+id/sp_pagos"
+                <!--Fecha-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"/>
+                    android:layout_marginTop="10dp">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <EditText
+                        android:id="@+id/et_fecha_salida"
+                        android:hint="@string/txt_fecha"
+                        android:inputType="date"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
 
-            <!--A cargo de-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_a_cargo_de"
-                    android:hint="@string/txt_a_cargo_de"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
+                <!--Hora-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/et_hora_salida"
+                        android:hint="@string/txt_hora"
+                        android:inputType="time"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Datos de llegada-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginBottom="15dp">
-
-            !--Titulo-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_datos_llegada"
-                android:textColor="#000"
-                android:textSize="18sp"/>
-
-            <!--Fecha-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <EditText
-                    android:id="@+id/et_fecha_llegada"
-                    android:hint="@string/txt_fecha"
-                    android:inputType="date"
-                    android:textColorHint="#000"
+                <!--N° vuelo-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/et_nvuelo_salida"
+                        android:hint="@string/txt_nvuelo"
+                        android:inputType="number"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
 
-            <!--Hora-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_hora_llegada"
+                <!--N° vuelo-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/txt_hora"
-                    android:importantForAutofill="no"
-                    android:inputType="time"
-                    android:textColorHint="#000" />
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/et_pea_salida"
+                        android:hint="@string/txt_pea"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
 
-            <!--N° vuelo-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_nvuelo_llegada"
-                    android:hint="@string/txt_nvuelo"
-                    android:inputType="number"
-                    android:textColorHint="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
+            </LinearLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
-            <!--N° vuelo-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/et_pea_llegada"
-                    android:hint="@string/txt_pea"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <!--Datos de salida-->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginBottom="15dp">
-
-            !--Titulo-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_datos_salida"
-                android:textColor="#000"
-                android:textSize="18sp" />
-
-            <!--Fecha-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <EditText
-                    android:id="@+id/et_fecha_salida"
-                    android:hint="@string/txt_fecha"
-                    android:inputType="date"
-                    android:textColorHint="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--Hora-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/et_hora_salida"
-                    android:hint="@string/txt_hora"
-                    android:inputType="time"
-                    android:textColorHint="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--N° vuelo-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/et_nvuelo_salida"
-                    android:hint="@string/txt_nvuelo"
-                    android:inputType="number"
-                    android:textColorHint="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--N° vuelo-->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/et_pea_salida"
-                    android:hint="@string/txt_pea"
-                    android:inputType="textCapWords"
-                    android:textColorHint="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:importantForAutofill="no"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
+        <!--Boton-->
         <Button
             android:id="@+id/btn_siguiente"
             android:text="@string/btn_siguiente"
@@ -375,6 +385,341 @@
             android:layout_height="wrap_content"
             app:backgroundTint="@color/teal_700"/>
 
+        <LinearLayout
+            android:id="@+id/ll_agregar_servicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:padding="5dp">
+
+            <!--Titulo-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/txt_agregar_servicio"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!--Datos generales del servicios-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+
+                android:orientation="vertical">
+
+                <!--Nombre del servicio-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/txt_nombre_servicio"
+                        android:textColor="#2B2B2B"
+                        android:textSize="17sp" />
+
+                    <Spinner
+                        android:id="@+id/sp_servicios"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Codigo-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_codigo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/txt_Codigo"
+                        android:importantForAutofill="no"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Datos del Llegada-->
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    !--Titulo-->
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/txt_datos_llegada"
+                            android:textColor="#000"
+                            android:textSize="18sp" />
+
+                    </TableRow>
+
+                    <!--Hora Desde-->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/et_hora_desde_llegada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/txt_hora_desde"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:textColorHint="#000" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <!--Hora Hasta-->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/et_hora_hasta_llegada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/txt_hora_hasta"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:textColorHint="#000" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <!--Cantidad Llegada-->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/et_cantidad_llegada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/txt_cantidad"
+                                android:importantForAutofill="no"
+                                android:inputType="number"
+                                android:textColorHint="#000" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <!--Datos del Salida-->
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    !--Titulo-->
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_datos_salida"
+                            android:textColor="#000"
+                            android:textSize="18sp" />
+
+                    </TableRow>
+
+                    <!--Hora Desde-->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/et_hora_desde_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/txt_hora_desde"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:textColorHint="#000" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <!--Hora Hasta-->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/et_hora_hasta_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/txt_hora_hasta"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:textColorHint="#000" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <!--Cantidad Salisda-->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/et_cantidad_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/txt_cantidad"
+                                android:importantForAutofill="no"
+                                android:inputType="number"
+                                android:textColorHint="#000" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Total cantidad-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <!--TVCantidad Total-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:hint="@string/txt_cantidad_total"
+                        android:textColorHint="#000"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_cantidad_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:hint="@string/cantidad_total"
+                        android:inputType="time"
+                        android:textColorHint="#000" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+
+        <!--Boton Agregar servicio-->
+        <Button
+            android:id="@+id/btn_agregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_personalizado"
+            android:text="@string/btn_agregar"
+            android:textColor="#fff"
+            app:backgroundTint="@color/teal_700" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListaServicios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Boton Finalizar-->
+        <Button
+                android:id="@+id/btn_finalizar"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_personalizado"
+                android:text="@string/btn_finalizar"
+                android:textColor="#fff"
+                app:backgroundTint="@color/teal_700" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 </ScrollView>

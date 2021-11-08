@@ -13,8 +13,8 @@
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_login_cliente.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_login_empleados.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_rsire.xml" value="0.20416666666666666" />
-        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_servicios.xml" value="0.20416666666666666" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_rsire.xml" value="0.33" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_servicios.xml" value="0.25" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_agregar_servicios.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_inicio.xml" value="0.19010416666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_notificaciones.xml" value="0.20416666666666666" />
@@ -24,7 +24,7 @@
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_revisar_servicios.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_rsire.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_usuarios.xml" value="0.20416666666666666" />
-        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/item_rv_servicios.xml" value="0.33" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/item_rv_servicios.xml" value="0.5" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/sp_aeronaves.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/sp_aeropuertos.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/sp_pagos.xml" value="0.20416666666666666" />

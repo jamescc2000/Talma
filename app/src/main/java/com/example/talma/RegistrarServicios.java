@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,7 +29,9 @@ public class RegistrarServicios extends AppCompatActivity {
     AdaptadorListaServicios adapterListaServicios;
     List<ModeloServicio> servicios = new ArrayList<>();
     List<ModeloServicio> listaServicios = new ArrayList<>();
-    Button btn_agregar, btn_finalizar;
+    Button btn_agregar, btn_finalizar, btn_editar_rsire;
+    LinearLayout ll_agregar_servicio;
+
 
     private Spinner sp_servicios;
     private EditText et_codigo, et_hora_desde_llegada, et_hora_hasta_llegada, et_cantidad_llegada, et_hora_desde_salida, et_hora_hasta_salida, et_cantidad_salida;
@@ -48,6 +51,7 @@ public class RegistrarServicios extends AppCompatActivity {
         et_hora_hasta_salida = (EditText) findViewById(R.id.et_hora_hasta_salida);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
         tv_cantidad_total = (TextView) findViewById(R.id.tv_cantidad_total);
+        ll_agregar_servicio = (LinearLayout) findViewById(R.id.ll_agregar_servicio);
 
         String [] opciones_servicios = {"Montacarga","Tractor","Estibador"};
         ArrayAdapter<String> adapter_servicios = new ArrayAdapter<String>(RegistrarServicios.this, R.layout.spinner,opciones_servicios);
@@ -56,32 +60,53 @@ public class RegistrarServicios extends AppCompatActivity {
 
         btn_agregar = (Button) findViewById(R.id.btn_agregar);
         btn_finalizar = (Button) findViewById(R.id.btn_finalizar);
+        btn_editar_rsire = (Button) findViewById(R.id.btn_editar_rsire);
 
         recyclerView = findViewById(R.id.rvListaServicios);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(RegistrarServicios.this));
 
-
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listaServicios.add(new ModeloServicio(
-                        sp_servicios.getSelectedItem().toString(),
-                        et_codigo.getText().toString(),
-                        et_hora_desde_llegada.getText().toString(),
-                        et_hora_hasta_llegada.getText().toString(),
-                        et_hora_desde_salida.getText().toString(),
-                        et_hora_hasta_salida.getText().toString(),
-                        et_cantidad_llegada.getText().toString(),
-                        et_cantidad_salida.getText().toString()));
+
+                if (ll_agregar_servicio.getVisibility() == View.GONE){
+                    ll_agregar_servicio.setVisibility(View.VISIBLE);
+                    btn_agregar.setText("Guardar");
+                }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
+                    listaServicios.add(new ModeloServicio(
+                            sp_servicios.getSelectedItem().toString(),
+                            et_codigo.getText().toString(),
+                            et_hora_desde_llegada.getText().toString(),
+                            et_hora_hasta_llegada.getText().toString(),
+                            et_hora_desde_salida.getText().toString(),
+                            et_hora_hasta_salida.getText().toString(),
+                            et_cantidad_llegada.getText().toString(),
+                            et_cantidad_salida.getText().toString()));
+                    btn_agregar.setText("Agregar servicio");
+                    ll_agregar_servicio.setVisibility(View.GONE);
+                }
+
 
             }
         });
+
+
 
         btn_finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(RegistrarServicios.this, RsireFragment.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_editar_rsire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegistrarServicios.this, RegistrarRsire.class);
+                startActivity(intent);
             }
         });
         adapterListaServicios = new AdaptadorListaServicios(RegistrarServicios.this, listaServicios);

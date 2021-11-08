@@ -39,7 +39,11 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
         servicioViewHolder.tv_nombre_servicio.setText(listaServicios.get(i).getNombre_servicio());
         servicioViewHolder.tv_codigo.setText(listaServicios.get(i).getCodigo_servicio());
         servicioViewHolder.tv_horas_servicios.setText(listaServicios.get(i).getHora_desde_llegada() + " - " + listaServicios.get(i).getHora_hasta_salida());
-        servicioViewHolder.tv_cantidad_total_servicios.setText(""+listaServicios.get(i).getCantidad_llegada());
+
+       int cantidad_total = Integer.valueOf(listaServicios.get(i).getCantidad_llegada()) + Integer.valueOf(listaServicios.get(i).getCantidad_salida());
+       String string_cantidad_total = String.valueOf(cantidad_total);
+
+        servicioViewHolder.tv_cantidad_total_servicios.setText(string_cantidad_total);
 
     }
 

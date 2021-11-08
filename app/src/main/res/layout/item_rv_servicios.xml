@@ -6,6 +6,7 @@
     android:animateLayoutChanges="true"
     app:cardCornerRadius="10dp"
     app:cardElevation="3dp"
+    app:cardBackgroundColor="#27A195"
     app:cardUseCompatPadding="true">
 
 
@@ -17,6 +18,7 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <!--Datos del servicio-->
@@ -38,15 +40,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="@string/tv_nombre_servicio"/>
+                            android:layout_marginLeft="5dp"
+                            android:textColor="#fff"
+                            android:text="@string/tv_nombre_servicio"/>
 
                         <!--Hora inicio-->
                         <TextView
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/tv_horas_servicios"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="#fff"
                             android:layout_weight="1"
-                            android:hint="@string/tv_hora"/>
+                            android:text="@string/tv_hora"/>
 
                     </TableRow>
 
@@ -62,14 +68,18 @@
                             android:id="@+id/tv_codigo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/txt_Codigo"
+                            android:text="@string/txt_Codigo"
+                            android:textColor="#fff"
+                            android:layout_marginLeft="5dp"
                             android:layout_weight="1"/>
 
                         <TextView
                             android:id="@+id/tv_cantidad_total_servicios"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/tv_cantidad_total_servicios"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#fff"
+                            android:text="@string/tv_cantidad_total_servicios"
                             android:layout_weight="1"/>
 
 
@@ -81,13 +91,18 @@
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3">
+                    android:layout_weight="2">
 
                     <!--Boton editar-->
                     <ImageButton
                         android:id="@+id/ib_editar_servicio"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
                         android:background="@drawable/btn_personalizado2"
                         android:src="@drawable/edit_black_icon" />
 
@@ -96,6 +111,12 @@
                         android:id="@+id/ib_eliminar_servicio"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
                         android:background="@drawable/btn_personalizado2"
                         android:src="@drawable/elimar_icon"/>
 
