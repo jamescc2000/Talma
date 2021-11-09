@@ -58,6 +58,12 @@
     <string name="txt_nvuelo">N° vuelo</string>
     <string name="txt_pea">PEA</string>
     <string name="btn_siguiente">EDITAR RSIR</string>
+    <string name="tv_aeropuerto">Aeropuerto</string>
+    <string name="tv_tipo_aeronave">Tipo aeronave</string>
+    <string name="tv_fechas">dd/mm/yyyy - dd/mm/yyyy</string>
+    <string name="tv_compañia">Compañia </string>
+    <string name="tv_matricula">Matricula </string>
+    <string name="tv_origen_destino">Origen - Destino</string>
 
     <!--Registro de servicio-->
     <string name="btn_agregar">Agregar servicio</string>

@@ -1,6 +1,7 @@
 package com.example.talma;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,6 +35,7 @@ public class RegistrarRsire extends AppCompatActivity {
     private EditText et_nombre;
 
     LinearLayout ll_registrar_rsire;
+    CardView cv_datos_rsire;
 
     RecyclerView recyclerView;
     AdaptadorListaServicios adapterListaServicios;
@@ -44,7 +46,9 @@ public class RegistrarRsire extends AppCompatActivity {
 
     private Spinner sp_servicios;
     private EditText et_codigo, et_hora_desde_llegada, et_hora_hasta_llegada, et_cantidad_llegada, et_hora_desde_salida, et_hora_hasta_salida, et_cantidad_salida;
-    private TextView tv_cantidad_total;
+    private EditText et_compañia, et_origen, et_destino, et_matricula, et_a_cargo_de,et_fecha_llegada, et_hora_llegada, et_nvuelo_llegada, et_pea_llegada;
+    private EditText et_fecha_salida, et_hora_salida, et_nvuelo_salida, et_pea_salida;
+    private TextView tv_cantidad_total, tv_aeropuerto, tv_tipo_aeronave, tv_fechas, tv_compañia, tv_matricula, tv_origen_destino;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,19 @@ public class RegistrarRsire extends AppCompatActivity {
         btn_finalizar = (Button) findViewById(R.id.btn_finalizar);
         btn_agregar = (Button) findViewById(R.id.btn_agregar);
         sp_servicios = (Spinner) findViewById(R.id.sp_servicios);
+        et_compañia = (EditText) findViewById(R.id.et_compañia);
+        et_origen = (EditText) findViewById(R.id.et_origen);
+        et_destino = (EditText) findViewById(R.id.et_destino);
+        et_matricula = (EditText) findViewById(R.id.et_matricula);
+        et_a_cargo_de = (EditText) findViewById(R.id.et_a_cargo_de);
+        et_fecha_llegada = (EditText) findViewById(R.id.et_fecha_llegada);
+        et_hora_llegada = (EditText) findViewById(R.id.et_hora_llegada);
+        et_nvuelo_llegada = (EditText) findViewById(R.id.et_nvuelo_llegada);
+        et_pea_llegada = (EditText) findViewById(R.id.et_pea_llegada);
+        et_fecha_salida = (EditText) findViewById(R.id.et_fecha_salida);
+        et_hora_salida = (EditText) findViewById(R.id.et_hora_salida);
+        et_nvuelo_salida = (EditText) findViewById(R.id.et_nvuelo_salida);
+        et_pea_salida = (EditText) findViewById(R.id.et_pea_salida);
         et_codigo = (EditText) findViewById(R.id.et_codigo);
         et_hora_desde_llegada = (EditText) findViewById(R.id.et_hora_desde_llegada);
         et_hora_hasta_llegada = (EditText) findViewById(R.id.et_hora_hasta_llegada);
@@ -66,7 +83,14 @@ public class RegistrarRsire extends AppCompatActivity {
         et_hora_hasta_salida = (EditText) findViewById(R.id.et_hora_hasta_salida);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
         tv_cantidad_total = (TextView) findViewById(R.id.tv_cantidad_total);
+        tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
+        tv_tipo_aeronave = (TextView) findViewById(R.id.tv_tipo_aeronave);
+        tv_matricula = (TextView) findViewById(R.id.tv_matricula);
+        tv_fechas = (TextView) findViewById(R.id.tv_fechas);
+        tv_origen_destino = (TextView) findViewById(R.id.tv_origen_destino);
+        tv_compañia = (TextView) findViewById(R.id.tv_compañia);
         ll_agregar_servicio = (LinearLayout) findViewById(R.id.ll_agregar_servicio);
+        cv_datos_rsire = (CardView) findViewById(R.id.cv_datos_rsire);
 
         String [] opciones_servicios = {"Montacarga","Tractor","Estibador"};
         ArrayAdapter<String> adapter_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner,opciones_servicios);
@@ -97,11 +121,21 @@ public class RegistrarRsire extends AppCompatActivity {
 
                     ll_registrar_rsire.setVisibility(View.VISIBLE);
                     btn_siguiente.setText("GUARDAR");
+                    cv_datos_rsire.setVisibility(View.GONE);
 
                 }else if (ll_registrar_rsire.getVisibility() == View.VISIBLE){
 
                     ll_registrar_rsire.setVisibility(View.GONE);
                     btn_siguiente.setText("EDITAR RSIR");
+
+                    tv_aeropuerto.setText(sp_aeropuertos.getSelectedItem().toString());
+                    tv_tipo_aeronave.setText(sp_aeronaves.getSelectedItem().toString());
+                    tv_fechas.setText(et_fecha_salida.getText().toString() + " - " + et_fecha_llegada.getText().toString());
+                    tv_compañia.setText(et_compañia.getText().toString());
+                    tv_matricula.setText(et_matricula.getText().toString());
+                    tv_origen_destino.setText(et_origen.getText().toString() + " - " + et_destino.getText().toString());
+
+                    cv_datos_rsire.setVisibility(View.VISIBLE);
                 }
 
 

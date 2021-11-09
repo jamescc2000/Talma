@@ -21,7 +21,7 @@ public class LoginClientes extends AppCompatActivity {
         btn_Ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginClientes.this, Dashboard_empleados.class));
+                startActivity(new Intent(LoginClientes.this, Dashboard_cliente.class));
             }
         });
     }

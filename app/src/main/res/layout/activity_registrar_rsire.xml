@@ -32,6 +32,125 @@
             android:src="@drawable/registro"
             android:layout_marginBottom="15dp"/>
 
+        <!--Datos del RSIRe-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_datos_rsire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="#fff"
+            android:outlineAmbientShadowColor="@color/black"
+            app:cardUseCompatPadding="true"
+            android:visibility="gone"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <!--Fila 1-->
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp">
+
+                            <!--Aeropuerto-->
+                            <TextView
+                                android:id="@+id/tv_aeropuerto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#000"
+                                android:text="@string/tv_aeropuerto"/>
+
+                            <!--Tipo aeronave-->
+                            <TextView
+                                android:layout_marginLeft="15dp"
+                                android:id="@+id/tv_tipo_aeronave"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:layout_weight="1"
+                                android:text="@string/tv_tipo_aeronave"/>
+
+                            <!--Fechas-->
+                            <TextView
+                                android:layout_marginLeft="15dp"
+                                android:id="@+id/tv_fechas"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:layout_weight="1"
+                                android:text="@string/tv_fechas"/>
+
+                        </TableRow>
+
+                        <!--Fila 2-->
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingBottom="5dp">
+
+                            <!--Compañia -->
+                            <TextView
+                                android:id="@+id/tv_compañia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_compañia"
+                                android:textColor="#000"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"/>
+
+                            <!--Matricula-->
+                            <TextView
+                                android:id="@+id/tv_matricula"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:textColor="#000"
+                                android:text="@string/tv_matricula"
+                                android:layout_weight="1"/>
+
+                            <!--Origen-Destion-->
+                            <TextView
+                                android:id="@+id/tv_origen_destino"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:textColor="#000"
+                                android:text="@string/tv_origen_destino"
+                                android:layout_weight="1"/>
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Registrar RSIRe-->
         <LinearLayout
             android:id="@+id/ll_registrar_rsire"
             android:layout_width="match_parent"
@@ -230,12 +349,12 @@
 
                     <EditText
                         android:id="@+id/et_fecha_llegada"
-                        android:hint="@string/txt_fecha"
-                        android:inputType="date"
-                        android:textColorHint="#000"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:importantForAutofill="no"/>
+                        android:hint="@string/txt_fecha"
+                        android:importantForAutofill="no"
+                        android:inputType="date"
+                        android:textColorHint="#000" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -354,7 +473,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!--N° vuelo-->
+                <!--PEA-->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -374,7 +493,7 @@
 
         </LinearLayout>
 
-        <!--Boton-->
+        <!--Boton Editar RSIRe-->
         <Button
             android:id="@+id/btn_siguiente"
             android:text="@string/btn_siguiente"
@@ -385,6 +504,7 @@
             android:layout_height="wrap_content"
             app:backgroundTint="@color/teal_700"/>
 
+        <!--Agregar Servicio-->
         <LinearLayout
             android:id="@+id/ll_agregar_servicio"
             android:layout_width="match_parent"
@@ -693,6 +813,7 @@
             android:textColor="#fff"
             app:backgroundTint="@color/teal_700" />
 
+        <!--Lista de servicios agregadps-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
