@@ -52,7 +52,7 @@
     <string name="txt_aeronave">Aeronave: </string>
     <string name="txt_matricula">Matricula</string>
     <string name="txt_a_cargo_de">A cargo de</string>
-    <string name="txt_pago">Forma de pago: </string>
+    <string name="txt_area">Area: </string>
     <string name="txt_fecha">Fecha dd/mm/yyyy</string>
     <string name="txt_hora">Hora hh:mm</string>
     <string name="txt_nvuelo">N° vuelo</string>
@@ -72,7 +72,7 @@
     <string name="tv_hora">hh:hh - hh:mm</string>
     <string name="tv_guion"> - </string>
     <string name="tv_codigo">Codigo </string>
-    <string name="tv_cantidad_total_servicios">S/. 00.00 </string>
+    <string name="tv_cantidad_total_servicios">00</string>
     <string name="btn_editar_rsire">Editar Rsir </string>
 
     <!--Agregar de servicio-->
@@ -85,6 +85,21 @@
     <string name="txt_cantidad">Cantidad</string>
     <string name="txt_cantidad_total">Cantidad Total: </string>
     <string name="cantidad_total">--</string>
+
+    <!--Revisar Servicios-->
+    <string name="BuscarRSIR">Buscar RSIR</string>
+    <string name="tv_area">Area</string>
+    <string name="tv_compañia2">Compañia: </string>
+    <string name="tv_origen">Origen: </string>
+    <string name="tv_destino">Destino: </string>
+    <string name="tv_aeronaves">Aeronave: </string>
+    <string name="tv_matricula2">Matricula: </string>
+    <string name="tv_a_cargo_de">A cargo de: </string>
+    <string name="tv_fecha_llegada">Fecha: </string>
+    <string name="tv_hora2">Hora: </string>
+    <string name="tv_nvuelo">N° vuelo: </string>
+    <string name="tv_pea">PEA: </string>
+    <string name="tv_lista_servicios">Lista de servicios </string>
 
     <!--Atención de reclamos-->
     <string name="ar_col1">RSIR</string>

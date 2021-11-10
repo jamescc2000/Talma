@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma">
         <activity
+            android:name=".RevisarRsir"
+            android:exported="true" />
+        <activity
             android:name=".Dashboard_cliente"
             android:exported="false" />
         <activity

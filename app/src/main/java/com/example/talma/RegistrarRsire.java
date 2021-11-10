@@ -29,7 +29,7 @@ public class RegistrarRsire extends AppCompatActivity {
 
     private Spinner sp_aeropuertos;
     private Spinner sp_aeronaves;
-    private Spinner sp_pagos;
+    private Spinner sp_area;
     Button btn_siguiente, btn_agregar, btn_finalizar;
 
     private EditText et_nombre;
@@ -57,11 +57,10 @@ public class RegistrarRsire extends AppCompatActivity {
 
         sp_aeropuertos = (Spinner) findViewById(R.id.sp_aeropuertos);
         sp_aeronaves = (Spinner) findViewById(R.id.sp_aeronaves);
-        sp_pagos = (Spinner) findViewById(R.id.sp_pagos);
+        sp_area = (Spinner) findViewById(R.id.sp_area);
         btn_siguiente = (Button) findViewById(R.id.btn_siguiente);
         btn_finalizar = (Button) findViewById(R.id.btn_finalizar);
         btn_agregar = (Button) findViewById(R.id.btn_agregar);
-        sp_servicios = (Spinner) findViewById(R.id.sp_servicios);
         et_compañia = (EditText) findViewById(R.id.et_compañia);
         et_origen = (EditText) findViewById(R.id.et_origen);
         et_destino = (EditText) findViewById(R.id.et_destino);
@@ -75,6 +74,7 @@ public class RegistrarRsire extends AppCompatActivity {
         et_hora_salida = (EditText) findViewById(R.id.et_hora_salida);
         et_nvuelo_salida = (EditText) findViewById(R.id.et_nvuelo_salida);
         et_pea_salida = (EditText) findViewById(R.id.et_pea_salida);
+        sp_servicios = (Spinner) findViewById(R.id.sp_servicios);
         et_codigo = (EditText) findViewById(R.id.et_codigo);
         et_hora_desde_llegada = (EditText) findViewById(R.id.et_hora_desde_llegada);
         et_hora_hasta_llegada = (EditText) findViewById(R.id.et_hora_hasta_llegada);
@@ -105,9 +105,9 @@ public class RegistrarRsire extends AppCompatActivity {
         ArrayAdapter<String> adapter_aeronaves = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner,opciones_aeronaves);
         sp_aeronaves.setAdapter(adapter_aeronaves);
 
-        String [] opciones_pagos = {"Contado", "Credito"};
-        ArrayAdapter<String> adapter_pagos = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner,opciones_pagos);
-        sp_pagos.setAdapter(adapter_pagos);
+        String [] opciones_areas = {"Patio de Equipaje", "Frio Aereo", "Counter"};
+        ArrayAdapter<String> adapter_areas = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner,opciones_areas);
+        sp_area.setAdapter(adapter_areas);
 
         recyclerView = findViewById(R.id.rvListaServicios);
         recyclerView.setHasFixedSize(true);

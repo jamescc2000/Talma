@@ -30,8 +30,8 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
     @NonNull
     @Override
     public ServicioViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_rv_servicios, null, false);
-        return new AdaptadorListaServicios.ServicioViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_rv_servicios, viewGroup, false);
+        return new ServicioViewHolder(view);
     }
 
     @Override
