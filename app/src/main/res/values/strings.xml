@@ -8,6 +8,13 @@
     <!--Login de clientes-->
     <string name="login_titulo2">Clientes</string>
 
+    <!--Pedidos-->
+    <string name="real_pedido">Pedidos</string>
+    <!--Reclamos-->
+    <string name="reclamos">Reclamos</string>
+    <!--Rsirs-->
+    <string name="Rsires">Rsire</string>
+
 
     <!--Login de empleados-->
     <string name="login_titulo">Empleados de Talma</string>
