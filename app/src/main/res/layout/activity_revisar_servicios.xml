@@ -13,504 +13,541 @@
         android:orientation="vertical">
 
         <!--Datos generales del vuelo-->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginBottom="15dp">
+            android:animateLayoutChanges="true"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="#fff"
+            android:outlineAmbientShadowColor="@color/black"
+            app:cardUseCompatPadding="true">
 
-            <!--Titulo-->
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_datos_generales"
-                android:textColor="#000"
-                android:textSize="18sp" />
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginBottom="15dp">
 
-            <!--Aeropuerto-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
+                <!--Titulo-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_aeropueto"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
+                    android:text="@string/txt_datos_generales"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/tv_aeropuerto"
+                <!--Aeropuerto-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_aeropueto"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
 
-            <!--Compañia-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_aeropuerto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
 
-                <TextView
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Compañia-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_compañia2"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_compañia"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_compañia2"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_compañia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Origen-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_origen"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
 
-            <!--Origen-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_origen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
 
-                <TextView
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Destino-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_origen"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_origen"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_destino"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_destino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Aeronaves-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_aeronaves"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
 
-            <!--Destino-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_aeronaves"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
 
-                <TextView
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Matricula-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_destino"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_destino"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_matricula2"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_matricula2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Area-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_area"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
 
-            <!--Aeronaves-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#000"/>
 
-                <TextView
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--A cargo de-->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_aeronaves"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_aeronaves"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_a_cargo_de"
+                        android:layout_weight="2"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:id="@+id/tv_a_cargo_de"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_weight="2"/>
 
-            <!--Matricula-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_matricula2"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
-
-                <TextView
-                    android:id="@+id/tv_matricula2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <!--Area-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_area"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#000"/>
-
-                <TextView
-                    android:id="@+id/tv_area"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#000"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <!--A cargo de-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_a_cargo_de"
-                    android:layout_weight="2"
-                    android:textSize="14sp"
-                    android:textColor="#2B2B2B"/>
-
-                <TextView
-                    android:id="@+id/tv_a_cargo_de"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_weight="2"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <!--Datos del Llegada-->
-            <TableLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#fff"
+                android:layout_weight="1"
+                android:outlineAmbientShadowColor="@color/black"
+                app:cardUseCompatPadding="true">
 
-                !--Titulo-->
-
-                <TableRow
+                <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="5dp">
+                    android:padding="10dp"
+                    android:layout_weight="1">
 
-                    <TextView
+                    !--Titulo-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/txt_datos_llegada"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:paddingBottom="5dp">
 
-                </TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/txt_datos_llegada"
+                            android:textColor="#000"
+                            android:textSize="18sp" />
 
-                <!--Fecha-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--Fecha-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_fecha_llegada"
-                            android:layout_weight="2"
-                            android:textSize="14sp"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_fecha_llegada"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_fecha_llegada"
+                                android:layout_weight="2"
+                                android:textSize="14sp"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_fecha_llegada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--Hora Hasta-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--Hora Hasta-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_hora2"
-                            android:layout_weight="2"
-                            android:textSize="14sp"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_hora"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_hora2"
+                                android:layout_weight="2"
+                                android:textSize="14sp"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_hora"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--N° vuelo-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--N° vuelo-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_nvuelo"
-                            android:layout_weight="2"
-                            android:textSize="14sp"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_nvuelo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_nvuelo"
+                                android:layout_weight="2"
+                                android:textSize="14sp"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_nvuelo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--PEA-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--PEA-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_pea"
-                            android:textSize="14sp"
-                            android:layout_weight="2"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_pea"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_pea"
+                                android:textSize="14sp"
+                                android:layout_weight="2"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_pea"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </TableLayout>
+                    </TableRow>
 
-            <!--Datos del Salida-->
-            <TableLayout
+                </TableLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#fff"
+                android:outlineAmbientShadowColor="@color/black"
+                app:cardUseCompatPadding="true">
 
-                !--Titulo-->
-
-                <TableRow
-                    android:layout_width="wrap_content"
+                <!--Datos del Salida-->
+                <TableLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="5dp">
+                    android:padding="10dp"
+                    android:layout_weight="1">
 
-                    <TextView
-                        android:layout_width="match_parent"
+                    !--Titulo-->
+
+                    <TableRow
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_datos_salida"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
+                        android:paddingBottom="5dp">
 
-                </TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_datos_salida"
+                            android:textColor="#000"
+                            android:textSize="18sp" />
 
-                <!--Fecha-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--Fecha-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_fecha_llegada"
-                            android:layout_weight="2"
-                            android:textSize="14sp"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_fecha_salida"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_fecha_llegada"
+                                android:layout_weight="2"
+                                android:textSize="14sp"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_fecha_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--Hora Hasta-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--Hora Hasta-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_hora2"
-                            android:layout_weight="2"
-                            android:textSize="14sp"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_hora_salida"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_hora2"
+                                android:layout_weight="2"
+                                android:textSize="14sp"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_hora_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--N° vuelo-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--N° vuelo-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_nvuelo"
-                            android:layout_weight="2"
-                            android:textSize="14sp"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_nvuelo_salida"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_nvuelo"
+                                android:layout_weight="2"
+                                android:textSize="14sp"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_nvuelo_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--PEA-->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    </TableRow>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <!--PEA-->
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_pea"
-                            android:textSize="14sp"
-                            android:layout_weight="2"
-                            android:textColor="#2B2B2B"/>
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/tv_pea_salida"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:layout_weight="2"
-                            android:textColorHint="#000" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tv_pea"
+                                android:textSize="14sp"
+                                android:layout_weight="2"
+                                android:textColor="#2B2B2B"/>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                            <TextView
+                                android:id="@+id/tv_pea_salida"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="time"
+                                android:layout_weight="2"
+                                android:textColorHint="#000" />
 
-                </TableRow>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </TableLayout>
+                    </TableRow>
+
+                </TableLayout>
+
+            </androidx.cardview.widget.CardView>
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -534,12 +571,11 @@
             android:id="@+id/rv_lista_servicios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="8dp"
+            android:padding="10dp"
             tools:ignore="MissingConstraints">
 
         </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-    
+
 </ScrollView>

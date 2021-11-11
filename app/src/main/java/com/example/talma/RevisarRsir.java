@@ -21,6 +21,11 @@ public class RevisarRsir extends AppCompatActivity {
     List<ModeloRSIR> rsirsList;
 
 
+    public RevisarRsir() {
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.talma.Modelos.ModeloRSIR;
 import com.example.talma.R;
+import com.example.talma.RealizarPedido;
 import com.example.talma.RevisarServicios;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RsirViewHolder rsirViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull RsirViewHolder rsirViewHolder, int i) {
 
         rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
         rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
