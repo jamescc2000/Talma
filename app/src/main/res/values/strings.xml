@@ -8,6 +8,8 @@
     <!--Login de clientes-->
     <string name="login_titulo2">Clientes</string>
 
+    <!--Main Cliente-->
+
     <!--Pedidos-->
     <string name="real_pedido">Pedidos</string>
     <!--Reclamos-->
