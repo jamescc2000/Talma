@@ -6,12 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragmentos_empleados.UsuariosFragment">
 
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        tools:context=".Registro_usuarios" >
 
         <TextView
             android:id="@+id/tv_registro_usuarios"
@@ -24,130 +26,121 @@
             android:textColor="#000"
             android:textStyle="bold" />
 
-        <ImageView
-            android:layout_below="@id/iv_registro_usuario"
-            android:id="@+id/iv_registro_usuario"
-            android:layout_width="match_parent"
-            android:layout_height="266dp"
-            android:layout_margin="20dp"
-            app:srcCompat="@drawable/registro_nuevo_usuario" />
-
-
-        <!--Datos-->
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="25dp"
+            android:text="Seleccione el tipo de usuario que desea registrar"
+            android:textSize="24dp"
+            />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <!--Usuario-->
-                <TextView
-                    android:layout_below="@id/tv_id_usuario"
-                    android:id="@+id/tv_id_usuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="ID_Usuario"
-                    android:layout_weight="1"
-                    android:textSize="18sp" />
 
-                <EditText
-                    android:layout_below="@id/et_ingrese_id_usuario"
-                    android:id="@+id/et_ingrese_id_usuario"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Ingresar el ID del usuario"
-                    android:inputType="textPersonName" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!--Contraseña-->
-                <TextView
-                    android:layout_below="@id/tv_contraseña"
-                    android:id="@+id/tv_contraseña"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Contraseña"
-                    android:layout_weight="1"
-                    android:textSize="18dp" />
-
-                <EditText
-                    android:layout_below="@id/et_ingrese_contraseña"
-                    android:id="@+id/et_ingrese_contraseña"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="Ingrese la contraseña"
-                    android:inputType="textPersonName" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!--Tipo Usuario-->
-                <TextView
-                    android:layout_below="@id/tv_tipo_usuario"
-                    android:id="@+id/tv_tipo_usuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tipo de usuario"
-                    android:layout_weight="1"
-                    android:textSize="18dp" />
-
-                <EditText
-                    android:layout_below="@id/et_ingrese_tipo_usuario"
-                    android:id="@+id/et_ingrese_tipo_usuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Ingrese el tipo de usuario"
-                    android:inputType="textPersonName" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
+        <!--Imágenes-->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
+            app:cardBackgroundColor="@color/white">
 
-
-            <Button
-                android:layout_below="@id/Btn_guardar"
-                android:id="@+id/Btn_guardar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:backgroundTint="@color/teal_700"
-                android:text="Guardar" />
+                android:orientation="horizontal">
 
-            <Button
-                android:layout_below="@id/Btn_cancelar"
-                android:id="@+id/Btn_cancelar"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Clientes"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/avion" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/Btn_registrar_clientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginRight="25dp"
+                    android:text="Registrar clientes"
+                    app:backgroundTint="@color/teal_700" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:backgroundTint="@color/teal_700"
-                android:text="Cancelar" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Empleados"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/empleados" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/Btn_registrar_empleados"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginRight="25dp"
+                    android:text="Registrar empleados"
+                    app:backgroundTint="@color/teal_700" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+
+            android:text="Cancelar"
+            app:backgroundTint="@color/teal_700" />
 
 
     </LinearLayout>
+
+
+
 
 </FrameLayout>
