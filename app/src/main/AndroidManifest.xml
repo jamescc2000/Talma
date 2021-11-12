@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma">
         <activity
+            android:name=".Registrar_empleados"
+            android:exported="false" />
+        <activity
+            android:name=".registrar_clientes"
+            android:exported="false" />
+        <activity
             android:name=".ValidarServicios"
             android:exported="true" />
         <activity
