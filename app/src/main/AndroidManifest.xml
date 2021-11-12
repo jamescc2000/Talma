@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.talma" >
+    package="com.example.talma">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/talma_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Talma" >
+        android:theme="@style/Theme.Talma">
+        <activity
+            android:name=".ValidarServicios"
+            android:exported="true" />
+        <activity
+            android:name=".ValidarRsir"
+            android:exported="true" />
         <activity
             android:name=".RsirEmpleados.Facturacion"
             android:exported="false" />
@@ -31,7 +37,7 @@
             android:name=".Registro_usuarios"
             android:exported="false" />
         <activity
-            android:name=".Atencion_reclamos"
+            android:name=".RsirEmpleados.Atencion_reclamos"
             android:exported="false" />
         <activity
             android:name=".Dashboard_empleados"
@@ -44,7 +50,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

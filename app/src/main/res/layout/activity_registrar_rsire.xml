@@ -390,7 +390,7 @@
 
         </LinearLayout>
 
-        <!--Boton Editar RSIRe-->
+        <!--Boton Datos Generales-->
         <Button
             android:id="@+id/btn_siguiente"
             android:text="@string/btn_siguiente"
@@ -530,7 +530,6 @@
             android:visibility="gone"
             android:padding="5dp">
 
-            <!--Titulo-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -539,6 +538,7 @@
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="20sp"
+                android:layout_marginBottom="10dp"
                 android:textStyle="bold" />
 
             <!--Datos generales del servicios-->
@@ -546,29 +546,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-
                 android:orientation="vertical">
 
                 <!--Nombre del servicio-->
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
                         android:text="@string/txt_nombre_servicio"
-                        android:textColor="#2B2B2B"
                         android:textSize="17sp" />
 
                     <Spinner
                         android:id="@+id/sp_servicios"
+                        android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
+                        android:layout_height="wrap_content"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -591,229 +588,151 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <!--Datos del Llegada-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <!--Datos del Llegada-->
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    !--Titulo-->
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/txt_datos_llegada"
-                            android:textColor="#000"
-                            android:textSize="18sp" />
-
-                    </TableRow>
-
-                    <!--Hora Desde-->
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/et_hora_desde_llegada"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/txt_hora_desde"
-                                android:importantForAutofill="no"
-                                android:inputType="time"
-                                android:textColorHint="#000" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </TableRow>
-
-                    <!--Hora Hasta-->
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/et_hora_hasta_llegada"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/txt_hora_hasta"
-                                android:importantForAutofill="no"
-                                android:inputType="time"
-                                android:textColorHint="#000" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </TableRow>
-
-                    <!--Cantidad Llegada-->
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/et_cantidad_llegada"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/txt_cantidad"
-                                android:importantForAutofill="no"
-                                android:inputType="number"
-                                android:textColorHint="#000" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </TableRow>
-
-                </TableLayout>
-
-                <!--Datos del Salida-->
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    !--Titulo-->
-
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_datos_salida"
-                            android:textColor="#000"
-                            android:textSize="18sp" />
-
-                    </TableRow>
-
-                    <!--Hora Desde-->
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/et_hora_desde_salida"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/txt_hora_desde"
-                                android:importantForAutofill="no"
-                                android:inputType="time"
-                                android:textColorHint="#000" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </TableRow>
-
-                    <!--Hora Hasta-->
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/et_hora_hasta_salida"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/txt_hora_hasta"
-                                android:importantForAutofill="no"
-                                android:inputType="time"
-                                android:textColorHint="#000" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </TableRow>
-
-                    <!--Cantidad Salisda-->
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/et_cantidad_salida"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/txt_cantidad"
-                                android:importantForAutofill="no"
-                                android:inputType="number"
-                                android:textColorHint="#000" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                    </TableRow>
-
-                </TableLayout>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <!--Total cantidad-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <!--TVCantidad Total-->
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:orientation="vertical">
 
+                    <!--Titulo-->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="@string/txt_cantidad_total"
-                        android:textColorHint="#000"
-                        android:textSize="17sp" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/txt_datos_llegada"
+                        android:textColor="#000"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/tv_cantidad_total"
+                    <!--Hora Desde-->
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="@string/cantidad_total"
-                        android:inputType="time"
-                        android:textColorHint="#000" />
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/et_hora_desde_llegada"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/txt_hora_desde"
+                            android:importantForAutofill="no"
+                            android:inputType="time"
+                            android:textColorHint="#000" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Hora Hasta-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/et_hora_hasta_llegada"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/txt_hora_hasta"
+                            android:importantForAutofill="no"
+                            android:inputType="time"
+                            android:textColorHint="#000" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Cantidad Llegada-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/et_cantidad_llegada"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/txt_cantidad"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:textColorHint="#000" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
+                <!--Datos del Salida-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:orientation="vertical">
+
+                    <!--Titulo-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_datos_salida"
+                        android:textColor="#000"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:textSize="18sp" />
+
+                    <!--Hora Desde-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/et_hora_desde_salida"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/txt_hora_desde"
+                            android:importantForAutofill="no"
+                            android:inputType="time"
+                            android:textColorHint="#000" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Hora Hasta-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/et_hora_hasta_salida"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/txt_hora_hasta"
+                            android:importantForAutofill="no"
+                            android:inputType="time"
+                            android:textColorHint="#000" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Cantidad Salisda-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/et_cantidad_salida"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/txt_cantidad"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:textColorHint="#000" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         </LinearLayout>
 

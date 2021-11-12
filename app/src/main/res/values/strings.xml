@@ -55,11 +55,11 @@
     <string name="txt_datos_generales">Datos Generales de Vuelo</string>
     <string name="txt_datos_llegada">Datos de Llegada</string>
     <string name="txt_datos_salida">Datos de Salida</string>
-    <string name="txt_aeropueto">Aeropuerto: </string>
+    <string name="txt_aeropueto">Aeropuerto </string>
     <string name="txt_compañia">Compañia</string>
     <string name="txt_origen">Origen</string>
     <string name="txt_destino">Destino</string>
-    <string name="txt_aeronave">Aeronave: </string>
+    <string name="txt_aeronave">Aeronave </string>
     <string name="txt_matricula">Matricula</string>
     <string name="txt_a_cargo_de">A cargo de</string>
     <string name="txt_area">Area: </string>
@@ -133,5 +133,20 @@
 
     <!--Realizar Pedido-->
     <string name="btn_realizar_pedido">Realizar pedido</string>
+    <string name="txt_realizar_pedido">Realizar pedido</string>
+    <string name="txt_tipo_servicio">Tipo de Servicio</string>
+
+
+    <!--Validar Servicios-->
+    <string name="btn_validar_servicio">Validar sevicio</string>
+
+
+    <!--Validar Servicios-->
+    <string name="btn_realizar_reclamo">Realizar Reclamo</string>
+    <string name="btn_rsir_pendientes">RSIR Pendientes</string>
+    <string name="btn_rsir_validados">RSIR Validados</string>
+
+    <!--Boton Facturacion-->
+    <string name="btn_mis_facturas">Mis Facturas</string>
 
 </resources>

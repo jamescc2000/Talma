@@ -44,7 +44,6 @@ public class RevisarRsir extends AppCompatActivity {
 
     private void ObtenerTodosRSIR() {
 
-
         rsirsList.clear();
         rsirsList.add(new ModeloRSIR("RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
@@ -58,7 +57,7 @@ public class RevisarRsir extends AppCompatActivity {
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
 
-        adaptadorRsir = new AdaptadorRsir(RevisarRsir.this, rsirsList);
+        adaptadorRsir = new AdaptadorRsir(RevisarRsir.this, rsirsList,"empleado");
         recyclerView.setAdapter(adaptadorRsir);
     }
 

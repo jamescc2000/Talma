@@ -82,7 +82,6 @@ public class RegistrarRsire extends AppCompatActivity {
         et_hora_desde_salida = (EditText) findViewById(R.id.et_hora_desde_salida);
         et_hora_hasta_salida = (EditText) findViewById(R.id.et_hora_hasta_salida);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
-        tv_cantidad_total = (TextView) findViewById(R.id.tv_cantidad_total);
         tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
         tv_tipo_aeronave = (TextView) findViewById(R.id.tv_tipo_aeronave);
         tv_matricula = (TextView) findViewById(R.id.tv_matricula);

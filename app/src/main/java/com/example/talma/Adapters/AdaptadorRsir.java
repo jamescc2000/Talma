@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.talma.Modelos.ModeloRSIR;
 import com.example.talma.R;
+import com.example.talma.ValidarServicios;
 import com.example.talma.RsirEmpleados.RevisarServicios;
 
 import java.util.List;
@@ -20,10 +21,12 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
 
     Context context;
     List<ModeloRSIR> listaRSIR;
+    String tipo_usuario;
 
-    public AdaptadorRsir(Context context, List<ModeloRSIR> listaRSIR) {
+    public AdaptadorRsir(Context context, List<ModeloRSIR> listaRSIR, String tipo_usuario) {
         this.context = context;
         this.listaRSIR = listaRSIR;
+        this.tipo_usuario = tipo_usuario;
     }
 
     @NonNull
@@ -36,22 +39,44 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
     @Override
     public void onBindViewHolder(@NonNull RsirViewHolder rsirViewHolder, int i) {
 
-        rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
-        rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
-        rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
-        rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
-        rsirViewHolder.tv_area.setText(listaRSIR.get(i).getArea());
-        rsirViewHolder.tv_origen_destino.setText(listaRSIR.get(i).getOrigen() + " - " + listaRSIR.get(i).getDestino());
+        if (tipo_usuario == "empleado"){
 
-        rsirViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
+            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
+            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
+            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
+            rsirViewHolder.tv_area.setText(listaRSIR.get(i).getArea());
+            rsirViewHolder.tv_origen_destino.setText(listaRSIR.get(i).getOrigen() + " - " + listaRSIR.get(i).getDestino());
 
-                Intent intent = new Intent(context, RevisarServicios.class);
-                context.startActivity(intent);
+            rsirViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            }
-        });
+                    Intent intent = new Intent(context, RevisarServicios.class);
+                    context.startActivity(intent);
+
+                }
+            });
+
+        }else if (tipo_usuario == "cliente"){
+            rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
+            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
+            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
+            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
+            rsirViewHolder.tv_area.setText(listaRSIR.get(i).getArea());
+            rsirViewHolder.tv_origen_destino.setText(listaRSIR.get(i).getOrigen() + " - " + listaRSIR.get(i).getDestino());
+
+            rsirViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent = new Intent(context, ValidarServicios.class);
+                    context.startActivity(intent);
+
+                }
+            });
+
+        }
 
     }
 

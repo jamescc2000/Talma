@@ -57,7 +57,7 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <!--Boton Revisar Servicios-->
+            <!--Boton Validar Servicios-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,18 +66,18 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_revisar_servicios"
+                    android:id="@+id/btn_validar_servicio"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/btn_personalizado"
-                    android:text="@string/btn_revisar_servicios"
+                    android:text="@string/btn_validar_servicio"
                     android:textAlignment="center"
                     app:backgroundTint="@color/teal_700" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <!--Boton Atender Reclamos-->
+            <!--Boton Realizar Reclamos-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,12 +86,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_atender_reclamos"
+                    android:id="@+id/btn_realizar_reclamo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/btn_personalizado"
-                    android:text="@string/btn_atender_reclamos"
+                    android:text="@string/btn_realizar_reclamo"
                     android:textAlignment="center"
                     app:backgroundTint="@color/teal_700" />
 
@@ -106,12 +106,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_facturacion"
+                    android:id="@+id/btn_mis_facturas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/btn_personalizado"
-                    android:text="@string/btn_facturacion"
+                    android:text="@string/btn_mis_facturas"
                     android:textAlignment="center"
                     app:backgroundTint="@color/teal_700" />
 
