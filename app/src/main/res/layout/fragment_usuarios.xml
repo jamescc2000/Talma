@@ -3,12 +3,151 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragmentos_empleados.UsuariosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_registro_usuarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_registro_usuarios"
+            android:gravity="center"
+            android:text="Registro de usuarios"
+            android:textSize="34sp"
+            android:textColor="#000"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_below="@id/iv_registro_usuario"
+            android:id="@+id/iv_registro_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="266dp"
+            android:layout_margin="20dp"
+            app:srcCompat="@drawable/registro_nuevo_usuario" />
+
+
+        <!--Datos-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Usuario-->
+                <TextView
+                    android:layout_below="@id/tv_id_usuario"
+                    android:id="@+id/tv_id_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ID_Usuario"
+                    android:layout_weight="1"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_below="@id/et_ingrese_id_usuario"
+                    android:id="@+id/et_ingrese_id_usuario"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Ingresar el ID del usuario"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Contraseña-->
+                <TextView
+                    android:layout_below="@id/tv_contraseña"
+                    android:id="@+id/tv_contraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contraseña"
+                    android:layout_weight="1"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:layout_below="@id/et_ingrese_contraseña"
+                    android:id="@+id/et_ingrese_contraseña"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese la contraseña"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Tipo Usuario-->
+                <TextView
+                    android:layout_below="@id/tv_tipo_usuario"
+                    android:id="@+id/tv_tipo_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tipo de usuario"
+                    android:layout_weight="1"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:layout_below="@id/et_ingrese_tipo_usuario"
+                    android:id="@+id/et_ingrese_tipo_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Ingrese el tipo de usuario"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+
+            <Button
+                android:layout_below="@id/Btn_guardar"
+                android:id="@+id/Btn_guardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:backgroundTint="@color/teal_700"
+                android:text="Guardar" />
+
+            <Button
+                android:layout_below="@id/Btn_cancelar"
+                android:id="@+id/Btn_cancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:backgroundTint="@color/teal_700"
+                android:text="Cancelar" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </FrameLayout>

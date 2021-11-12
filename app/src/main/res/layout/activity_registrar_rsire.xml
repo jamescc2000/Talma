@@ -56,28 +56,45 @@
                     android:textColor="#000"
                     android:textSize="18sp" />
 
-                <!--Aeropuerto-->
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <!--Codigo de RSIR-->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="10dp">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_codigo_rsir"
+                        android:hint="@string/txt_codigo_rsir"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_aeropueto"
-                        android:layout_weight="2"
-                        android:textSize="17sp"
-                        android:textColor="#2B2B2B"/>
+                        android:importantForAutofill="no"/>
 
-                    <Spinner
-                        android:id="@+id/sp_aeropuertos"
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"/>
+                        android:padding="17dp"
+                        android:orientation="horizontal">
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_aeropueto"
+                            android:layout_weight="1"
+                            android:textSize="17sp"/>
+
+                        <Spinner
+                            android:id="@+id/sp_aeropuertos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
                 <!--Compañia-->
                 <com.google.android.material.textfield.TextInputLayout
@@ -131,22 +148,21 @@
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:padding="17dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_aeronave"
-                        android:layout_weight="2"
-                        android:textSize="17sp"
-                        android:textColor="#000"/>
+                        android:layout_weight="1"
+                        android:textSize="17sp"/>
 
                     <Spinner
                         android:id="@+id/sp_aeronaves"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"/>
+                        android:layout_weight="1"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -170,22 +186,21 @@
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:padding="17dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_area"
-                        android:layout_weight="2"
-                        android:textSize="17sp"
-                        android:textColor="#000"/>
+                        android:layout_weight="1"
+                        android:textSize="17sp"/>
 
                     <Spinner
                         android:id="@+id/sp_area"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"/>
+                        android:layout_weight="1"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -818,14 +833,13 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvListaServicios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="8dp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -833,7 +847,7 @@
         <!--Boton Finalizar-->
         <Button
                 android:id="@+id/btn_finalizar"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_personalizado"

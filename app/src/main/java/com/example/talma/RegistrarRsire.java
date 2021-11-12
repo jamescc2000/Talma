@@ -47,7 +47,7 @@ public class RegistrarRsire extends AppCompatActivity {
     private Spinner sp_servicios;
     private EditText et_codigo, et_hora_desde_llegada, et_hora_hasta_llegada, et_cantidad_llegada, et_hora_desde_salida, et_hora_hasta_salida, et_cantidad_salida;
     private EditText et_compañia, et_origen, et_destino, et_matricula, et_a_cargo_de,et_fecha_llegada, et_hora_llegada, et_nvuelo_llegada, et_pea_llegada;
-    private EditText et_fecha_salida, et_hora_salida, et_nvuelo_salida, et_pea_salida;
+    private EditText et_fecha_salida, et_hora_salida, et_nvuelo_salida, et_pea_salida, et_codigo_rsir;
     private TextView tv_cantidad_total, tv_aeropuerto, tv_tipo_aeronave, tv_fechas, tv_compañia, tv_matricula, tv_origen_destino;
 
     @Override
@@ -61,6 +61,7 @@ public class RegistrarRsire extends AppCompatActivity {
         btn_siguiente = (Button) findViewById(R.id.btn_siguiente);
         btn_finalizar = (Button) findViewById(R.id.btn_finalizar);
         btn_agregar = (Button) findViewById(R.id.btn_agregar);
+        et_codigo_rsir = (EditText) findViewById(R.id.et_codigo_rsir);
         et_compañia = (EditText) findViewById(R.id.et_compañia);
         et_origen = (EditText) findViewById(R.id.et_origen);
         et_destino = (EditText) findViewById(R.id.et_destino);
@@ -126,7 +127,7 @@ public class RegistrarRsire extends AppCompatActivity {
                 }else if (ll_registrar_rsire.getVisibility() == View.VISIBLE){
 
                     ll_registrar_rsire.setVisibility(View.GONE);
-                    btn_siguiente.setText("EDITAR RSIR");
+                    btn_siguiente.setText("EDITAR DATOS GENERALES");
 
                     tv_aeropuerto.setText(sp_aeropuertos.getSelectedItem().toString());
                     tv_tipo_aeronave.setText(sp_aeronaves.getSelectedItem().toString());

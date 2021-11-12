@@ -51,6 +51,7 @@
 
     <!--Registro de RSIRe-->
     <string name="txt_registro">Registro de RSIRe</string>
+    <string name="txt_codigo_rsir">Codigo</string>
     <string name="txt_datos_generales">Datos Generales de Vuelo</string>
     <string name="txt_datos_llegada">Datos de Llegada</string>
     <string name="txt_datos_salida">Datos de Salida</string>
@@ -66,7 +67,7 @@
     <string name="txt_hora">Hora hh:mm</string>
     <string name="txt_nvuelo">N° vuelo</string>
     <string name="txt_pea">PEA</string>
-    <string name="btn_siguiente">EDITAR RSIR</string>
+    <string name="btn_siguiente">EDITAR DATOS GENERALES</string>
     <string name="tv_aeropuerto">Aeropuerto</string>
     <string name="tv_tipo_aeronave">Tipo aeronave</string>
     <string name="tv_fechas">dd/mm/yyyy - dd/mm/yyyy</string>
