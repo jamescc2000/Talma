@@ -14,6 +14,11 @@
     <string name="real_pedido">Pedidos</string>
     <!--Reclamos-->
     <string name="reclamos">Reclamos</string>
+    <string name="reclamo">Reclamo</string>
+    <string name="Rsir_2">Rsir</string>
+    <string name="Estado">Estado</string>
+
+
     <!--Rsirs-->
     <string name="Rsires">Rsire</string>
 
