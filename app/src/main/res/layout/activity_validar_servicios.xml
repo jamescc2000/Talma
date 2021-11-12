@@ -571,7 +571,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_lista_servicios"
+            android:id="@+id/rv_lista_servicios_validar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
