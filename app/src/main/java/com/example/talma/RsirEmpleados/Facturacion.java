@@ -1,7 +1,9 @@
-package com.example.talma;
+package com.example.talma.RsirEmpleados;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.talma.R;
 
 public class Facturacion extends AppCompatActivity {
 

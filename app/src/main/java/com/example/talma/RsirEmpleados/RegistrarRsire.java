@@ -1,9 +1,7 @@
-package com.example.talma;
+package com.example.talma.RsirEmpleados;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,8 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.talma.Adapters.AdaptadorListaServicios;
-import com.example.talma.Fragmentos_empleados.RsireFragment;
+import com.example.talma.Dashboard_empleados;
 import com.example.talma.Modelos.ModeloServicio;
+import com.example.talma.R;
 
 import java.util.ArrayList;
 import java.util.List;

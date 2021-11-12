@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import com.example.talma.Adapters.AdaptadorRsir;
 import com.example.talma.Modelos.ModeloRSIR;
 import com.example.talma.R;
-import com.example.talma.RevisarRsir;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -46,12 +46,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_registrar_rsire"
+                    android:id="@+id/btn_realizar_pedido"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/btn_personalizado"
-                    android:text="@string/btn_Registrar_Rsire"
+                    android:text="@string/btn_realizar_pedido"
                     android:textAlignment="center"
                     app:backgroundTint="@color/teal_700" />
 

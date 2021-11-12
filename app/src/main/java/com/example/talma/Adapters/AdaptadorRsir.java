@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.talma.Modelos.ModeloRSIR;
 import com.example.talma.R;
-import com.example.talma.RealizarPedido;
-import com.example.talma.RevisarServicios;
+import com.example.talma.RsirEmpleados.RevisarServicios;
 
 import java.util.List;
 

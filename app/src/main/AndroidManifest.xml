@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma" >
         <activity
-            android:name=".Facturacion"
+            android:name=".RsirEmpleados.Facturacion"
             android:exported="false" />
         <activity
             android:name=".RealizarPedido"
             android:exported="true" />
         <activity
-            android:name=".RevisarRsir"
+            android:name=".RsirEmpleados.RevisarRsir"
             android:exported="true" />
         <activity
-            android:name=".RevisarServicios"
+            android:name=".RsirEmpleados.RevisarServicios"
             android:exported="true" />
         <activity
             android:name=".Dashboard_cliente"
             android:exported="false" />
         <activity
-            android:name=".RegistrarRsire"
+            android:name=".RsirEmpleados.RegistrarRsire"
             android:exported="true" />
         <activity
             android:name=".Registro_usuarios"

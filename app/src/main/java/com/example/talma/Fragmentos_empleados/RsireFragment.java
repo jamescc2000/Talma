@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.talma.R;
-import com.example.talma.RegistrarRsire;
-import com.example.talma.RevisarRsir;
+import com.example.talma.RsirEmpleados.RegistrarRsire;
+import com.example.talma.RsirEmpleados.RevisarRsir;
 
 
 public class RsireFragment extends Fragment {

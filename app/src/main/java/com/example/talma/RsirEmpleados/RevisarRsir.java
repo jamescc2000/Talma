@@ -1,4 +1,4 @@
-package com.example.talma;
+package com.example.talma.RsirEmpleados;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.talma.Adapters.AdaptadorRsir;
 import com.example.talma.Modelos.ModeloRSIR;
+import com.example.talma.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -131,5 +131,7 @@
     <string name="fila5_Cliente">C162</string>
     <string name="fila5_Estado">En reclamo</string>
 
+    <!--Realizar Pedido-->
+    <string name="btn_realizar_pedido">Realizar pedido</string>
 
 </resources>
