@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#fff"
+    android:outlineAmbientShadowColor="@color/black"
+    app:cardUseCompatPadding="true">
+
+    <!--Datos del RSIRe-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <!--Fila 1-->
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="5dp">
+
+                    <!--Aeropuerto-->
+                    <TextView
+                        android:id="@+id/tv_reclamo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#000"
+                        android:text="@string/reclamo"/>
+
+                    <!--Tipo aeronave-->
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/tv_rsir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:layout_weight="1"
+                        android:text="@string/Rsir_2"/>
+
+                    <!--Fechas-->
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/tv_fecha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:layout_weight="1"
+                        android:text="@string/tv_fechas"/>
+
+                </TableRow>
+
+                <!--Fila 2-->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="5dp">
+
+                    <!--Codigo-->
+                    <TextView
+                        android:id="@+id/tv_codigo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_codigo"
+                        android:textColor="#000"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"/>
+
+                    <!--Area-->
+                    <TextView
+                        android:id="@+id/tv_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="#000"
+                        android:text="@string/tv_area"
+                        android:layout_weight="1"/>
+
+                    <!--Origen-Destion-->
+                    <TextView
+                        android:id="@+id/tv_estado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:text="@string/Estado"
+                        android:textColor="#000" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
