@@ -44,6 +44,7 @@ public class UsuariosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), registrar_clientes.class);
+                startActivity(intent);
             }
         });
 
@@ -51,6 +52,7 @@ public class UsuariosFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Registrar_empleados.class);
+                startActivity(intent);
             }
         });
 
