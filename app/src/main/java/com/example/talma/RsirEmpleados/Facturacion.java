@@ -12,4 +12,5 @@ public class Facturacion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facturacion);
     }
+
 }

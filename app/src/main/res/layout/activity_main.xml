@@ -22,8 +22,7 @@
             android:src="@drawable/talma_logo" />
 
 
-        <!--Boto login-->
-
+        <!--Boton login-->
         <Button
             android:id="@+id/btn_login_cliente"
             android:layout_width="match_parent"
