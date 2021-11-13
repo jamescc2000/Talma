@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma">
         <activity
-            android:name=".Visualizar_facturas"
-            android:exported="false" />
-        <activity
-            android:name=".Nueva_factura"
-            android:exported="false" />
-        <activity
             android:name=".Registrar_empleados"
             android:exported="false" />
         <activity

@@ -48,38 +48,39 @@ public class Dashboard_cliente extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     //Manejamos los clicks de los items
                     switch (item.getItemId()){
-                        case R.id.nav_home:
+                        case R.id.nav_serv:
                             //Transaccion del fragmento home
 
-                            actionBar.setTitle("Inicio");
+                            actionBar.setTitle("Servicios");
 
-                            HomeFragment fragment1 = new HomeFragment();
+                            ServFragment fragment1 = new ServFragment();
                             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
                             ft1.replace(R.id.content, fragment1, "");
                             ft1.addToBackStack(null);
                             ft1.commit();
                             return true;
 
-                        case R.id.nav_serv:
+                        case R.id.nav_pedidos:
                             //Transaccion del fragmento perfil
 
-                            actionBar.setTitle("Servicios");
+                            actionBar.setTitle("Pedir");
 
-                            ServFragment fragment2 = new ServFragment();
+                            PedFragment fragment2 = new PedFragment();
                             FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
                             ft2.replace(R.id.content, fragment2, "");
                             ft2.addToBackStack(null);
                             ft2.commit();
                             return true;
-                        case R.id.nav_pedidos:
+                        case R.id.nav_reclamos:
                             //Transaccion del fragmento usuarios
-                            actionBar.setTitle("Usuarios");
-                            PedFragment fragment3 = new PedFragment();
+                            actionBar.setTitle("Reclamos");
+                            ReclamFragment fragment3 = new ReclamFragment();
                             FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                             ft3.replace(R.id.content, fragment3, "");
                             ft3.addToBackStack(null);
                             ft3.commit();
                             return true;
+                            /*
 
                         case R.id.nav_facturas:
                             //Transaccion del fragmento usuarios
@@ -98,7 +99,7 @@ public class Dashboard_cliente extends AppCompatActivity {
                             ft5.replace(R.id.content, fragment5, "");
                             ft5.addToBackStack(null);
                             ft5.commit();
-                            return true;
+                            return true; */
 
                     }
 
