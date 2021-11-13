@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma">
         <activity
+            android:name=".RsirCliente.RealizarReclamo"
+            android:exported="false" />
+        <activity
+            android:name=".RsirCliente.ConsultarReclamacion"
+            android:exported="false" />
+        <activity
             android:name=".Registrar_empleados"
             android:exported="false" />
         <activity
