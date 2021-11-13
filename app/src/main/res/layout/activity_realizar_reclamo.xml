@@ -22,14 +22,56 @@
             android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:text="Codigo de RSIR: "
+                android:textColor="#000"
+                android:textSize="17sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="9999999"
+                android:textColor="#000"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:text="Área vincula: "
+                android:textColor="#000"
+                android:textSize="17sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint="Área"
+                android:textColor="#000"
+                android:textSize="17sp" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
-            android:text="Codigo de RSIR"
+            android:layout_marginStart="10dp"
+            android:text="Motivo o razón de reclamo: "
             android:textColor="#000"
-            android:textSize="17sp" />
+            android:textSize="19sp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

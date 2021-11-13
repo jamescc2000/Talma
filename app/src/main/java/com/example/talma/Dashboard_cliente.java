@@ -51,7 +51,7 @@ public class Dashboard_cliente extends AppCompatActivity {
                         case R.id.nav_serv:
                             //Transaccion del fragmento home
 
-                            actionBar.setTitle("Inicio");
+                            actionBar.setTitle("Servicios");
 
                             HomeFragment fragment1 = new HomeFragment();
                             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
@@ -63,7 +63,7 @@ public class Dashboard_cliente extends AppCompatActivity {
                         case R.id.nav_pedidos:
                             //Transaccion del fragmento perfil
 
-                            actionBar.setTitle("Servicios");
+                            actionBar.setTitle("Pedir");
 
                             ServFragment fragment2 = new ServFragment();
                             FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
@@ -73,7 +73,7 @@ public class Dashboard_cliente extends AppCompatActivity {
                             return true;
                         case R.id.nav_reclamos:
                             //Transaccion del fragmento usuarios
-                            actionBar.setTitle("Usuarios");
+                            actionBar.setTitle("Reclamos");
                             PedFragment fragment3 = new PedFragment();
                             FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                             ft3.replace(R.id.content, fragment3, "");
