@@ -53,7 +53,7 @@ public class Dashboard_cliente extends AppCompatActivity {
 
                             actionBar.setTitle("Servicios");
 
-                            HomeFragment fragment1 = new HomeFragment();
+                            ServFragment fragment1 = new ServFragment();
                             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
                             ft1.replace(R.id.content, fragment1, "");
                             ft1.addToBackStack(null);
@@ -65,7 +65,7 @@ public class Dashboard_cliente extends AppCompatActivity {
 
                             actionBar.setTitle("Pedir");
 
-                            ServFragment fragment2 = new ServFragment();
+                            PedFragment fragment2 = new PedFragment();
                             FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
                             ft2.replace(R.id.content, fragment2, "");
                             ft2.addToBackStack(null);
@@ -74,7 +74,7 @@ public class Dashboard_cliente extends AppCompatActivity {
                         case R.id.nav_reclamos:
                             //Transaccion del fragmento usuarios
                             actionBar.setTitle("Reclamos");
-                            PedFragment fragment3 = new PedFragment();
+                            ReclamFragment fragment3 = new ReclamFragment();
                             FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                             ft3.replace(R.id.content, fragment3, "");
                             ft3.addToBackStack(null);
