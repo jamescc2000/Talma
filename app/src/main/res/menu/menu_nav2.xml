@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/nav_home"
-        android:title="@string/nav_home"
-        android:icon="@drawable/home_black_icon"/>
+
 
     <item android:id="@+id/nav_serv"
         android:title="@string/nav_serv"
@@ -13,9 +11,6 @@
         android:title="@string/nav_pedidos"
         android:icon="@drawable/usuarios_black_icon"/>
 
-    <item android:id="@+id/nav_facturas"
-        android:title="@string/nav_facturas"
-        android:icon="@drawable/rsire_icon"/>
 
     <item android:id="@+id/nav_reclamos"
         android:title="@string/nav_reclamos"
