@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.talma.R;
+import com.example.talma.RsirEmpleados.Facturacion;
 import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.example.talma.RsirEmpleados.RevisarRsir;
 
@@ -57,6 +58,14 @@ public class RsireFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(view.getContext(), RevisarRsir.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_facturacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), Facturacion.class);
                 startActivity(intent);
             }
         });
