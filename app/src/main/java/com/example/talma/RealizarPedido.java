@@ -84,11 +84,12 @@ public class RealizarPedido extends AppCompatActivity {
         tv_compañia = (TextView) findViewById(R.id.tv_compañia);
         ll_agregar_servicio = (LinearLayout) findViewById(R.id.ll_agregar_servicio);
         cv_datos_rsire = (CardView) findViewById(R.id.cv_datos_rsire);
+        ll_registrar_rsire = (LinearLayout) findViewById(R.id.ll_registrar_rsire);
 
         String [] opciones_servicios = {"Montacarga","Tractor","Estibador"};
         ArrayAdapter<String> adapter_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner,opciones_servicios);
         sp_servicios.setAdapter(adapter_servicios);
-        ll_registrar_rsire = (LinearLayout) findViewById(R.id.ll_registrar_rsire);
+
 
         String [] opciones_aeropuertos = {"Jorge Cahvez","Alfredo Rodríguez Ballón","Alfredo Mendívil Duarte","Armando Revoredo Iglesias", "Chiclayo", "Alejandro Velasco Astete de Cusco"};
         ArrayAdapter<String> adapter_aeropuetos = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner,opciones_aeropuertos);

@@ -23,102 +23,82 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/avion" />
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="447dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:hint="Correo electrónico" />
 
-            <TextView
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:text="ID_Cliente"
-                android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ingrese el ID del cliente" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/et_id_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:hint="ID del cliente" />
 
-            <TextView
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ingrese la contraseña" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/et_contraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:hint="Contraseña" />
 
-            <TextView
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:text="Aerolínea"
-                android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ingrese la aerolínea" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        </LinearLayout>
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/et_aerolinea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:hint="Aerolínea" />
 
-            <TextView
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:text="Fecha de registro"
-                android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ingrese la fecha de registro" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-        </LinearLayout>
-
-        <Button
+        <EditText
+            android:id="@+id/et_fecha_registro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrar"
-            app:backgroundTint="@color/teal_700"
-            android:layout_marginTop="20dp"
-            />
+            android:hint="Fecha de registro" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            app:backgroundTint="@color/teal_700"
-            />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/btn_registrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        app:backgroundTint="@color/teal_700"
+        android:layout_marginTop="20dp"
+        />
 
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_cancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        app:backgroundTint="@color/teal_700"
+        />
 
 
 
