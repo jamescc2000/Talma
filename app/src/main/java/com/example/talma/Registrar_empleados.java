@@ -1,5 +1,7 @@
 package com.example.talma;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,12 +22,15 @@ import android.widget.Toast;
 import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
@@ -37,6 +43,7 @@ public class Registrar_empleados extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     FirebaseAuth firebaseAuth;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +75,8 @@ public class Registrar_empleados extends AppCompatActivity {
         String [] opciones_areas = {"Patio de Equipaje", "Frio Aereo", "Counter"};
         ArrayAdapter<String> adapter_areas = new ArrayAdapter<String>(Registrar_empleados.this, R.layout.spinner,opciones_areas);
         sp_area.setAdapter(adapter_areas);
+
+        db = FirebaseFirestore.getInstance();
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(Registrar_empleados.this);
@@ -123,7 +132,7 @@ public class Registrar_empleados extends AppCompatActivity {
                             String area_string = sp_area.getSelectedItem().toString();
 
                             /*Creamos un Hashmap para mandar los datos a firebase*/
-                            HashMap<Object, String> datosUser = new HashMap<>();
+                            HashMap<String, Object> datosUser = new HashMap<>();
 
                             datosUser.put("uid", uid_String);
                             datosUser.put("id", id_String);
@@ -139,13 +148,25 @@ public class Registrar_empleados extends AppCompatActivity {
                             //Inicializamos la instancia a la base de datos
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-                            //Creamos la tabla
-                            DatabaseReference reference = database.getReference("Empleados"); // Este es el nombre de la tabla
-                            reference.child(uid_String).setValue(datosUser);
-                            Toast.makeText(Registrar_empleados.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                            //Agregamos coleccion
+                            db.collection("Empleados")
+                                    .add(datosUser)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                            //Una vez registrado, pasamos a la pantalla de dashboard
+                                            startActivity(new Intent(Registrar_empleados.this, Dashboard_empleados.class));
+                                            Toast.makeText(Registrar_empleados.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w(TAG, "Error adding document", e);
+                                        }
+                                    });
 
-                            //Una vez registrado, pasamos a la pantalla de dashboard
-                            startActivity(new Intent(Registrar_empleados.this, Dashboard_empleados.class));
                         }else {
                             progressDialog.dismiss(); // El progresss se cierra
                             Toast.makeText(Registrar_empleados.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
