@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/et_id_empleado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="ID del empleado" />
@@ -49,6 +50,19 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Correo electrónico" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_contraseña"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Contraseña" />
@@ -104,6 +118,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/et_nombres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombres" />
@@ -116,6 +131,7 @@
 
 
                 <EditText
+                    android:id="@+id/et_apellidos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Apellidos" />
@@ -127,6 +143,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/et_dni"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="DNI" />
@@ -139,6 +156,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/et_fecha_nacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Fecha de Nacimiento" />
@@ -146,6 +164,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/btn_registrar"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -155,6 +174,7 @@
                 />
 
             <Button
+                android:id="@+id/btn_cancelar"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
