@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "531060526324",
+    "project_id": "talma-35d4a",
+    "storage_bucket": "talma-35d4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531060526324:android:3bf23367c51c8f93f962a1",
+        "android_client_info": {
+          "package_name": "com.example.talma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531060526324-fac1icf4t2sphvsrl5g7t832i711lgpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbrqpXIvD_FDJNkLsT-su_dfzAiRRs8NU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531060526324-fac1icf4t2sphvsrl5g7t832i711lgpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
