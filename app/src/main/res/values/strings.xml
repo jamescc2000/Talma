@@ -8,6 +8,10 @@
     <!--Login de clientes-->
     <string name="login_titulo2">Clientes</string>
 
+    <!--Dialogo Fail Login-->
+    <string name="FailLogin">No se pudo iniciar sesion, vuelva a intentarlo</string>
+    <string name="ok_fail_login">Entendido</string>
+
     <!--Main Cliente-->
 
     <!--Pedidos-->
