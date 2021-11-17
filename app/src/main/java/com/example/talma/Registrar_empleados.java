@@ -33,6 +33,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Registrar_empleados extends AppCompatActivity {
 
@@ -43,7 +44,6 @@ public class Registrar_empleados extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     FirebaseAuth firebaseAuth;
-    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +76,6 @@ public class Registrar_empleados extends AppCompatActivity {
         ArrayAdapter<String> adapter_areas = new ArrayAdapter<String>(Registrar_empleados.this, R.layout.spinner,opciones_areas);
         sp_area.setAdapter(adapter_areas);
 
-        db = FirebaseFirestore.getInstance();
-
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(Registrar_empleados.this);
 
@@ -104,6 +102,7 @@ public class Registrar_empleados extends AppCompatActivity {
 
     /*Metodo para registrar un usuario*/
     public void RegistarEmpleados(String Email, String Password){
+
         progressDialog.setTitle("Registrando");
         progressDialog.setMessage("Espere por favor...");
         progressDialog.setCancelable(false);
@@ -114,10 +113,9 @@ public class Registrar_empleados extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         /*Si el registro es exitoso*/
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             progressDialog.dismiss(); // El progresss se cierra
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-
                             //Aqui van los datos que queremos registrar
                             assert user != null; //Afirmamos que el usuario no sea nulo
                             String uid_String = user.getUid();
@@ -132,7 +130,7 @@ public class Registrar_empleados extends AppCompatActivity {
                             String area_string = sp_area.getSelectedItem().toString();
 
                             /*Creamos un Hashmap para mandar los datos a firebase*/
-                            HashMap<String, Object> datosUser = new HashMap<>();
+                            Map<String, Object> datosUser = new HashMap<>();
 
                             datosUser.put("uid", uid_String);
                             datosUser.put("id", id_String);
@@ -148,37 +146,26 @@ public class Registrar_empleados extends AppCompatActivity {
                             //Inicializamos la instancia a la base de datos
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-                            //Agregamos coleccion
-                            db.collection("Empleados")
-                                    .add(datosUser)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                            //Una vez registrado, pasamos a la pantalla de dashboard
-                                            startActivity(new Intent(Registrar_empleados.this, Dashboard_empleados.class));
-                                            Toast.makeText(Registrar_empleados.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Log.w(TAG, "Error adding document", e);
-                                        }
-                                    });
+                            //Creamos la base de datos
+                            DatabaseReference reference = database.getReference("empleados"); // Este es el nomber de la base de datos
+                            reference.child(uid_String).setValue(datosUser);
+                            Toast.makeText(Registrar_empleados.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
 
-                        }else {
+                            //Una vez registrado, pasamos a la pantalla de dashboard
+                            startActivity(new Intent(Registrar_empleados.this, Dashboard_empleados.class));
+                        } else {
                             progressDialog.dismiss(); // El progresss se cierra
                             Toast.makeText(Registrar_empleados.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss(); // El progresss se cierra
-                Toast.makeText(Registrar_empleados.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                     }
+                    }).addOnFailureListener(new OnFailureListener() {
+                                               @Override
+                                               public void onFailure(@NonNull Exception e) {
+                                                   progressDialog.dismiss(); // El progresss se cierra
+                                                   Toast.makeText(Registrar_empleados.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                               }
+                                           });
+
     }
 
     //Habilitamos la accion para retroceder
