@@ -9,11 +9,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -57,6 +60,14 @@ public class Registrar_empleados extends AppCompatActivity {
         sp_area= (Spinner) findViewById(R.id.sp_area);
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
         btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
+
+        String [] opciones_tipo_cargo = {"Encargado de area","Encargado de facturacion","Coordinador de operaciones", ""};
+        ArrayAdapter<String> adapter_tipo_cargo = new ArrayAdapter<String>(Registrar_empleados.this, R.layout.spinner,opciones_tipo_cargo);
+        sp_tipo_cargo.setAdapter(adapter_tipo_cargo);
+
+        String [] opciones_areas = {"Patio de Equipaje", "Frio Aereo", "Counter"};
+        ArrayAdapter<String> adapter_areas = new ArrayAdapter<String>(Registrar_empleados.this, R.layout.spinner,opciones_areas);
+        sp_area.setAdapter(adapter_areas);
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(Registrar_empleados.this);
