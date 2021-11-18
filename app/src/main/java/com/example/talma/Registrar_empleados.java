@@ -147,7 +147,7 @@ public class Registrar_empleados extends AppCompatActivity {
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
 
                             //Creamos la base de datos
-                            DatabaseReference reference = database.getReference("empleados"); // Este es el nomber de la base de datos
+                            DatabaseReference reference = database.getReference("empleados"); // Este es el nomber de la tabla
                             reference.child(uid_String).setValue(datosUser);
                             Toast.makeText(Registrar_empleados.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
 
