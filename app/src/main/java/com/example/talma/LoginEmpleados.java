@@ -35,16 +35,16 @@ public class LoginEmpleados extends AppCompatActivity {
     private ProgressDialog progressDialog;
     Dialog dialog;
 
+    ActionBar actionBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_empleados);
 
-        ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null; // Afirmammos que el titulo no es nulo
-        actionBar.setTitle("Iniciar Sesion");
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar = getSupportActionBar();
+        actionBar.hide();
+
 
         et_login_emplados = (EditText) findViewById(R.id.et_login_emplados);
         et_contraseña_empleados = (EditText) findViewById(R.id.et_contraseña_empleados);

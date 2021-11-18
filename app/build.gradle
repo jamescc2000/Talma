@@ -40,7 +40,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.airbnb.android:lottie:3.0.1'  /*Animeaciones con Lottie*/
 
-
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
     implementation 'com.google.firebase:firebase-database:20.0.2'  /*RealTime Database*/
     implementation 'com.google.firebase:firebase-auth:21.0.1' /*Autenticacion de Firebase*/

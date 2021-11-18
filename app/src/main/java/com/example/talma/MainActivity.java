@@ -1,5 +1,6 @@
 package com.example.talma;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,11 +11,16 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button btn_login_empleado, btn_login_cliente;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        actionBar = getSupportActionBar();
+        actionBar.hide();
+
 
         btn_login_cliente = (Button) findViewById(R.id.btn_login_cliente);
         btn_login_empleado = (Button) findViewById(R.id.btn_login_empleado);

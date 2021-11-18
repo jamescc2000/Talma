@@ -1,5 +1,6 @@
 package com.example.talma.RsirEmpleados;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,6 +43,8 @@ public class RegistrarRsire extends AppCompatActivity {
     List<ModeloServicio> listaServicios = new ArrayList<>();
     LinearLayout ll_agregar_servicio;
 
+    ActionBar actionBar;
+
 
     private Spinner sp_servicios;
     private EditText et_codigo, et_hora_desde_llegada, et_hora_hasta_llegada, et_cantidad_llegada, et_hora_desde_salida, et_hora_hasta_salida, et_cantidad_salida;
@@ -53,6 +56,11 @@ public class RegistrarRsire extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_rsire);
+
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("Registrar RSIR");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         sp_aeropuertos = (Spinner) findViewById(R.id.sp_aeropuertos);
         sp_aeronaves = (Spinner) findViewById(R.id.sp_aeronaves);
@@ -177,5 +185,11 @@ public class RegistrarRsire extends AppCompatActivity {
         adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios);
         recyclerView.setAdapter(adapterListaServicios);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

@@ -41,8 +41,6 @@ public class Dashboard_empleados extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard_empleados);
 
         actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -107,7 +105,7 @@ public class Dashboard_empleados extends AppCompatActivity {
 
                         case R.id.nav_RSIRe:
                             //Transaccion del fragmento usuarios
-                            actionBar.setTitle("RSIRe");
+                            actionBar.setTitle("RSIR");
                             RsireFragment fragment4 = new RsireFragment();
                             FragmentTransaction ft4 = getSupportFragmentManager().beginTransaction();
                             ft4.replace(R.id.content, fragment4, "");
@@ -130,6 +128,7 @@ public class Dashboard_empleados extends AppCompatActivity {
                 }
             };
 
+
     private void verificarEstadoUsuario(){
         //obtenemos al usuario actual
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -148,10 +147,6 @@ public class Dashboard_empleados extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 
     public void onStart() {
         VERIFICACIONSESION();
@@ -199,10 +194,5 @@ public class Dashboard_empleados extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
 
 }
