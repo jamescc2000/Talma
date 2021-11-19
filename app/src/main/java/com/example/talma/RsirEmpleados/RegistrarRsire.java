@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -331,8 +332,6 @@ public class RegistrarRsire extends AppCompatActivity {
 
                 }else if (ll_registrar_rsire.getVisibility() == View.VISIBLE){
 
-
-
                     ll_registrar_rsire.setVisibility(View.GONE);
                     btn_editar_datos_generales.setText("EDITAR DATOS GENERALES");
 
@@ -357,22 +356,10 @@ public class RegistrarRsire extends AppCompatActivity {
                 if (ll_agregar_servicio.getVisibility() == View.GONE){
                     ll_agregar_servicio.setVisibility(View.VISIBLE);
                     btn_agregar.setText("Guardar");
+
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
-                    listaServicios.add(new ModeloServicio(
-                            sp_servicios.getSelectedItem().toString(),
-                            et_codigo.getText().toString(),
-                            btn_hora_desde_llegada.getText().toString(),
-                            btn_hora_hasta_llegada.getText().toString(),
-                            btn_hora_desde_salida.getText().toString(),
-                            btn_hora_hasta_salida.getText().toString(),
-                            et_cantidad_llegada.getText().toString(),
-                            et_cantidad_salida.getText().toString()));
 
-                    adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios);
-                    recyclerView.setAdapter(adapterListaServicios);
-
-                    btn_agregar.setText("Agregar servicio");
-                    ll_agregar_servicio.setVisibility(View.GONE);
+                    RegistrarServicio();
                 }
 
 
@@ -384,7 +371,7 @@ public class RegistrarRsire extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Validacion de los campos
-                if(TextUtils.isEmpty(et_codigo.getText().toString())  || TextUtils.isEmpty(sp_aeropuertos.getSelectedItem().toString()) ||
+                if(TextUtils.isEmpty(et_codigo_rsir.getText().toString())  || TextUtils.isEmpty(sp_aeropuertos.getSelectedItem().toString()) ||
                         TextUtils.isEmpty(et_compañia.getText().toString()) || TextUtils.isEmpty(et_origen.getText().toString()) ||
                         TextUtils.isEmpty(et_destino.getText().toString()) || TextUtils.isEmpty(sp_aeronaves.getSelectedItem().toString()) ||
                         TextUtils.isEmpty(et_matricula.getText().toString()) || TextUtils.isEmpty(sp_area.getSelectedItem().toString()) ||
@@ -398,13 +385,19 @@ public class RegistrarRsire extends AppCompatActivity {
 
                 }else {
 
-                    RegistrarRSIR();
+                    if(listaServicios.size() < 1){
+
+                        Toast.makeText(RegistrarRsire.this, "Por favor agrege minimo un servicio", Toast.LENGTH_SHORT).show();
+
+                    }else {
+
+                        RegistrarRSIR();
+
+                    }
 
                 }
             }
         });
-
-
 
     }
 
@@ -421,7 +414,7 @@ public class RegistrarRsire extends AppCompatActivity {
         assert user != null; //Afirmamos que el usuario no sea nulo
 
         String uid_String = user.getUid();
-        String codigo_String = et_codigo.getText().toString();
+        String codigo_String = et_codigo_rsir.getText().toString();
         String aeropuerto_String = sp_aeropuertos.getSelectedItem().toString();
         String compañia_string = et_compañia.getText().toString();
         String origen_String = et_origen.getText().toString();
@@ -440,33 +433,33 @@ public class RegistrarRsire extends AppCompatActivity {
         String pea_salida_string = et_pea_salida.getText().toString();
 
         /*Creamos un Hashmap para mandar los datos a firebase*/
-        Map<String, Object> datosUser = new HashMap<>();
+        Map<String, Object> datosRsir = new HashMap<>();
 
-        datosUser.put("uid", uid_String);
-        datosUser.put("codigo", codigo_String);
-        datosUser.put("aeropuerto", aeropuerto_String);
-        datosUser.put("compania", compañia_string);
-        datosUser.put("origen", origen_String);
-        datosUser.put("destino", destino_String);
-        datosUser.put("aeronave", aeronave_String);
-        datosUser.put("matricula", matricula_string);
-        datosUser.put("area", area_string);
-        datosUser.put("aCargoDe", a_cargo_de_string);
-        datosUser.put("fechaLlegada", fecha_llegada_string);
-        datosUser.put("horaLlegada", hora_llegada_string);
-        datosUser.put("nvueloLlegada", nvuelo_llegada_string);
-        datosUser.put("peaLlegada", pea_llegada_string);
-        datosUser.put("fechaSalida", fecha_salida_string);
-        datosUser.put("horaSalida", hora_salida_string);
-        datosUser.put("nvueloSalida", nvuelo_salida_string);
-        datosUser.put("peaSalida", pea_salida_string);
+        datosRsir.put("uid", uid_String);
+        datosRsir.put("codigoRsir", codigo_String);
+        datosRsir.put("aeropuerto", aeropuerto_String);
+        datosRsir.put("compania", compañia_string);
+        datosRsir.put("origen", origen_String);
+        datosRsir.put("destino", destino_String);
+        datosRsir.put("aeronave", aeronave_String);
+        datosRsir.put("matricula", matricula_string);
+        datosRsir.put("area", area_string);
+        datosRsir.put("aCargoDe", a_cargo_de_string);
+        datosRsir.put("fechaLlegada", fecha_llegada_string);
+        datosRsir.put("horaLlegada", hora_llegada_string);
+        datosRsir.put("nvueloLlegada", nvuelo_llegada_string);
+        datosRsir.put("peaLlegada", pea_llegada_string);
+        datosRsir.put("fechaSalida", fecha_salida_string);
+        datosRsir.put("horaSalida", hora_salida_string);
+        datosRsir.put("nvueloSalida", nvuelo_salida_string);
+        datosRsir.put("peaSalida", pea_salida_string);
 
         //Inicializamos la instancia a la base de datos
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         //Creamos la tabla
         DatabaseReference reference = database.getReference("rsir"); // Este es el nombre de la tabla
-        reference.child(uid_String).setValue(datosUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child(codigo_String).setValue(datosRsir).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
@@ -489,6 +482,78 @@ public class RegistrarRsire extends AppCompatActivity {
 
     }
 
+    private void RegistrarServicio(){
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        //Aqui van los datos que queremos registrar
+        assert user != null; //Afirmamos que el usuario no sea nulo
+
+        String uid_String = user.getUid();
+        String codigo_RSIR_string = et_codigo_rsir.getText().toString();
+        String nombre_string = sp_servicios.getSelectedItem().toString();
+        String codigo_servicio_string = et_codigo.getText().toString();
+        String hora_desde_llegada = btn_hora_desde_llegada.getText().toString();
+        String hora_hasta_llegada = btn_hora_hasta_llegada.getText().toString();
+        String cantidad_llegada_string = et_cantidad_llegada.getText().toString();
+        String hora_desde_salida = btn_hora_desde_salida.getText().toString();
+        String hora_hasta_salida = btn_hora_hasta_salida.getText().toString();
+        String cantidad_salida_string = et_cantidad_salida.getText().toString();
+
+        /*Creamos un Hashmap para mandar los datos a firebase*/
+        Map<String, Object> datosServicio = new HashMap<>();
+
+        datosServicio.put("codigoServicio", codigo_servicio_string);
+        datosServicio.put("uid", uid_String);
+        datosServicio.put("codigoRSIR", codigo_RSIR_string);
+        datosServicio.put("nombre", nombre_string);
+        datosServicio.put("horaDesdeLlegada", hora_desde_llegada);
+        datosServicio.put("horaHastaLlegada", hora_hasta_llegada);
+        datosServicio.put("cantidadLlegada", cantidad_llegada_string);
+        datosServicio.put("horaDesdeSalida", hora_desde_salida);
+        datosServicio.put("horaHastaSalida", hora_hasta_salida);
+        datosServicio.put("cantidadSalida", cantidad_salida_string);
+
+        //Inicializamos la instancia a la base de datos
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        //Creamos la tabla
+        DatabaseReference reference = database.getReference("servicios"); // Este es el nombre de la tabla
+        reference.child(codigo_servicio_string).setValue(datosServicio).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                progressDialog.dismiss(); // El progresss se cierra
+
+                Toast.makeText(RegistrarRsire.this, "Servicio agregado", Toast.LENGTH_SHORT).show();
+                //Una vez registrado el servicio, lo agregamos al rv
+                listaServicios.add(new ModeloServicio(
+                        sp_servicios.getSelectedItem().toString(),
+                        et_codigo.getText().toString(),
+                        btn_hora_desde_llegada.getText().toString(),
+                        btn_hora_hasta_llegada.getText().toString(),
+                        btn_hora_desde_salida.getText().toString(),
+                        btn_hora_hasta_salida.getText().toString(),
+                        et_cantidad_llegada.getText().toString(),
+                        et_cantidad_salida.getText().toString()));
+
+                adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios);
+                recyclerView.setAdapter(adapterListaServicios);
+
+                btn_agregar.setText("Agregar servicio");
+                ll_agregar_servicio.setVisibility(View.GONE);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                progressDialog.dismiss(); // El progresss se cierra
+                Toast.makeText(RegistrarRsire.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
 
     private String makeDateString(int dayOfMonth, int month, int year){
         return dayOfMonth + "/" + month + "/" + year;
@@ -499,4 +564,5 @@ public class RegistrarRsire extends AppCompatActivity {
         onBackPressed();
         return super.onSupportNavigateUp();
     }
+
 }
