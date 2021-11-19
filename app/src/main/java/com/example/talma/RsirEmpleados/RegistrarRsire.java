@@ -367,7 +367,7 @@ public class RegistrarRsire extends AppCompatActivity {
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
 
                     //Una vez registrado el servicio, lo agregamos al rv
-                    listaServicios.add(new ModeloServicio(
+                    listaServicios.add(new ModeloServicio(et_codigo.getText().toString(),
                             sp_servicios.getSelectedItem().toString(),
                             et_codigo.getText().toString(),
                             btn_hora_desde_llegada.getText().toString(),
@@ -375,7 +375,7 @@ public class RegistrarRsire extends AppCompatActivity {
                             btn_hora_desde_salida.getText().toString(),
                             btn_hora_hasta_salida.getText().toString(),
                             et_cantidad_llegada.getText().toString(),
-                            et_cantidad_salida.getText().toString()));
+                            et_cantidad_salida.getText().toString(), "registrado"));
 
                     //Limpiamos los campos
                     et_codigo.setText("");
@@ -546,6 +546,7 @@ public class RegistrarRsire extends AppCompatActivity {
             datosServicio.put("horaDesdeSalida", hora_desde_salida);
             datosServicio.put("horaHastaSalida", hora_hasta_salida);
             datosServicio.put("cantidadSalida", cantidad_salida_string);
+            datosServicio.put("estado", "registrado");
 
             //Inicializamos la instancia a la base de datos
             FirebaseDatabase database = FirebaseDatabase.getInstance();
