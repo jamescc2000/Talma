@@ -56,11 +56,11 @@ public class ReclamFragment extends Fragment {
 
     private void ObtenerReclamos() {
         modeloReclamo.clear();
-        modeloReclamo.add(new ModeloReclamo("121654","Reclamo01","RISR1654","Frío áreo","16/11/2021", "Aceptado"));
-        modeloReclamo.add(new ModeloReclamo("121655","Reclamo02","RISR1655","Patio de equipaje","16/11/2021", "Aceptado"));
-        modeloReclamo.add(new ModeloReclamo("121656","Reclamo03","RISR1484","Counter","15/11/2021", "En espera"));
-        modeloReclamo.add(new ModeloReclamo("121657","Reclamo04","RISR1674","Counter","14/11/2021", "En espera"));
-        modeloReclamo.add(new ModeloReclamo("121658","Reclamo05","RISR1784","Frío áreo","13/11/2021", "Rechazado"));
+        modeloReclamo.add(new ModeloReclamo("121654","RISR1654","Frío áreo","16/11/2021", "Aceptado",""));
+        modeloReclamo.add(new ModeloReclamo("121655","RISR1655","Patio de equipaje","16/11/2021", "Aceptado",""));
+        modeloReclamo.add(new ModeloReclamo("121656","RISR1484","Counter","15/11/2021", "En espera",""));
+        modeloReclamo.add(new ModeloReclamo("121657","RISR1674","Counter","14/11/2021", "En espera",""));
+        modeloReclamo.add(new ModeloReclamo("121658","RISR1784","Frío áreo","13/11/2021", "Rechazado",""));
 
         adaptadorReclamo = new AdaptadorReclamo(getActivity(), modeloReclamo, "empleado");
         recyclerView.setAdapter(adaptadorReclamo);

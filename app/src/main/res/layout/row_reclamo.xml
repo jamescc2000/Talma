@@ -37,7 +37,7 @@
 
                     <!--Aeropuerto-->
                     <TextView
-                        android:id="@+id/tv_reclamo"
+                        android:id="@+id/tv_cod_reclamo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -75,15 +75,7 @@
                     android:paddingLeft="5dp"
                     android:paddingBottom="5dp">
 
-                    <!--Codigo-->
-                    <TextView
-                        android:id="@+id/tv_codigo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/tv_codigo"
-                        android:textColor="#000"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"/>
+
 
                     <!--Area-->
                     <TextView
