@@ -82,7 +82,7 @@ public class LoginClientes extends AppCompatActivity {
                                 progressDialog.dismiss(); // El progresss se cierra
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                                startActivity(new Intent(LoginClientes.this, Dashboard_empleados.class));
+                                startActivity(new Intent(LoginClientes.this, Dashboard_cliente.class));
                                 assert user != null;
                                 Toast.makeText(LoginClientes.this, "Hola! Bienvenido(a) "+ user.getEmail(), Toast.LENGTH_SHORT).show();
                                 finish();
