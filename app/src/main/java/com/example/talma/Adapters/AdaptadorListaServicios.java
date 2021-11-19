@@ -1,5 +1,6 @@
 package com.example.talma.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ServicioViewHolder servicioViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final ServicioViewHolder servicioViewHolder, @SuppressLint("RecyclerView") int i) {
         servicioViewHolder.tv_nombre_servicio.setText(listaServicios.get(i).getNombre_servicio());
         servicioViewHolder.tv_codigo.setText(listaServicios.get(i).getCodigo_servicio());
         servicioViewHolder.tv_horas_servicios.setText(listaServicios.get(i).getHora_desde_llegada() + " - " + listaServicios.get(i).getHora_hasta_salida());
@@ -44,6 +45,14 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
        String string_cantidad_total = String.valueOf(cantidad_total);
 
         servicioViewHolder.tv_cantidad_total_servicios.setText(string_cantidad_total);
+
+        ib_eliminar_servicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listaServicios.remove(i);
+                context.notify();
+            }
+        });
 
     }
 

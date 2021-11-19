@@ -354,12 +354,43 @@ public class RegistrarRsire extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (ll_agregar_servicio.getVisibility() == View.GONE){
-                    ll_agregar_servicio.setVisibility(View.VISIBLE);
-                    btn_agregar.setText("Guardar");
+
+                    if(TextUtils.isEmpty(et_codigo_rsir.getText().toString())){
+                        Toast.makeText(RegistrarRsire.this, "Por favor, primero complete los datos generales del vuelo", Toast.LENGTH_SHORT).show();
+                    }else {
+
+                        ll_agregar_servicio.setVisibility(View.VISIBLE);
+                        btn_agregar.setText("Guardar");
+
+                    }
 
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
 
-                    RegistrarServicio();
+                    //Una vez registrado el servicio, lo agregamos al rv
+                    listaServicios.add(new ModeloServicio(
+                            sp_servicios.getSelectedItem().toString(),
+                            et_codigo.getText().toString(),
+                            btn_hora_desde_llegada.getText().toString(),
+                            btn_hora_hasta_llegada.getText().toString(),
+                            btn_hora_desde_salida.getText().toString(),
+                            btn_hora_hasta_salida.getText().toString(),
+                            et_cantidad_llegada.getText().toString(),
+                            et_cantidad_salida.getText().toString()));
+
+                    //Limpiamos los campos
+                    et_codigo.setText("");
+                    btn_hora_desde_llegada.setText("Hora desde");
+                    btn_hora_hasta_llegada.setText("Hora hasta");
+                    btn_hora_desde_salida.setText("Hora desde");
+                    btn_hora_hasta_salida.setText("Hora hasta");
+                    et_cantidad_llegada.setText("");
+                    et_cantidad_salida.setText("");
+
+                    adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios);
+                    recyclerView.setAdapter(adapterListaServicios);
+
+                    btn_agregar.setText("Agregar servicio");
+                    ll_agregar_servicio.setVisibility(View.GONE);
                 }
 
 
@@ -391,6 +422,7 @@ public class RegistrarRsire extends AppCompatActivity {
 
                     }else {
 
+                        RegistrarServicios();
                         RegistrarRSIR();
 
                     }
@@ -482,76 +514,61 @@ public class RegistrarRsire extends AppCompatActivity {
 
     }
 
-    private void RegistrarServicio(){
+    private void RegistrarServicios(){
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
 
-        String uid_String = user.getUid();
-        String codigo_RSIR_string = et_codigo_rsir.getText().toString();
-        String nombre_string = sp_servicios.getSelectedItem().toString();
-        String codigo_servicio_string = et_codigo.getText().toString();
-        String hora_desde_llegada = btn_hora_desde_llegada.getText().toString();
-        String hora_hasta_llegada = btn_hora_hasta_llegada.getText().toString();
-        String cantidad_llegada_string = et_cantidad_llegada.getText().toString();
-        String hora_desde_salida = btn_hora_desde_salida.getText().toString();
-        String hora_hasta_salida = btn_hora_hasta_salida.getText().toString();
-        String cantidad_salida_string = et_cantidad_salida.getText().toString();
+        for(int i=0; i < listaServicios.size(); i++){
 
-        /*Creamos un Hashmap para mandar los datos a firebase*/
-        Map<String, Object> datosServicio = new HashMap<>();
+            String uid_String = user.getUid();
+            String codigo_RSIR_string = et_codigo_rsir.getText().toString();
+            String nombre_string = listaServicios.get(i).getNombre_servicio();
+            String codigo_servicio_string = listaServicios.get(i).getCodigo_servicio();
+            String hora_desde_llegada = listaServicios.get(i).getHora_desde_llegada();
+            String hora_hasta_llegada = listaServicios.get(i).getHora_hasta_llegada();
+            String cantidad_llegada_string = listaServicios.get(i).getCantidad_llegada();
+            String hora_desde_salida = listaServicios.get(i).getHora_desde_salida();
+            String hora_hasta_salida = listaServicios.get(i).getHora_hasta_salida();
+            String cantidad_salida_string = listaServicios.get(i).getCantidad_salida();
 
-        datosServicio.put("codigoServicio", codigo_servicio_string);
-        datosServicio.put("uid", uid_String);
-        datosServicio.put("codigoRSIR", codigo_RSIR_string);
-        datosServicio.put("nombre", nombre_string);
-        datosServicio.put("horaDesdeLlegada", hora_desde_llegada);
-        datosServicio.put("horaHastaLlegada", hora_hasta_llegada);
-        datosServicio.put("cantidadLlegada", cantidad_llegada_string);
-        datosServicio.put("horaDesdeSalida", hora_desde_salida);
-        datosServicio.put("horaHastaSalida", hora_hasta_salida);
-        datosServicio.put("cantidadSalida", cantidad_salida_string);
+            /*Creamos un Hashmap para mandar los datos a firebase*/
+            Map<String, Object> datosServicio = new HashMap<>();
 
-        //Inicializamos la instancia a la base de datos
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+            datosServicio.put("codigoServicio", codigo_servicio_string);
+            datosServicio.put("uid", uid_String);
+            datosServicio.put("codigoRSIR", codigo_RSIR_string);
+            datosServicio.put("nombre", nombre_string);
+            datosServicio.put("horaDesdeLlegada", hora_desde_llegada);
+            datosServicio.put("horaHastaLlegada", hora_hasta_llegada);
+            datosServicio.put("cantidadLlegada", cantidad_llegada_string);
+            datosServicio.put("horaDesdeSalida", hora_desde_salida);
+            datosServicio.put("horaHastaSalida", hora_hasta_salida);
+            datosServicio.put("cantidadSalida", cantidad_salida_string);
 
-        //Creamos la tabla
-        DatabaseReference reference = database.getReference("servicios"); // Este es el nombre de la tabla
-        reference.child(codigo_servicio_string).setValue(datosServicio).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            //Inicializamos la instancia a la base de datos
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-                progressDialog.dismiss(); // El progresss se cierra
+            //Creamos la tabla
+            DatabaseReference reference = database.getReference("servicios"); // Este es el nombre de la tabla
+            reference.child(codigo_servicio_string).setValue(datosServicio).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
 
-                Toast.makeText(RegistrarRsire.this, "Servicio agregado", Toast.LENGTH_SHORT).show();
-                //Una vez registrado el servicio, lo agregamos al rv
-                listaServicios.add(new ModeloServicio(
-                        sp_servicios.getSelectedItem().toString(),
-                        et_codigo.getText().toString(),
-                        btn_hora_desde_llegada.getText().toString(),
-                        btn_hora_hasta_llegada.getText().toString(),
-                        btn_hora_desde_salida.getText().toString(),
-                        btn_hora_hasta_salida.getText().toString(),
-                        et_cantidad_llegada.getText().toString(),
-                        et_cantidad_salida.getText().toString()));
+                    Toast.makeText(RegistrarRsire.this, "Servicios agregados", Toast.LENGTH_SHORT).show();
 
-                adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios);
-                recyclerView.setAdapter(adapterListaServicios);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-                btn_agregar.setText("Agregar servicio");
-                ll_agregar_servicio.setVisibility(View.GONE);
+                    Toast.makeText(RegistrarRsire.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
+                }
+            });
 
-                progressDialog.dismiss(); // El progresss se cierra
-                Toast.makeText(RegistrarRsire.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        }
 
     }
 

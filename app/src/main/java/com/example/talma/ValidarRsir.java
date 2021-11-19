@@ -82,17 +82,18 @@ public class ValidarRsir extends AppCompatActivity {
 
     private void ObtenerRSIRPendientes() {
 
-        rsirsPendienteList.add(new ModeloRSIR("RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
+        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
 
-        rsirsPendienteList.add(new ModeloRSIR("RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
+        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
 
-        rsirsPendienteList.add(new ModeloRSIR("RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
+        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+
 
 
         adaptadorRsirPendientes = new AdaptadorRsir(ValidarRsir.this, rsirsPendienteList, "cliente");
@@ -103,17 +104,18 @@ public class ValidarRsir extends AppCompatActivity {
     private void ObtenerRSIRValidados() {
 
 
-        rsirsValidadosList.add(new ModeloRSIR("RISR1654", "Chiclayo", "LATAM", "Lima", "Chiclayo",
-                "avion de carga", "DS84FS6", "Counter", "Jose Luna", "15/11/2021",
+        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
+                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
 
-        rsirsValidadosList.add(new ModeloRSIR("RISR1654", "Chiclayo", "LATAM", "Lima", "Chiclayo",
-                "avion de carga", "DS84FS6", "Counter", "Jose Luna", "15/11/2021",
+        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
+                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
 
-        rsirsValidadosList.add(new ModeloRSIR("RISR1654", "Chiclayo", "LATAM", "Lima", "Chiclayo",
-                "avion de carga", "DS84FS6", "Counter", "Jose Luna", "15/11/2021",
+        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
+                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
                 "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+
 
         adaptadorRsirValidados = new AdaptadorRsir(ValidarRsir.this, rsirsValidadosList, "cliente");
         rv_rsir_validados.setAdapter(adaptadorRsirValidados);
