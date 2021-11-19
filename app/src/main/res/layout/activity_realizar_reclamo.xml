@@ -34,11 +34,12 @@
                 android:text="Codigo de RSIR: "
                 android:textColor="#000"
                 android:textSize="17sp" />
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/et_codigo_rsir"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="9999999"
+                android:hint=""
                 android:textColor="#000"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -56,6 +57,7 @@
                 android:textColor="#000"
                 android:textSize="17sp" />
             <EditText
+                android:id="@+id/et_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -73,12 +75,14 @@
             android:textColor="#000"
             android:textSize="19sp" />
         <EditText
+            android:id="@+id/et_motivo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:hint="Escribanos sus motivos del reclamo"/>
 
         <Button
+            android:id="@+id/btn_enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -87,6 +91,7 @@
             />
 
         <Button
+            android:id="@+id/btn_cancelar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cancelar"
