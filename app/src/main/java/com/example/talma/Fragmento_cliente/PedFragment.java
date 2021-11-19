@@ -58,7 +58,7 @@ public class PedFragment extends Fragment {
         });
         btn_realizar_reclamo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(view.getContext(), RealizarReclamo.class);
                 startActivity(intent);
             }
