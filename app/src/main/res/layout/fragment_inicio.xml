@@ -6,11 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Fragmentos_empleados.InicioFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <!--Boton Cerrar Sesion-->
+    <Button
+        android:id="@+id/btn_cerrar_sesion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_personalizado"
+        android:text="Cerrar Sesion"
+        app:backgroundTint="@color/teal_700"
+        android:textColor="#ffff" />
 
 
 </FrameLayout>

@@ -81,17 +81,17 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/txt_aeropueto"
-                            android:layout_weight="1"
+                            android:text="Aeropuerto:"
+                            android:textColor="#555555"
                             android:textSize="17sp"/>
 
                         <Spinner
                             android:id="@+id/sp_aeropuertos"
+                            android:layout_marginLeft="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
+                            android:layout_height="wrap_content"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -152,17 +152,17 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_aeronave"
-                        android:layout_weight="1"
+                        android:text="Aeronave:"
+                        android:textColor="#555555"
                         android:textSize="17sp"/>
 
                     <Spinner
                         android:id="@+id/sp_aeronaves"
+                        android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_height="wrap_content" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -190,17 +190,17 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_area"
-                        android:layout_weight="1"
+                        android:text="Area:"
+                        android:textColor="#555555"
                         android:textSize="17sp"/>
 
                     <Spinner
                         android:id="@+id/sp_area"
+                        android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_height="wrap_content"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -239,37 +239,24 @@
                     android:textSize="18sp"/>
 
                 <!--Fecha-->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <EditText
-                        android:id="@+id/et_fecha_llegada"
+                    <Button
+                        android:id="@+id/btn_fecha_llegada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/txt_fecha"
-                        android:importantForAutofill="no"
-                        android:inputType="date"
-                        android:textColorHint="#000" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                        style="?android:spinnerStyle"
+                        android:textColor="#555555"
+                        android:text="Fecha de Llegada"
+                        app:backgroundTint="#555555"/>
 
                 <!--Hora-->
-                <com.google.android.material.textfield.TextInputLayout
+                <Button
+                    android:id="@+id/btn_hora_llegada"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/et_hora_llegada"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/txt_hora"
-                        android:importantForAutofill="no"
-                        android:inputType="time"
-                        android:textColorHint="#000" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    style="?android:spinnerStyle"
+                    android:textColor="#555555"
+                    android:text="Hora de Llegada"
+                    app:backgroundTint="#555555"/>
 
                 <!--N° vuelo-->
                 <com.google.android.material.textfield.TextInputLayout
@@ -322,37 +309,24 @@
                     android:textSize="18sp" />
 
                 <!--Fecha-->
-                <com.google.android.material.textfield.TextInputLayout
+                <Button
+                    android:id="@+id/btn_fecha_salida"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <EditText
-                        android:id="@+id/et_fecha_salida"
-                        android:hint="@string/txt_fecha"
-                        android:inputType="date"
-                        android:textColorHint="#000"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:importantForAutofill="no"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    style="?android:spinnerStyle"
+                    android:textColor="#555555"
+                    android:text="Fecha de Salida"
+                    app:backgroundTint="#555555"/>
 
                 <!--Hora-->
-                <com.google.android.material.textfield.TextInputLayout
+                <Button
+                    android:id="@+id/btn_hora_salida"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/et_hora_salida"
-                        android:hint="@string/txt_hora"
-                        android:inputType="time"
-                        android:textColorHint="#000"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:importantForAutofill="no"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    style="?android:spinnerStyle"
+                    android:textColor="#555555"
+                    android:text="Hora de Salida"
+                    app:backgroundTint="#555555"/>
 
                 <!--N° vuelo-->
                 <com.google.android.material.textfield.TextInputLayout
@@ -392,7 +366,7 @@
 
         <!--Boton Datos Generales-->
         <Button
-            android:id="@+id/btn_siguiente"
+            android:id="@+id/btn_editar_datos_generales"
             android:text="@string/btn_siguiente"
             android:background="@drawable/btn_personalizado"
             android:textColor="#fff"
@@ -614,36 +588,24 @@
                         android:textSize="18sp" />
 
                     <!--Hora Desde-->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <Button
+                        android:id="@+id/btn_hora_desde_llegada"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/et_hora_desde_llegada"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/txt_hora_desde"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:textColorHint="#000" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        style="?android:spinnerStyle"
+                        android:textColor="#555555"
+                        android:text="Hora desde"
+                        app:backgroundTint="#555555"/>
 
                     <!--Hora Hasta-->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <Button
+                        android:id="@+id/btn_hora_hasta_llegada"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/et_hora_hasta_llegada"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/txt_hora_hasta"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:textColorHint="#000" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        style="?android:spinnerStyle"
+                        android:textColor="#555555"
+                        android:text="Hora hasta"
+                        app:backgroundTint="#555555"/>
 
                     <!--Cantidad Llegada-->
                     <com.google.android.material.textfield.TextInputLayout
@@ -682,36 +644,24 @@
                         android:textSize="18sp" />
 
                     <!--Hora Desde-->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <Button
+                        android:id="@+id/btn_hora_desde_salida"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/et_hora_desde_salida"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/txt_hora_desde"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:textColorHint="#000" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        style="?android:spinnerStyle"
+                        android:textColor="#555555"
+                        android:text="Hora desde"
+                        app:backgroundTint="#555555"/>
 
                     <!--Hora Hasta-->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <Button
+                        android:id="@+id/btn_hora_hasta_salida"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:id="@+id/et_hora_hasta_salida"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/txt_hora_hasta"
-                            android:importantForAutofill="no"
-                            android:inputType="time"
-                            android:textColorHint="#000" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        style="?android:spinnerStyle"
+                        android:textColor="#555555"
+                        android:text="Hora hasta"
+                        app:backgroundTint="#555555"/>
 
                     <!--Cantidad Salisda-->
                     <com.google.android.material.textfield.TextInputLayout
@@ -741,7 +691,7 @@
             android:id="@+id/btn_agregar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5sp"
+            android:layout_marginTop="17sp"
             android:layout_weight="1"
             android:background="@drawable/btn_personalizado"
             android:text="@string/btn_agregar"

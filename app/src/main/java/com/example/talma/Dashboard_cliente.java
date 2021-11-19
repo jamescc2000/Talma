@@ -33,9 +33,9 @@ public class Dashboard_cliente extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard_cliente);
 
         actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
         BottomNavigationView navigationView = findViewById(R.id.navegacion);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_marginTop="20dp">
 
             <EditText
-                android:id="@+id/emailLogin"
+                android:id="@+id/et_login_emplados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/user_icon"
@@ -57,7 +57,7 @@
             app:passwordToggleEnabled="true">
 
             <EditText
-                android:id="@+id/passwordLogin"
+                android:id="@+id/et_contraseña_empleados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/pass_icon"
@@ -85,4 +85,4 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

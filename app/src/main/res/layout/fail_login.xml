@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Dialogo personalizado-->
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:gravity="center"
+    android:background="#fff">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:text="@string/FailLogin"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Animacion-->
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="sad_face.json"
+            app:lottie_autoPlay="true"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+        <!--Boton Cerrar-->
+        <Button
+            android:id="@+id/ok_fail_login"
+            android:text="@string/ok_fail_login"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_personalizado"
+            android:textColor="#fff"
+            app:backgroundTint="@color/teal_700"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

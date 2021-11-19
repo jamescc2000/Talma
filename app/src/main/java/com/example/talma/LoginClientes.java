@@ -1,5 +1,6 @@
 package com.example.talma;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,10 +12,15 @@ public class LoginClientes extends AppCompatActivity {
 
     Button btn_Ingresar;
 
+    ActionBar actionBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_cliente);
+
+        actionBar = getSupportActionBar();
+        actionBar.hide();
 
         btn_Ingresar = (Button) findViewById(R.id.btn_Ingresar);
 

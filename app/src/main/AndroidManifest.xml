@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.talma">
-
-    <!--Permisos para el interenet-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Permisos para el interenet -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +11,7 @@
         android:roundIcon="@mipmap/talma_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Talma">
+
         <activity
             android:name=".Registrar_empleados"
             android:exported="false" />
@@ -58,12 +58,21 @@
             android:name=".LoginEmpleados"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".PantallaCarga"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
