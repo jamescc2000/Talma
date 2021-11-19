@@ -3,12 +3,13 @@ package com.example.talma.Modelos;
 public class ModeloServicio {
 
     //Usar los mismos nombres que en la base de datos
-    String nombre_servicio, codigo_servicio, hora_desde_llegada,hora_hasta_llegada, hora_desde_salida,hora_hasta_salida, cantidad_llegada, cantidad_salida;
+    String uid,nombre_servicio, codigo_servicio, hora_desde_llegada,hora_hasta_llegada, hora_desde_salida,hora_hasta_salida, cantidad_llegada, cantidad_salida, estado;
 
     public ModeloServicio() {
     }
 
-    public ModeloServicio(String nombre_servicio, String codigo_servicio, String hora_desde_llegada, String hora_hasta_llegada, String hora_desde_salida, String hora_hasta_salida, String cantidad_llegada, String cantidad_salida) {
+    public ModeloServicio(String uid, String nombre_servicio, String codigo_servicio, String hora_desde_llegada, String hora_hasta_llegada, String hora_desde_salida, String hora_hasta_salida, String cantidad_llegada, String cantidad_salida, String estado) {
+        this.uid = uid;
         this.nombre_servicio = nombre_servicio;
         this.codigo_servicio = codigo_servicio;
         this.hora_desde_llegada = hora_desde_llegada;
@@ -17,6 +18,15 @@ public class ModeloServicio {
         this.hora_hasta_salida = hora_hasta_salida;
         this.cantidad_llegada = cantidad_llegada;
         this.cantidad_salida = cantidad_salida;
+        this.estado = estado;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getNombre_servicio() {
@@ -81,5 +91,13 @@ public class ModeloServicio {
 
     public void setCantidad_salida(String cantidad_salida) {
         this.cantidad_salida = cantidad_salida;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

@@ -141,15 +141,17 @@ public class RealizarPedido extends AppCompatActivity {
                     ll_agregar_servicio.setVisibility(View.VISIBLE);
                     btn_agregar.setText("Guardar");
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
-                    listaServicios.add(new ModeloServicio(
+
+                    listaServicios.add(new ModeloServicio("ada65sd4a65sd",
                             sp_servicios.getSelectedItem().toString(),
-                           "DSC64356",
+                            "S00000009",
                             et_hora_desde_llegada.getText().toString(),
                             et_hora_hasta_llegada.getText().toString(),
                             et_hora_desde_salida.getText().toString(),
                             et_hora_hasta_salida.getText().toString(),
                             et_cantidad_llegada.getText().toString(),
-                            et_cantidad_salida.getText().toString()));
+                            et_cantidad_salida.getText().toString(), "registrado"));
+
                     btn_agregar.setText("Agregar servicio");
                     ll_agregar_servicio.setVisibility(View.GONE);
                 }

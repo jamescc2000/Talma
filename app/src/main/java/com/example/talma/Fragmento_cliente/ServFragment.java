@@ -94,7 +94,7 @@ public class ServFragment extends Fragment {
         modeloRSIRList.clear();
         modeloRSIRList.add(new ModeloRSIR("a54fas65d4as","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
 
 
 

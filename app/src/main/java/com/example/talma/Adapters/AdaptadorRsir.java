@@ -1,5 +1,6 @@
 package com.example.talma.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -37,7 +38,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RsirViewHolder rsirViewHolder, int i) {
+    public void onBindViewHolder(@NonNull RsirViewHolder rsirViewHolder, @SuppressLint("RecyclerView") int i) {
 
         if (tipo_usuario == "empleado"){
 
@@ -53,6 +54,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
                 public void onClick(View view) {
 
                     Intent intent = new Intent(context, RevisarServicios.class);
+                    intent.putExtra("codigoRsir", listaRSIR.get(i).getCodigo());
                     context.startActivity(intent);
 
                 }

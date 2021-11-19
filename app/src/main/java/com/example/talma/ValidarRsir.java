@@ -82,17 +82,15 @@ public class ValidarRsir extends AppCompatActivity {
 
     private void ObtenerRSIRPendientes() {
 
-        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
 
         rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
+
 
         rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
 
 
 
@@ -106,15 +104,12 @@ public class ValidarRsir extends AppCompatActivity {
 
         rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
+
 
         rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
                 "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
-
-        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635"));
+                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
 
 
         adaptadorRsirValidados = new AdaptadorRsir(ValidarRsir.this, rsirsValidadosList, "cliente");
