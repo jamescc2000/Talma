@@ -141,8 +141,4 @@ public class registrar_clientes extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 
-
-
-
-
 }
