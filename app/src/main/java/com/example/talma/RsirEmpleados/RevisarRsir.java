@@ -1,6 +1,7 @@
 package com.example.talma.RsirEmpleados;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,12 +34,10 @@ public class RevisarRsir extends AppCompatActivity {
     RecyclerView recyclerView;
     AdaptadorRsir adaptadorRsir;
     List<ModeloRSIR> rsirsList;
-
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
-
     DatabaseReference bd_rsir;
-
+    ActionBar actionBar;
 
     public RevisarRsir() {
 
@@ -49,6 +48,11 @@ public class RevisarRsir extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_revisar_rsir);
+
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("Revisar RSIR");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.rv_servicios);
         recyclerView.setHasFixedSize(true);
@@ -125,4 +129,12 @@ public class RevisarRsir extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+
 }
