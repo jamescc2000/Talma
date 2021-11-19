@@ -114,7 +114,7 @@ public class registrar_clientes extends AppCompatActivity {
 
                             //Creamos la base de datos
                             DatabaseReference reference = database.getReference("clientes"); // Este es el nomber de la tabla
-                            reference.child(uid_String).setValue(datosUser);
+                            reference.child(id_String).setValue(datosUser);
                             Toast.makeText(registrar_clientes.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
 
                             //Una vez registrado, pasamos a la pantalla de dashboard

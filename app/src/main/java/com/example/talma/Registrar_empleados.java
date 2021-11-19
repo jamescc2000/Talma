@@ -148,7 +148,7 @@ public class Registrar_empleados extends AppCompatActivity {
 
                             //Creamos la base de datos
                             DatabaseReference reference = database.getReference("empleados"); // Este es el nomber de la tabla
-                            reference.child(uid_String).setValue(datosUser);
+                            reference.child(id_String).setValue(datosUser);
                             Toast.makeText(Registrar_empleados.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
 
                             //Una vez registrado, pasamos a la pantalla de dashboard
