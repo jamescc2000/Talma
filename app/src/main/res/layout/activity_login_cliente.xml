@@ -37,7 +37,7 @@
             android:layout_marginTop="20dp">
 
             <EditText
-                android:id="@+id/emailLogin"
+                android:id="@+id/et_Login_cliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/user_icon"
@@ -57,7 +57,7 @@
             app:passwordToggleEnabled="true">
 
             <EditText
-                android:id="@+id/passwordLogin"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/pass_icon"

@@ -40,10 +40,9 @@ public class AdaptadorReclamo extends RecyclerView.Adapter<AdaptadorReclamo.Recl
     public void onBindViewHolder(@NonNull ReclamoViewHolder holder, int i) {
         if (tipo_usuario == "empleado"){
 
-            holder.tv_reclamo.setText(listaReclamo.get(i).getReclamo());
+            holder.tv_cod_reclamo.setText(listaReclamo.get(i).getCodigo_reclamo());
             holder.tv_rsir.setText(listaReclamo.get(i).getRsir());
             holder.tv_fecha.setText(listaReclamo.get(i).getFecha());
-            holder.tv_codigo.setText(listaReclamo.get(i).getCodigo());
             holder.tv_area.setText(listaReclamo.get(i).getArea());
             holder.tv_estado.setText(listaReclamo.get(i).getEstado());
              /*
@@ -81,15 +80,14 @@ public class AdaptadorReclamo extends RecyclerView.Adapter<AdaptadorReclamo.Recl
 
     public class ReclamoViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_reclamo, tv_rsir,tv_fecha, tv_codigo, tv_area, tv_estado;
+        TextView tv_cod_reclamo, tv_rsir,tv_fecha, tv_codigo, tv_area, tv_estado;
 
         public ReclamoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tv_reclamo = itemView.findViewById(R.id.tv_reclamo);
+            tv_cod_reclamo = itemView.findViewById(R.id.tv_cod_reclamo);
             tv_rsir = itemView.findViewById(R.id.tv_rsir);
             tv_fecha = itemView.findViewById(R.id.tv_fecha);
-            tv_codigo = itemView.findViewById(R.id.tv_codigo);
             tv_area = itemView.findViewById(R.id.tv_area);
             tv_estado = itemView.findViewById(R.id.tv_estado);
         }
