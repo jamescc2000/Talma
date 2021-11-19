@@ -3,6 +3,7 @@ package com.example.talma.Fragmento_cliente;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,14 @@ import com.example.talma.Adapters.AdaptadorReclamo;
 import com.example.talma.Adapters.AdaptadorRsir;
 import com.example.talma.Modelos.ModeloReclamo;
 import com.example.talma.R;
+import com.example.talma.RsirEmpleados.RevisarRsir;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +33,11 @@ public class ReclamFragment extends Fragment {
 
     RecyclerView recyclerView;
     AdaptadorReclamo adaptadorReclamo;
-    List<ModeloReclamo> modeloReclamo;
+    List<ModeloReclamo> ListmodeloReclamo;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    DatabaseReference bd_reclamo;
+    ActionBar actionBar;
 
     public ReclamFragment() {
         // Required empty public constructor
@@ -43,30 +56,56 @@ public class ReclamFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=  inflater.inflate(R.layout.fragment_reclam, container, false);
 
-        recyclerView = view.findViewById(R.id.rvListaRecl);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        modeloReclamo = new ArrayList<>();
+        ListmodeloReclamo = new ArrayList<>();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
+        bd_reclamo = FirebaseDatabase.getInstance().getReference("reclamo");
         ObtenerReclamos();
         return view;
     }
 
     private void ObtenerReclamos() {
-        modeloReclamo.clear();
-        modeloReclamo.add(new ModeloReclamo("121654","RISR1654","Frío áreo","16/11/2021", "Aceptado",""));
-        modeloReclamo.add(new ModeloReclamo("121655","RISR1655","Patio de equipaje","16/11/2021", "Aceptado",""));
-        modeloReclamo.add(new ModeloReclamo("121656","RISR1484","Counter","15/11/2021", "En espera",""));
-        modeloReclamo.add(new ModeloReclamo("121657","RISR1674","Counter","14/11/2021", "En espera",""));
-        modeloReclamo.add(new ModeloReclamo("121658","RISR1784","Frío áreo","13/11/2021", "Rechazado",""));
+        ListmodeloReclamo.clear();
 
-        adaptadorReclamo = new AdaptadorReclamo(getActivity(), modeloReclamo, "empleado");
-        recyclerView.setAdapter(adaptadorReclamo);
+        bd_reclamo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    ModeloReclamo reclamo = ds.getValue(ModeloReclamo.class);
+
+                    if (reclamo.getUid().equals(user.getUid())){
+                        String codigo_reclamo_string = ""+ ds.child("codigo_reclamo").getValue();
+                        String rsir_string = ""+ ds.child("rsir").getValue();
+                        String area_string = ""+ ds.child("area").getValue();
+                        String fecha_string = "14/11/2021";
+                        String estado_string =""+ ds.child("estado").getValue();
+
+                        ListmodeloReclamo.add(new ModeloReclamo(codigo_reclamo_string, user.getUid(), rsir_string,area_string,fecha_string,estado_string,""));
+                        adaptadorReclamo = new AdaptadorReclamo(getContext(), ListmodeloReclamo,"empleado");
+                        adaptadorReclamo.notifyDataSetChanged();
+                        recyclerView.setAdapter(adaptadorReclamo);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

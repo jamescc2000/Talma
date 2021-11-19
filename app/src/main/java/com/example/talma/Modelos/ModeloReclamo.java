@@ -1,13 +1,14 @@
 package com.example.talma.Modelos;
 
 public class ModeloReclamo {
-    String codigo_reclamo, rsir, area, fecha,estado, motivo;
+    String codigo_reclamo,uid, rsir, area, fecha,estado, motivo;
 
 
     public ModeloReclamo() {
     }
-    public ModeloReclamo(String codigo_reclamo, String rsir, String area, String fecha, String estado, String motivo) {
+    public ModeloReclamo(String codigo_reclamo, String uid, String rsir, String area, String fecha, String estado, String motivo) {
         this.codigo_reclamo = codigo_reclamo;
+        this.uid = uid;
         this.rsir = rsir;
         this.area = area;
         this.fecha = fecha;
@@ -21,6 +22,14 @@ public class ModeloReclamo {
 
     public void setCodigo_reclamo(String codigo_reclamo) {
         this.codigo_reclamo = codigo_reclamo;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getRsir() {

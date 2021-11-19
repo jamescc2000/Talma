@@ -86,6 +86,7 @@ public class RealizarReclamo extends AppCompatActivity {
         assert user != null; //Afirmamos que el usuario no sea nulo
 
         String codigo_reclamo_string = "R_"+ et_codigo_rsir.getText().toString();
+        String uid_string = user.getUid();
         String rsir_string = et_codigo_rsir.getText().toString();
         String area_string = et_area.getText().toString();
         String fecha_string = et_area.getText().toString();
@@ -95,6 +96,7 @@ public class RealizarReclamo extends AppCompatActivity {
         /*Creamos un Hashmap para mandar los datos a firebase*/
         Map<String, Object> datosReclamo = new HashMap<>();
         datosReclamo.put("codigo_reclamo", codigo_reclamo_string);
+        datosReclamo.put("uid", uid_string);
         datosReclamo.put("rsir", rsir_string);
         datosReclamo.put("area", area_string);
         datosReclamo.put("fecha", fecha_string);
