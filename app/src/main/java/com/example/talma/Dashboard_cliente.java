@@ -74,6 +74,7 @@ public class Dashboard_cliente extends AppCompatActivity {
                         case R.id.nav_reclamos:
                             //Transaccion del fragmento usuarios
                             actionBar.setTitle("Reclamos");
+
                             ReclamFragment fragment3 = new ReclamFragment();
                             FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                             ft3.replace(R.id.content, fragment3, "");

@@ -56,6 +56,8 @@ public class ReclamFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=  inflater.inflate(R.layout.fragment_reclam, container, false);
 
+        recyclerView = (RecyclerView) view.findViewById(R.id.rvListaRecl);
+
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -70,6 +72,7 @@ public class ReclamFragment extends Fragment {
     }
 
     private void ObtenerReclamos() {
+
         ListmodeloReclamo.clear();
 
         bd_reclamo.addValueEventListener(new ValueEventListener() {

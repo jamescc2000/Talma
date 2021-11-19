@@ -16,6 +16,7 @@
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_login_empleados.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_pantalla_carga.xml" value="0.4" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_realizar_reclamo.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_clientes.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_empleados.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/activity_registrar_rsire.xml" value="0.33" />
@@ -33,6 +34,7 @@
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_notificaciones.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_ped.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_reclam.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_registrar_servicios.xml" value="0.25" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_regitrar_rsire.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_revisar_servicios.xml" value="0.20416666666666666" />
