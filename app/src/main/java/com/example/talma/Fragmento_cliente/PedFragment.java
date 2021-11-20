@@ -50,6 +50,8 @@ public class PedFragment extends Fragment {
         btn_realizar_reclamo = (Button) view.findViewById(R.id.btn_realizar_reclamo);
         btn_cerrar_sesion = (Button) view.findViewById(R.id.btn_mis_facturas);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
         btn_realizar_pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
