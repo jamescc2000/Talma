@@ -142,7 +142,7 @@
     <!--Realizar Pedido-->
     <string name="btn_realizar_pedido">Realizar pedido</string>
     <string name="txt_realizar_pedido">Realizar pedido</string>
-    <string name="txt_tipo_servicio">Tipo de Servicio</string>
+    <string name="txt_tipo_servicio">Tipo de Servicio:</string>
 
 
     <!--Validar Servicios-->

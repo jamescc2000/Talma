@@ -153,46 +153,6 @@ public class RegistrarRsire extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(RegistrarRsire.this));
 
-        btn_hora_salida.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        hora = hourOfDay;
-                        minuto = minute;
-                        btn_hora_salida.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
-                    }
-                };
-
-                int style = AlertDialog.THEME_HOLO_LIGHT;
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(RegistrarRsire.this, style,listener, hora, minuto, true);
-                timePickerDialog.show();
-            }
-        });
-
-        btn_hora_llegada.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        hora = hourOfDay;
-                        minuto = minute;
-                        btn_hora_llegada.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
-                    }
-                };
-
-                int style = AlertDialog.THEME_HOLO_LIGHT;
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(RegistrarRsire.this, style,listener, hora, minuto, true);
-                timePickerDialog.show();
-            }
-        });
-
         btn_hora_desde_llegada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -319,6 +279,46 @@ public class RegistrarRsire extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(RegistrarRsire.this, style, dateSetListener, year, moth, day);
 
                 datePickerDialog.show();
+            }
+        });
+
+        btn_hora_salida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        hora = hourOfDay;
+                        minuto = minute;
+                        btn_hora_salida.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
+                    }
+                };
+
+                int style = AlertDialog.THEME_HOLO_LIGHT;
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(RegistrarRsire.this, style,listener, hora, minuto, true);
+                timePickerDialog.show();
+            }
+        });
+
+        btn_hora_llegada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        hora = hourOfDay;
+                        minuto = minute;
+                        btn_hora_llegada.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
+                    }
+                };
+
+                int style = AlertDialog.THEME_HOLO_LIGHT;
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(RegistrarRsire.this, style,listener, hora, minuto, true);
+                timePickerDialog.show();
             }
         });
 
