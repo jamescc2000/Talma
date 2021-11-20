@@ -35,7 +35,6 @@
     <string name="btnIngresarGoogle">Ingresar con Google</string>
 
     <!--Menu de navegacion-->
-    <string name="nav_home">Inicio</string>
     <string name="nav_perfil">Perfil</string>
     <string name="nav_usuarios">Usuarios</string>
     <string name="nav_RSIRe">RSIRe</string>

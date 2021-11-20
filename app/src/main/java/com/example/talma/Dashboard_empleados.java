@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.talma.Fragmentos_empleados.InicioFragment;
+import com.example.talma.Fragmentos_empleados.FacturasFragment;
 import com.example.talma.Fragmentos_empleados.NotificacionesFragment;
 import com.example.talma.Fragmentos_empleados.PerfilFragment;
 import com.example.talma.Fragmentos_empleados.RsireFragment;
@@ -70,12 +70,12 @@ public class Dashboard_empleados extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     //Manejamos los clicks de los items
                     switch (item.getItemId()){
-                        case R.id.nav_home:
+                        case R.id.nav_facturas:
                             //Transaccion del fragmento home
 
-                            actionBar.setTitle("Inicio");
+                            actionBar.setTitle("Facturas");
 
-                            InicioFragment fragment1 = new InicioFragment();
+                            FacturasFragment fragment1 = new FacturasFragment();
                             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
                             ft1.replace(R.id.content, fragment1, "");
                             ft1.addToBackStack(null);

@@ -16,13 +16,13 @@ import com.example.talma.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class InicioFragment extends Fragment {
+public class FacturasFragment extends Fragment {
 
     Button btn_cerrar_sesion;
     FirebaseAuth firebaseAuth;
 
 
-    public InicioFragment() {
+    public FacturasFragment() {
         // Required empty public constructor
     }
 
