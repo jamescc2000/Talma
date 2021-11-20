@@ -133,4 +133,9 @@ public class RealizarReclamo extends AppCompatActivity {
 
 
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }

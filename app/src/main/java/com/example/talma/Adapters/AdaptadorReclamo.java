@@ -80,7 +80,7 @@ public class AdaptadorReclamo extends RecyclerView.Adapter<AdaptadorReclamo.Recl
 
     public class ReclamoViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_cod_reclamo, tv_rsir,tv_fecha, tv_codigo, tv_area, tv_estado;
+        TextView tv_cod_reclamo, tv_rsir,tv_fecha, tv_area, tv_estado;
 
         public ReclamoViewHolder(@NonNull View itemView) {
             super(itemView);
