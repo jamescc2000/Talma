@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.talma.R;
 import com.example.talma.RealizarPedido;
+import com.example.talma.RealizarReclam;
 import com.example.talma.RsirCliente.RealizarReclamo;
 import com.example.talma.ValidarRsir;
 
@@ -59,7 +60,7 @@ public class PedFragment extends Fragment {
         btn_realizar_reclamo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), RealizarReclamo.class);
+                Intent intent = new Intent(view.getContext(), RealizarReclam.class);
                 startActivity(intent);
             }
         });
