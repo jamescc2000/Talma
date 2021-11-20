@@ -118,7 +118,7 @@ public class registrar_clientes extends AppCompatActivity {
                             Toast.makeText(registrar_clientes.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
 
                             //Una vez registrado, pasamos a la pantalla de dashboard
-                            startActivity(new Intent(registrar_clientes.this, Dashboard_cliente.class));
+                            startActivity(new Intent(registrar_clientes.this, Dashboard_empleados.class));
                         } else {
                             progressDialog.dismiss(); // El progresss se cierra
                             Toast.makeText(registrar_clientes.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
