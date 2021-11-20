@@ -13,7 +13,7 @@ import android.widget.Button;
 import com.example.talma.R;
 import com.example.talma.RealizarPedido;
 import com.example.talma.RealizarReclam;
-import com.example.talma.RsirCliente.RealizarReclamo;
+import com.example.talma.RealizarReclamo;
 import com.example.talma.ValidarRsir;
 
 
@@ -36,8 +36,10 @@ public class PedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ped, container, false);
+
         btn_realizar_pedido = (Button) view.findViewById(R.id.btn_realizar_pedido);
         btn_validar_servicio = (Button) view.findViewById(R.id.btn_validar_servicio);
         btn_realizar_reclamo = (Button) view.findViewById(R.id.btn_realizar_reclamo);
@@ -57,6 +59,7 @@ public class PedFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         btn_realizar_reclamo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

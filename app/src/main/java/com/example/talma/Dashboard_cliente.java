@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -17,7 +19,11 @@ import com.example.talma.Fragmento_cliente.ReclamFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Dashboard_cliente extends AppCompatActivity {
 
@@ -26,6 +32,7 @@ public class Dashboard_cliente extends AppCompatActivity {
 
     DatabaseReference BASE_DATOS;
     ActionBar actionBar;
+    String mUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,12 @@ public class Dashboard_cliente extends AppCompatActivity {
         BottomNavigationView navigationView = findViewById(R.id.navegacion);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
 
+    }
+
+    @Override
+    protected void onResume() {
+        verificarEstadoUsuario();
+        super.onResume();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener selectedListener =
@@ -107,4 +120,62 @@ public class Dashboard_cliente extends AppCompatActivity {
                     return false;
                 }
             };
+
+    private void verificarEstadoUsuario(){
+        //obtenemos al usuario actual
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if(user != null){
+            mUID = user.getUid();
+
+            //Guardar el UID del usuario logeado en shared preferences
+            SharedPreferences sp = getSharedPreferences("SP_USER", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("USUARIO_ACTUAL", mUID);
+            editor.apply();
+
+        }else {
+            startActivity(new Intent(Dashboard_cliente.this, MainActivity.class));
+            finish();
+        }
+    }
+
+    public void onStart() {
+        VERIFICACIONSESION();
+        super.onStart();
+    }
+
+    public void VERIFICACIONSESION(){
+
+        //Si el usuario ha iniciado sesion nos dirige directamente ha esta actividad
+        if(firebaseUser != null){
+
+            BASE_DATOS = FirebaseDatabase.getInstance().getReference("clientes");
+
+            /*Obtenemos los datos del usuario*/
+            BASE_DATOS.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    //Si el usuario existe
+                    if(snapshot.exists()){
+
+                        //Obtenemos los datos de firebase
+
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+            //Caso contrario nos dirige al MainActivity
+        }else {
+            startActivity(new Intent(Dashboard_cliente.this, MainActivity.class));
+            finish();
+        }
+    }
+
 }

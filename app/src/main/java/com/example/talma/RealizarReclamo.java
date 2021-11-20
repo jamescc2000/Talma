@@ -1,15 +1,11 @@
-package com.example.talma.RsirCliente;
+package com.example.talma;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.talma.Adapters.AdaptadorReclamo;
-import com.example.talma.Dashboard_cliente;
-import com.example.talma.Dashboard_empleados;
 import com.example.talma.Modelos.ModeloReclamo;
-import com.example.talma.R;
-import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -21,8 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,14 +32,20 @@ public class RealizarReclamo extends AppCompatActivity {
     AdaptadorReclamo adaptadorReclamo;
     List<ModeloReclamo> modeloReclamoList;
     ActionBar actionBar;
+    FirebaseUser user;
     private ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth;
+
+    public RealizarReclamo (){
+
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_realizar_reclamo);
+
         actionBar = getSupportActionBar();
         actionBar.setTitle("Registro de Reclamo");
         actionBar.setDisplayShowHomeEnabled(true);
@@ -58,9 +58,10 @@ public class RealizarReclamo extends AppCompatActivity {
         btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         progressDialog = new ProgressDialog(RealizarReclamo.this);
 
-        btn_enviar.setOnClickListener(new View.OnClickListener() {
+        /*btn_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(et_codigo_rsir.getText().toString()) && TextUtils.isEmpty(et_area.getText().toString()) &&
@@ -68,14 +69,15 @@ public class RealizarReclamo extends AppCompatActivity {
                     Toast.makeText(RealizarReclamo.this, "Por favor, primero complete todos los campos", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    RegistrarReclamo();
+                    //RegistrarReclamo();
                 }
             }
-        });
+        });*/
 
     }
 
     private void RegistrarReclamo(){
+
         progressDialog.setTitle("Registrando");
         progressDialog.setMessage("Espere por favor...");
         progressDialog.setCancelable(false);
