@@ -50,11 +50,12 @@ public class Dashboard_empleados extends AppCompatActivity {
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
 
         //RsireFragment por default
-        actionBar.setTitle("RSIR");
-        RsireFragment fragment1 = new RsireFragment();
-        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
-        ft1.replace(R.id.content, fragment1, "");
-        ft1.commit();
+        actionBar.setTitle("Perfil");
+        PerfilFragment fragment2 = new PerfilFragment();
+        FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+        ft2.replace(R.id.content, fragment2, "");
+        ft2.addToBackStack(null);
+        ft2.commit();
 
     }
 

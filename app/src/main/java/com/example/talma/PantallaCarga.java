@@ -24,7 +24,6 @@ public class PantallaCarga extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     DatabaseReference BASE_DATOS;
-    DatabaseReference BASE_DATOS_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,8 @@ public class PantallaCarga extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
+        int caso = 0;
+
 
         //Tiempo que durara la pantalla de cargar, en segundos
         final int duracion = 2500;
@@ -48,8 +49,26 @@ public class PantallaCarga extends AppCompatActivity {
 
                 if(firebaseUser != null){
 
+                    BASE_DATOS = FirebaseDatabase.getInstance().getReference("clientes");
+                    Query user2Query = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid());
+
+                    user2Query.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            Intent intent = new Intent(PantallaCarga.this, Dashboard_cliente.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
                     BASE_DATOS = FirebaseDatabase.getInstance().getReference("empleados");
-                    Query userQuery = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid()).limitToFirst(1);
+                    Query userQuery = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid());
 
                     userQuery.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -67,24 +86,6 @@ public class PantallaCarga extends AppCompatActivity {
                         }
                     });
 
-                        BASE_DATOS_2 = FirebaseDatabase.getInstance().getReference("clientes");
-                        Query user2Query = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid()).limitToFirst(1);
-
-                        user2Query.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                Intent intent = new Intent(PantallaCarga.this, Dashboard_cliente.class);
-                                startActivity(intent);
-                                finish();
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
 
 
                 }else if (firebaseUser == null){

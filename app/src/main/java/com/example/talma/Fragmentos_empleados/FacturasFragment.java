@@ -9,18 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.talma.MainActivity;
+import com.example.talma.Nueva_factura;
 import com.example.talma.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.talma.RsirEmpleados.Facturacion;
 
 
 public class FacturasFragment extends Fragment {
-
-    Button btn_cerrar_sesion;
-    FirebaseAuth firebaseAuth;
-
 
     public FacturasFragment() {
         // Required empty public constructor
@@ -38,20 +33,8 @@ public class FacturasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
+        View view = inflater.inflate(R.layout.fragment_facturas, container, false);
 
-        btn_cerrar_sesion = (Button) view.findViewById(R.id.btn_cerrar_sesion);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        btn_cerrar_sesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                Toast.makeText(getActivity(), "Ha cerrado sesion", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getActivity(), MainActivity.class));
-            }
-        });
 
 
         return view;
