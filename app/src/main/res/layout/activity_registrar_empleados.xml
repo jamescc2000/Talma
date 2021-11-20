@@ -184,6 +184,7 @@
                 android:text="Cancelar"
                 app:backgroundTint="@color/teal_700"
                 android:background="@drawable/btn_personalizado"
+                android:inputType="date"
                 />
 
 
