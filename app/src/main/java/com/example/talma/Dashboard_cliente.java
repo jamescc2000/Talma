@@ -94,8 +94,8 @@ public class Dashboard_cliente extends AppCompatActivity {
                             ft3.addToBackStack(null);
                             ft3.commit();
                             return true;
-                            /*
 
+                            /*
                         case R.id.nav_facturas:
                             //Transaccion del fragmento usuarios
                             actionBar.setTitle("RSIRe");

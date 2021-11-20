@@ -111,7 +111,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/btn_personalizado"
-                    android:text="@string/btn_mis_facturas"
+                    android:text="@string/btn_cerrar_sesion"
                     android:textAlignment="center"
                     app:backgroundTint="@color/teal_700" />
 
