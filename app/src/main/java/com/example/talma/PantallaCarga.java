@@ -90,7 +90,6 @@ public class PantallaCarga extends AppCompatActivity {
 
                 }else if (firebaseUser == null){
 
-
                     Intent intent = new Intent(PantallaCarga.this, MainActivity.class);
                     startActivity(intent);
                     finish();

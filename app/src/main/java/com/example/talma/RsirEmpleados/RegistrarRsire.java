@@ -72,6 +72,7 @@ public class RegistrarRsire extends AppCompatActivity {
     ActionBar actionBar;
     private ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     private Spinner sp_servicios;
     private EditText et_codigo, et_cantidad_llegada, et_cantidad_salida;
@@ -145,6 +146,7 @@ public class RegistrarRsire extends AppCompatActivity {
         sp_area.setAdapter(adapter_areas);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
         progressDialog = new ProgressDialog(RegistrarRsire.this);
 
         recyclerView = findViewById(R.id.rvListaServicios);
@@ -367,7 +369,8 @@ public class RegistrarRsire extends AppCompatActivity {
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
 
                     //Una vez registrado el servicio, lo agregamos al rv
-                    listaServicios.add(new ModeloServicio(et_codigo.getText().toString(),
+                    listaServicios.add(new ModeloServicio(user.getUid(),
+                            et_codigo_rsir.getText().toString(),
                             sp_servicios.getSelectedItem().toString(),
                             et_codigo.getText().toString(),
                             btn_hora_desde_llegada.getText().toString(),

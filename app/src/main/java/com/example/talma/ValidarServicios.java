@@ -29,7 +29,7 @@ public class ValidarServicios extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ValidarServicios.this));
         List<ModeloServicio> listaServicios = new ArrayList<>();
 
-        listaServicios.add(new ModeloServicio("dsf5sd4s6","Counter", "CT49863", "10:00", "11:00",
+        listaServicios.add(new ModeloServicio("dsf5sd4s6","R0000001","Counter", "CT49863", "10:00", "11:00",
                 "17:00", "18:00", "4", "6", "registrado"));
 
 

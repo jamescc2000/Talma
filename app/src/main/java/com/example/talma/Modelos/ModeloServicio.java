@@ -3,13 +3,14 @@ package com.example.talma.Modelos;
 public class ModeloServicio {
 
     //Usar los mismos nombres que en la base de datos
-    String uid,nombre_servicio, codigo_servicio, hora_desde_llegada,hora_hasta_llegada, hora_desde_salida,hora_hasta_salida, cantidad_llegada, cantidad_salida, estado;
+    String uid,codigo_rsir,nombre_servicio, codigo_servicio, hora_desde_llegada,hora_hasta_llegada, hora_desde_salida,hora_hasta_salida, cantidad_llegada, cantidad_salida, estado;
 
     public ModeloServicio() {
     }
 
-    public ModeloServicio(String uid, String nombre_servicio, String codigo_servicio, String hora_desde_llegada, String hora_hasta_llegada, String hora_desde_salida, String hora_hasta_salida, String cantidad_llegada, String cantidad_salida, String estado) {
+    public ModeloServicio(String uid, String codigo_rsir,String nombre_servicio, String codigo_servicio, String hora_desde_llegada, String hora_hasta_llegada, String hora_desde_salida, String hora_hasta_salida, String cantidad_llegada, String cantidad_salida, String estado) {
         this.uid = uid;
+        this.codigo_rsir = codigo_rsir;
         this.nombre_servicio = nombre_servicio;
         this.codigo_servicio = codigo_servicio;
         this.hora_desde_llegada = hora_desde_llegada;
@@ -27,6 +28,14 @@ public class ModeloServicio {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getCodigo_rsir() {
+        return codigo_rsir;
+    }
+
+    public void setCodigo_rsir(String codigo_rsir) {
+        this.codigo_rsir = codigo_rsir;
     }
 
     public String getNombre_servicio() {
