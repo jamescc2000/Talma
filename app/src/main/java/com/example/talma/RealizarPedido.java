@@ -1,6 +1,7 @@
 package com.example.talma;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -77,6 +78,7 @@ public class RealizarPedido extends AppCompatActivity {
     List<ModeloServicio> listaServicios = new ArrayList<>();
     LinearLayout ll_agregar_servicio;
 
+    ActionBar actionBar;
 
     private Spinner sp_servicios;
     private EditText et_cantidad_llegada, et_cantidad_salida;
@@ -89,6 +91,11 @@ public class RealizarPedido extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relizar_pedido);
+
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("Realizar Pedido");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         sp_aeropuertos = (Spinner) findViewById(R.id.sp_aeropuertos);
         sp_aeronaves = (Spinner) findViewById(R.id.sp_aeronaves);
@@ -638,7 +645,6 @@ public class RealizarPedido extends AppCompatActivity {
                     cantServicios++;
                 }
                 codigo_servicio = darFormatoServicio(cantServicios);
-                Toast.makeText(RealizarPedido.this, codigo_servicio, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -677,5 +683,11 @@ public class RealizarPedido extends AppCompatActivity {
 
     private String makeDateString(int dayOfMonth, int month, int year){
         return dayOfMonth + "/" + month + "/" + year;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

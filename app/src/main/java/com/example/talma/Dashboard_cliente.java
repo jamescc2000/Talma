@@ -16,6 +16,7 @@ import com.example.talma.Fragmento_cliente.PedFragment;
 import com.example.talma.Fragmento_cliente.FactFragment;
 import com.example.talma.Fragmento_cliente.ReclamFragment;
 
+import com.example.talma.Fragmentos_empleados.PerfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,6 +47,14 @@ public class Dashboard_cliente extends AppCompatActivity {
 
         BottomNavigationView navigationView = findViewById(R.id.navegacion);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
+
+        //Fragment por default
+        actionBar.setTitle("Servicios");
+        ServFragment fragment1 = new ServFragment();
+        FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
+        ft1.replace(R.id.content, fragment1, "");
+        ft1.addToBackStack(null);
+        ft1.commit();
 
     }
 

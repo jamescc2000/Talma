@@ -1,6 +1,7 @@
 package com.example.talma;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,10 +25,17 @@ public class ValidarRsir extends AppCompatActivity {
     List<ModeloRSIR> rsirsValidadosList= new ArrayList<>();
     Button btn_rsir_pendientes, btn_rsir_validados;
 
+    ActionBar actionBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validar_rsir);
+
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("Validar RSIR");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         rv_rsir_pendiente = findViewById(R.id.rv_rsir_pendiente);
         rv_rsir_pendiente.setHasFixedSize(true);
@@ -121,4 +129,11 @@ public class ValidarRsir extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+
 }

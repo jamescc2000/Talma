@@ -378,7 +378,7 @@ public class RegistrarRsire extends AppCompatActivity {
                             btn_hora_desde_salida.getText().toString(),
                             btn_hora_hasta_salida.getText().toString(),
                             et_cantidad_llegada.getText().toString(),
-                            et_cantidad_salida.getText().toString(), "registrado"));
+                            et_cantidad_salida.getText().toString(), "Pendiente"));
 
                     //Limpiamos los campos
                     et_codigo.setText("");
@@ -549,7 +549,7 @@ public class RegistrarRsire extends AppCompatActivity {
             datosServicio.put("horaDesdeSalida", hora_desde_salida);
             datosServicio.put("horaHastaSalida", hora_hasta_salida);
             datosServicio.put("cantidadSalida", cantidad_salida_string);
-            datosServicio.put("estado", "registrado");
+            datosServicio.put("estado", "Pendiente");
 
             //Inicializamos la instancia a la base de datos
             FirebaseDatabase database = FirebaseDatabase.getInstance();

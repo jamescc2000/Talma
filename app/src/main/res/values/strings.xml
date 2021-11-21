@@ -147,6 +147,7 @@
 
     <!--Validar Servicios-->
     <string name="btn_validar_servicio">Validar sevicio</string>
+    <string name="tv_estado_rsir">Estado</string>
 
 
     <!--Validar Servicios-->

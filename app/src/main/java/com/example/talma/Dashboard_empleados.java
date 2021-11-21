@@ -49,7 +49,7 @@ public class Dashboard_empleados extends AppCompatActivity {
         BottomNavigationView navigationView = findViewById(R.id.navegacion);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
 
-        //RsireFragment por default
+        //Fragment por default
         actionBar.setTitle("Perfil");
         PerfilFragment fragment2 = new PerfilFragment();
         FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();

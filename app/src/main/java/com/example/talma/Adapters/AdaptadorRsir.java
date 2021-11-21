@@ -42,7 +42,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
 
         if (tipo_usuario == "empleado"){
 
-            rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
+            rsirViewHolder.tv_estado.setText(listaRSIR.get(i).getEstado());
             rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
             rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
             rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
@@ -61,7 +61,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
             });
 
         }else if (tipo_usuario == "cliente"){
-            rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
+            rsirViewHolder.tv_estado.setText(listaRSIR.get(i).getEstado());
             rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
             rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
             rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
@@ -90,12 +90,12 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
 
     public class RsirViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_aeropuerto, tv_tipo_aeronave,tv_fechas, tv_codigo_rsir, tv_area, tv_origen_destino;
+        TextView tv_estado, tv_tipo_aeronave,tv_fechas, tv_codigo_rsir, tv_area, tv_origen_destino;
 
         public RsirViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tv_aeropuerto = itemView.findViewById(R.id.tv_aeropuerto);
+            tv_estado = itemView.findViewById(R.id.tv_estado);
             tv_tipo_aeronave = itemView.findViewById(R.id.tv_tipo_aeronave);
             tv_fechas = itemView.findViewById(R.id.tv_fechas);
             tv_codigo_rsir = itemView.findViewById(R.id.tv_codigo_rsir);
