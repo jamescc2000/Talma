@@ -11,95 +11,103 @@
     app:cardUseCompatPadding="true">
 
     <!--Datos del RSIRe-->
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
+        <!--Columna 1-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <RelativeLayout
+
+            <!--Codigo-->
+            <TextView
+                android:id="@+id/tv_codigo_rsir"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:text="@string/tv_codigo"
+                android:textColor="#000"/>
 
-                <!--Codigo-->
-                <TextView
-                    android:id="@+id/tv_codigo_rsir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_codigo"
-                    android:layout_marginStart="5dp"
-                    android:textColor="#000" />
 
-                <!--Tipo aeronave-->
-                <TextView
-                    android:id="@+id/tv_tipo_aeronave"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:text="@string/tv_tipo_aeronave"
-                    android:textColor="#000" />
 
-                <!--Fechas-->
-                <TextView
-                    android:id="@+id/tv_fechas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_fechas"
-                    android:layout_marginStart="210dp"
-                    android:textColor="#000" />
-
-            </RelativeLayout>
+            <!--Estado-->
+            <TextView
+                android:id="@+id/tv_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:text="@string/tv_estado_rsir"
+                android:textColor="#000" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <!--Columna 2-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <!--Tipo aeronave-->
+            <TextView
+                android:id="@+id/tv_tipo_aeronave"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:text="@string/tv_tipo_aeronave"
+                android:textColor="#000" />
 
-                <!--Estado-->
-                <TextView
-                    android:id="@+id/tv_estado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_estado_rsir"
-                    android:layout_marginStart="5dp"
-                    android:textColor="#000" />
-
-                <!--Area-->
-                <TextView
-                    android:id="@+id/tv_area"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:text="@string/tv_area"
-                    android:textColor="#000" />
-
-                <!--Origen-Destion-->
-                <TextView
-                    android:id="@+id/tv_origen_destino"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="210dp"
-                    android:text="@string/tv_origen_destino"
-                    android:textColor="#000" />
-
-            </RelativeLayout>
+            <!--Area-->
+            <TextView
+                android:id="@+id/tv_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:text="@string/tv_area"
+                android:textColor="#000" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <!--Columna 3-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!--Fechas-->
+            <TextView
+                android:id="@+id/tv_fechas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:text="@string/tv_fechas"
+                android:textColor="#000" />
+
+            <!--Origen-Destion-->
+            <TextView
+                android:id="@+id/tv_origen_destino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:text="@string/tv_origen_destino"
+                android:textColor="#000" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

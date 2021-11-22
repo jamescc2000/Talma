@@ -45,7 +45,8 @@
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_rsire.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/fragment_usuarios.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/item_rv_servicios.xml" value="0.5" />
-        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/row_rsir.xml" value="0.33" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/row_reclamo.xml" value="0.33" />
+        <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/row_rsir.xml" value="0.5" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/row_servicios.xml" value="0.33" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/sp_aeronaves.xml" value="0.20416666666666666" />
         <entry key="..\:/Cursos/AndroidStudio/Talma/app/src/main/res/layout/sp_aeropuertos.xml" value="0.20416666666666666" />

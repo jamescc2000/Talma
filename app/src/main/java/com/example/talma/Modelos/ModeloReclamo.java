@@ -1,6 +1,7 @@
 package com.example.talma.Modelos;
 
 public class ModeloReclamo {
+
     String codigo_reclamo,uid, rsir, area, fecha,estado, motivo;
 
 

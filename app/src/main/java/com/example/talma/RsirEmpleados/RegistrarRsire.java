@@ -76,7 +76,7 @@ public class RegistrarRsire extends AppCompatActivity {
 
     private Spinner sp_servicios;
     private EditText et_codigo, et_cantidad_llegada, et_cantidad_salida;
-    private EditText et_compañia, et_origen, et_destino, et_matricula, et_a_cargo_de, et_nvuelo_llegada, et_pea_llegada;
+    private EditText et_compañia, et_email_cliente,et_origen, et_destino, et_matricula, et_a_cargo_de, et_nvuelo_llegada, et_pea_llegada;
     private EditText et_nvuelo_salida, et_pea_salida, et_codigo_rsir;
     private TextView tv_cantidad_total, tv_aeropuerto, tv_tipo_aeronave, tv_fechas, tv_compañia, tv_matricula, tv_origen_destino;
 
@@ -106,6 +106,7 @@ public class RegistrarRsire extends AppCompatActivity {
         btn_hora_hasta_salida = (Button) findViewById(R.id.btn_hora_hasta_salida) ;
         et_codigo_rsir = (EditText) findViewById(R.id.et_codigo_rsir);
         et_compañia = (EditText) findViewById(R.id.et_compañia);
+        et_email_cliente = (EditText) findViewById(R.id.et_email_cliente);
         et_origen = (EditText) findViewById(R.id.et_origen);
         et_destino = (EditText) findViewById(R.id.et_destino);
         et_matricula = (EditText) findViewById(R.id.et_matricula);
@@ -452,6 +453,7 @@ public class RegistrarRsire extends AppCompatActivity {
         String codigo_String = et_codigo_rsir.getText().toString();
         String aeropuerto_String = sp_aeropuertos.getSelectedItem().toString();
         String compañia_string = et_compañia.getText().toString();
+        String email_cliente_string = et_email_cliente.getText().toString();
         String origen_String = et_origen.getText().toString();
         String destino_String = et_destino.getText().toString();
         String aeronave_String = sp_aeronaves.getSelectedItem().toString();
@@ -474,6 +476,7 @@ public class RegistrarRsire extends AppCompatActivity {
         datosRsir.put("codigoRsir", codigo_String);
         datosRsir.put("aeropuerto", aeropuerto_String);
         datosRsir.put("compania", compañia_string);
+        datosRsir.put("emailCliente", email_cliente_string);
         datosRsir.put("origen", origen_String);
         datosRsir.put("destino", destino_String);
         datosRsir.put("aeronave", aeronave_String);

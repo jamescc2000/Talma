@@ -106,7 +106,7 @@ public class registrar_clientes extends AppCompatActivity {
                             datosUser.put("email", email_String);
                             datosUser.put("password", password_String);
                             datosUser.put("aerolínea", aerolinea_string);
-                            datosUser.put("fecha de registro", fechRegistro_string);
+                            datosUser.put("fechaRegistro", fechRegistro_string);
 
 
                             //Inicializamos la instancia a la base de datos

@@ -87,6 +87,7 @@ public class RevisarRsir extends AppCompatActivity {
                         String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();
                         String aeropuerto_string = ""+ ds.child("aeropuerto").getValue();
                         String compañia_string = ""+ ds.child("compania").getValue();
+                        String email_cliente_string = ""+ ds.child("emailCliente").getValue();
                         String origen_string = ""+ ds.child("origen").getValue();
                         String destino_string = ""+ ds.child("destino").getValue();
                         String aeronave_string = ""+ ds.child("aeronave").getValue();
@@ -104,7 +105,7 @@ public class RevisarRsir extends AppCompatActivity {
                         String estado_string = ""+ ds.child("estado").getValue();
 
                         //Colocamos los datos
-                        rsirsList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, origen_string, destino_string,
+                        rsirsList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente_string,origen_string, destino_string,
                                 aeronave_string, matricula_string, area_string, a_cargo_de_string, fecha_llegada_string, hora_llegada_string,
                                 nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string));
 
@@ -121,8 +122,6 @@ public class RevisarRsir extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

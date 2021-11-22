@@ -10,9 +10,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.talma.Adapters.AdaptadorRsir;
 import com.example.talma.Modelos.ModeloRSIR;
+import com.example.talma.RsirEmpleados.RevisarRsir;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +32,15 @@ public class ValidarRsir extends AppCompatActivity {
     AdaptadorRsir adaptadorRsirPendientes, adaptadorRsirValidados;
     List<ModeloRSIR> rsirsPendienteList = new ArrayList<>();
     List<ModeloRSIR> rsirsValidadosList= new ArrayList<>();
+
     Button btn_rsir_pendientes, btn_rsir_validados;
+
+    String email_cliente;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    DatabaseReference bd_rsir;
+    DatabaseReference bd_clientes;
 
     ActionBar actionBar;
 
@@ -37,6 +54,8 @@ public class ValidarRsir extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        obtenerDatosCliente();
+
         rv_rsir_pendiente = findViewById(R.id.rv_rsir_pendiente);
         rv_rsir_pendiente.setHasFixedSize(true);
         rv_rsir_pendiente.setLayoutManager(new LinearLayoutManager(ValidarRsir.this));
@@ -47,6 +66,10 @@ public class ValidarRsir extends AppCompatActivity {
 
         btn_rsir_pendientes = (Button) findViewById(R.id.btn_rsir_pendientes);
         btn_rsir_validados = (Button) findViewById(R.id.btn_rsir_validados);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        bd_rsir = FirebaseDatabase.getInstance().getReference("rsir");
 
         btn_rsir_pendientes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,38 +113,139 @@ public class ValidarRsir extends AppCompatActivity {
 
     private void ObtenerRSIRPendientes() {
 
+        bd_rsir.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
+                for (DataSnapshot ds: snapshot.getChildren()) {
+
+                    ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
+
+                    if(rsir.getUid().equals(user.getUid()) && rsir.getEstado().equals("pendiente")){
+
+                        //Obtenemos los datos
+                        String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();
+                        String aeropuerto_string = ""+ ds.child("aeropuerto").getValue();
+                        String compañia_string = ""+ ds.child("compania").getValue();
+                        String origen_string = ""+ ds.child("origen").getValue();
+                        String destino_string = ""+ ds.child("destino").getValue();
+                        String aeronave_string = ""+ ds.child("aeronave").getValue();
+                        String matricula_string = ""+ ds.child("matricula").getValue();
+                        String area_string = ""+ ds.child("area").getValue();
+                        String a_cargo_de_string = ""+ ds.child("aCargoDe").getValue();
+                        String fecha_llegada_string = ""+ ds.child("fechaLlegada").getValue();
+                        String hora_llegada_string = ""+ ds.child("horaLlegada").getValue();
+                        String nvuelo_llegada_string = ""+ ds.child("nvueloLlegada").getValue();
+                        String pea_llegada_string = ""+ ds.child("peaLlegada").getValue();
+                        String fecha_salida_string = ""+ ds.child("fechaSalida").getValue();
+                        String hora_salida_string = ""+ ds.child("horaSalida").getValue();
+                        String nvuelo_salida_string = ""+ ds.child("nvueloSalida").getValue();
+                        String pea_salida_string = ""+ ds.child("peaSalida").getValue();
+                        String estado_string = ""+ ds.child("estado").getValue();
+
+                        //Colocamos los datos
+                        rsirsValidadosList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente,origen_string, destino_string,
+                                aeronave_string, matricula_string, area_string, a_cargo_de_string, fecha_llegada_string, hora_llegada_string,
+                                nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string));
+
+                        adaptadorRsirPendientes = new AdaptadorRsir(ValidarRsir.this, rsirsPendienteList, "cliente");
+                        adaptadorRsirValidados.notifyDataSetChanged();
+                        rv_rsir_pendiente.setAdapter(adaptadorRsirPendientes);
 
 
-        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
 
+                    }
 
+                }
 
-        adaptadorRsirPendientes = new AdaptadorRsir(ValidarRsir.this, rsirsPendienteList, "cliente");
-        rv_rsir_pendiente.setAdapter(adaptadorRsirPendientes);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
     private void ObtenerRSIRValidados() {
 
+        bd_rsir.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
+                for (DataSnapshot ds: snapshot.getChildren()) {
+
+                    ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
+
+                    if(rsir.getUid().equals(user.getUid()) && (rsir.getEstado().equals("validado") || rsir.getEstado().equals("registrado"))){
+
+                        //Obtenemos los datos
+                        String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();
+                        String aeropuerto_string = ""+ ds.child("aeropuerto").getValue();
+                        String compañia_string = ""+ ds.child("compania").getValue();
+                        String origen_string = ""+ ds.child("origen").getValue();
+                        String destino_string = ""+ ds.child("destino").getValue();
+                        String aeronave_string = ""+ ds.child("aeronave").getValue();
+                        String matricula_string = ""+ ds.child("matricula").getValue();
+                        String area_string = ""+ ds.child("area").getValue();
+                        String a_cargo_de_string = ""+ ds.child("aCargoDe").getValue();
+                        String fecha_llegada_string = ""+ ds.child("fechaLlegada").getValue();
+                        String hora_llegada_string = ""+ ds.child("horaLlegada").getValue();
+                        String nvuelo_llegada_string = ""+ ds.child("nvueloLlegada").getValue();
+                        String pea_llegada_string = ""+ ds.child("peaLlegada").getValue();
+                        String fecha_salida_string = ""+ ds.child("fechaSalida").getValue();
+                        String hora_salida_string = ""+ ds.child("horaSalida").getValue();
+                        String nvuelo_salida_string = ""+ ds.child("nvueloSalida").getValue();
+                        String pea_salida_string = ""+ ds.child("peaSalida").getValue();
+                        String estado_string = ""+ ds.child("estado").getValue();
+
+                        //Colocamos los datos
+                        rsirsValidadosList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente,origen_string, destino_string,
+                                aeronave_string, matricula_string, area_string, a_cargo_de_string, fecha_llegada_string, hora_llegada_string,
+                                nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string));
+
+                        adaptadorRsirValidados = new AdaptadorRsir(ValidarRsir.this, rsirsValidadosList,"cliente");
+                        adaptadorRsirValidados.notifyDataSetChanged();
+                        rv_rsir_validados.setAdapter(adaptadorRsirValidados);
 
 
-        rsirsPendienteList.add(new ModeloRSIR("465463dsf4sdf","RISR1654", "Jorge Chavez", "LATAM", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado"));
 
+                    }
 
-        adaptadorRsirValidados = new AdaptadorRsir(ValidarRsir.this, rsirsValidadosList, "cliente");
-        rv_rsir_validados.setAdapter(adaptadorRsirValidados);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    private void obtenerDatosCliente(){
+
+        bd_clientes = FirebaseDatabase.getInstance().getReference("clientes");
+
+        bd_clientes.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+
+                    //Obtenemos los datos de firebase
+                    email_cliente = ""+ snapshot.child("email").getValue();
+                    Toast.makeText(ValidarRsir.this, email_cliente, Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 

@@ -112,6 +112,23 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!--Compañia-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_email_cliente"
+                        android:hint="@string/txt_email_cliente"
+                        android:inputType="textEmailAddress"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <!--Origen-->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"

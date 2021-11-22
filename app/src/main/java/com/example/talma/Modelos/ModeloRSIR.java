@@ -3,16 +3,17 @@ package com.example.talma.Modelos;
 public class ModeloRSIR {
 
     //Usar los mismos nombres que en la base de datos
-    String uid,codigo, aeropuerto, compañia, origen, destino, tipo_aeronave, matricula, area,a_cargo_de, fecha_llegada, hora_llegada, nvuelo_llegada, pea_llegada, fecha_salida,hora_salida,nvuelo_salida,pea_salida, estado;
+    String uid,codigo, aeropuerto, compañia, email_cliente, origen, destino, tipo_aeronave, matricula, area,a_cargo_de, fecha_llegada, hora_llegada, nvuelo_llegada, pea_llegada, fecha_salida,hora_salida,nvuelo_salida,pea_salida, estado;
 
     public ModeloRSIR() {
     }
 
-    public ModeloRSIR(String uid,String codigo, String aeropuerto, String compañia, String origen, String destino, String tipo_aeronave, String matricula, String area, String a_cargo_de, String fecha_llegada, String hora_llegada, String nvuelo_llegada, String pea_llegada, String fecha_salida, String hora_salida, String nvuelo_salida, String pea_salida, String estado) {
+    public ModeloRSIR(String uid,String codigo, String aeropuerto, String compañia, String email_cliente,String origen, String destino, String tipo_aeronave, String matricula, String area, String a_cargo_de, String fecha_llegada, String hora_llegada, String nvuelo_llegada, String pea_llegada, String fecha_salida, String hora_salida, String nvuelo_salida, String pea_salida, String estado) {
         this.uid = uid;
         this.codigo = codigo;
         this.aeropuerto = aeropuerto;
         this.compañia = compañia;
+        this.email_cliente = email_cliente;
         this.origen = origen;
         this.destino = destino;
         this.tipo_aeronave = tipo_aeronave;
@@ -68,6 +69,14 @@ public class ModeloRSIR {
 
     public void setCompañia(String compañia) {
         this.compañia = compañia;
+    }
+
+    public String getEmail_cliente() {
+        return email_cliente;
+    }
+
+    public void setEmail_cliente(String email_cliente) {
+        this.email_cliente = email_cliente;
     }
 
     public String getOrigen() {
