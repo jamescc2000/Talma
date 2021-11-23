@@ -156,6 +156,7 @@ public class RealizarPedido extends AppCompatActivity {
         bd_servicios = FirebaseDatabase.getInstance().getReference("servicios");
 
         ObtenerCodigoServicioAutomatico();
+        ObtenerCodigoRsirAutomatico();
 
         btn_hora_desde_llegada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -365,7 +366,6 @@ public class RealizarPedido extends AppCompatActivity {
                         ll_agregar_servicio.setVisibility(View.VISIBLE);
                         btn_agregar.setText("Guardar");
 
-
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
 
                     //Una vez registrado el servicio, lo agregamos al rv
@@ -379,6 +379,9 @@ public class RealizarPedido extends AppCompatActivity {
                             btn_hora_hasta_salida.getText().toString(),
                             et_cantidad_llegada.getText().toString(),
                             et_cantidad_salida.getText().toString(), "registrado"));
+
+                    cantServicios++;
+                    codigo_servicio = darFormatoServicio(cantServicios);
 
                     //Limpiamos los campos
                     btn_hora_desde_llegada.setText("Hora desde");
@@ -504,8 +507,7 @@ public class RealizarPedido extends AppCompatActivity {
                 progressDialog.dismiss(); // El progresss se cierra
 
                 Toast.makeText(RealizarPedido.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                //Una vez registrado, pasamos a la pantalla de dashboard cliente
-                startActivity(new Intent(RealizarPedido.this, Dashboard_cliente.class));
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -528,14 +530,11 @@ public class RealizarPedido extends AppCompatActivity {
 
         for(int i=0; i < listaServicios.size(); i++){
 
-            ObtenerCodigoServicioAutomatico();
-
-            codigo_servicio = darFormatoServicio(cantServicios);
 
             String uid_String = user.getUid();
             String codigo_RSIR_string = codigo_rsir;
             String nombre_string = listaServicios.get(i).getNombre_servicio();
-            String codigo_servicio_string = codigo_servicio;
+            String codigo_servicio_string = listaServicios.get(i).getCodigo_servicio();
             String hora_desde_llegada = listaServicios.get(i).getHora_desde_llegada();
             String hora_hasta_llegada = listaServicios.get(i).getHora_hasta_llegada();
             String cantidad_llegada_string = listaServicios.get(i).getCantidad_llegada();
@@ -558,8 +557,6 @@ public class RealizarPedido extends AppCompatActivity {
             datosServicio.put("cantidadSalida", cantidad_salida_string);
             datosServicio.put("estado", "registrado");
 
-            cantServicios++;
-
             //Inicializamos la instancia a la base de datos
             FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -569,7 +566,8 @@ public class RealizarPedido extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
 
-                    Toast.makeText(RealizarPedido.this, "Servicios agregados", Toast.LENGTH_SHORT).show();
+                    //Una vez registrado, pasamos a la pantalla de dashboard cliente
+                    startActivity(new Intent(RealizarPedido.this, Dashboard_cliente.class));
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

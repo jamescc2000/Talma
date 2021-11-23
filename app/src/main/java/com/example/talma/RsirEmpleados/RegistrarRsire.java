@@ -84,7 +84,7 @@ public class RegistrarRsire extends AppCompatActivity {
     DatabaseReference bd_servicios;
 
     private Spinner sp_servicios;
-    private EditText et_codigo, et_cantidad_llegada, et_cantidad_salida;
+    private EditText et_cantidad_llegada, et_cantidad_salida;
     private EditText et_compañia, et_email_cliente,et_origen, et_destino, et_matricula, et_a_cargo_de, et_nvuelo_llegada, et_pea_llegada;
     private EditText et_nvuelo_salida, et_pea_salida;
     private TextView tv_cantidad_total, tv_aeropuerto, tv_tipo_aeronave, tv_fechas, tv_compañia, tv_matricula, tv_origen_destino;
@@ -124,7 +124,6 @@ public class RegistrarRsire extends AppCompatActivity {
         et_nvuelo_salida = (EditText) findViewById(R.id.et_nvuelo_salida);
         et_pea_salida = (EditText) findViewById(R.id.et_pea_salida);
         sp_servicios = (Spinner) findViewById(R.id.sp_servicios);
-        et_codigo = (EditText) findViewById(R.id.et_codigo);
         et_cantidad_llegada = (EditText) findViewById(R.id.et_cantidad_llegada);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
         tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
@@ -159,6 +158,9 @@ public class RegistrarRsire extends AppCompatActivity {
         progressDialog = new ProgressDialog(RegistrarRsire.this);
         bd_rsir = FirebaseDatabase.getInstance().getReference("rsir");
         bd_servicios = FirebaseDatabase.getInstance().getReference("servicios");
+
+        ObtenerCodigoServicioAutomatico();
+        ObtenerCodigoRsirAutomatico();
 
         recyclerView = findViewById(R.id.rvListaServicios);
         recyclerView.setHasFixedSize(true);
@@ -378,7 +380,7 @@ public class RegistrarRsire extends AppCompatActivity {
                     listaServicios.add(new ModeloServicio(user.getUid(),
                             codigo_rsir,
                             sp_servicios.getSelectedItem().toString(),
-                            et_codigo.getText().toString(),
+                            codigo_servicio,
                             btn_hora_desde_llegada.getText().toString(),
                             btn_hora_hasta_llegada.getText().toString(),
                             btn_hora_desde_salida.getText().toString(),
@@ -386,8 +388,10 @@ public class RegistrarRsire extends AppCompatActivity {
                             et_cantidad_llegada.getText().toString(),
                             et_cantidad_salida.getText().toString(), "Pendiente"));
 
+                    cantServicios++;
+                    codigo_servicio = darFormatoServicio(cantServicios);
+
                     //Limpiamos los campos
-                    et_codigo.setText("");
                     btn_hora_desde_llegada.setText("Hora desde");
                     btn_hora_hasta_llegada.setText("Hora hasta");
                     btn_hora_desde_salida.setText("Hora desde");
@@ -431,8 +435,8 @@ public class RegistrarRsire extends AppCompatActivity {
 
                     }else {
 
-                        RegistrarServicios();
                         RegistrarRSIR();
+                        RegistrarServicios();
 
                     }
 
@@ -454,8 +458,6 @@ public class RegistrarRsire extends AppCompatActivity {
 
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
-
-        ObtenerCodigoRsirAutomatico();
 
         String uid_String = user.getUid();
         String codigo_String = codigo_rsir;
@@ -500,20 +502,14 @@ public class RegistrarRsire extends AppCompatActivity {
         datosRsir.put("nvueloSalida", nvuelo_salida_string);
         datosRsir.put("peaSalida", pea_salida_string);
 
-        //Inicializamos la instancia a la base de datos
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-        //Creamos la tabla
-        DatabaseReference reference = database.getReference("rsir"); // Este es el nombre de la tabla
-        reference.child(codigo_String).setValue(datosRsir).addOnCompleteListener(new OnCompleteListener<Void>() {
+        bd_rsir.child(codigo_String).setValue(datosRsir).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
                 progressDialog.dismiss(); // El progresss se cierra
 
                 Toast.makeText(RegistrarRsire.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                //Una vez registrado, pasamos a la pantalla de dashboard empleados
-                startActivity(new Intent(RegistrarRsire.this, Dashboard_empleados.class));
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -529,6 +525,7 @@ public class RegistrarRsire extends AppCompatActivity {
     }
 
     private void RegistrarServicios(){
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         //Aqui van los datos que queremos registrar
@@ -536,13 +533,10 @@ public class RegistrarRsire extends AppCompatActivity {
 
         for(int i=0; i < listaServicios.size(); i++){
 
-            ObtenerCodigoServicioAutomatico();
-            codigo_servicio = darFormatoServicio(cantServicios);
-
             String uid_String = user.getUid();
             String codigo_RSIR_string = codigo_rsir;
             String nombre_string = listaServicios.get(i).getNombre_servicio();
-            String codigo_servicio_string = codigo_servicio;
+            String codigo_servicio_string = listaServicios.get(i).getCodigo_servicio();
             String hora_desde_llegada = listaServicios.get(i).getHora_desde_llegada();
             String hora_hasta_llegada = listaServicios.get(i).getHora_hasta_llegada();
             String cantidad_llegada_string = listaServicios.get(i).getCantidad_llegada();
@@ -565,18 +559,15 @@ public class RegistrarRsire extends AppCompatActivity {
             datosServicio.put("cantidadSalida", cantidad_salida_string);
             datosServicio.put("estado", "Pendiente");
 
-            cantServicios++;
 
-            //Inicializamos la instancia a la base de datos
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-            //Creamos la tabla
-            DatabaseReference reference = database.getReference("servicios"); // Este es el nombre de la tabla
-            reference.child(codigo_servicio_string).setValue(datosServicio).addOnCompleteListener(new OnCompleteListener<Void>() {
+            bd_servicios.child(codigo_servicio_string).setValue(datosServicio).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
 
                     Toast.makeText(RegistrarRsire.this, "Servicios agregados", Toast.LENGTH_SHORT).show();
+
+                    //Una vez registrado, pasamos a la pantalla de dashboard empleados
+                    startActivity(new Intent(RegistrarRsire.this, Dashboard_empleados.class));
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -624,6 +615,7 @@ public class RegistrarRsire extends AppCompatActivity {
                     cantServicios++;
                 }
                 codigo_servicio = darFormatoServicio(cantServicios);
+                Toast.makeText(RegistrarRsire.this, codigo_servicio, Toast.LENGTH_SHORT).show();
             }
 
             @Override
