@@ -341,7 +341,6 @@ public class RealizarPedido extends AppCompatActivity {
                     ll_registrar_rsire.setVisibility(View.GONE);
                     btn_siguiente.setText("EDITAR DATOS GENERALES");
 
-                    ObtenerCodigoRsirAutomatico();
 
                     tv_aeropuerto.setText(sp_aeropuertos.getSelectedItem().toString());
                     tv_tipo_aeronave.setText(sp_aeronaves.getSelectedItem().toString());
@@ -363,16 +362,9 @@ public class RealizarPedido extends AppCompatActivity {
 
                 if (ll_agregar_servicio.getVisibility() == View.GONE){
 
-                    if(TextUtils.isEmpty(codigo_rsir)){
-                        Toast.makeText(RealizarPedido.this, "Por favor, primero complete los datos generales del vuelo", Toast.LENGTH_SHORT).show();
-                    }else {
-
-                        cantServicios++;
-                        codigo_servicio = darFormatoServicio(cantServicios);
                         ll_agregar_servicio.setVisibility(View.VISIBLE);
                         btn_agregar.setText("Guardar");
 
-                    }
 
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
 
@@ -412,11 +404,11 @@ public class RealizarPedido extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Validacion de los campos
-                if(TextUtils.isEmpty(codigo_rsir)  || TextUtils.isEmpty(sp_aeropuertos.getSelectedItem().toString()) ||
+                if(TextUtils.isEmpty(sp_aeropuertos.getSelectedItem().toString()) ||
                         TextUtils.isEmpty(et_compañia.getText().toString()) || TextUtils.isEmpty(et_origen.getText().toString()) ||
                         TextUtils.isEmpty(et_destino.getText().toString()) || TextUtils.isEmpty(sp_aeronaves.getSelectedItem().toString()) ||
-                        TextUtils.isEmpty(et_matricula.getText().toString()) || TextUtils.isEmpty("Area") ||
-                        TextUtils.isEmpty("A cargo de") || TextUtils.isEmpty(btn_fecha_llegada.getText().toString()) ||
+                        TextUtils.isEmpty(et_matricula.getText().toString()) ||
+                        TextUtils.isEmpty(btn_fecha_llegada.getText().toString()) ||
                         TextUtils.isEmpty(btn_hora_llegada.getText().toString()) || TextUtils.isEmpty(et_nvuelo_llegada.getText().toString()) ||
                         TextUtils.isEmpty(btn_fecha_salida.getText().toString()) || TextUtils.isEmpty(btn_hora_salida.getText().toString()) ||
                         TextUtils.isEmpty(et_nvuelo_salida.getText().toString()) || TextUtils.isEmpty(et_pea_salida.getText().toString()) ||
@@ -431,6 +423,7 @@ public class RealizarPedido extends AppCompatActivity {
                         Toast.makeText(RealizarPedido.this, "Por favor agrege minimo un servicio", Toast.LENGTH_SHORT).show();
 
                     }else {
+
                         RegistrarServicios();
                         RegistrarRSIR();
 
@@ -441,8 +434,6 @@ public class RealizarPedido extends AppCompatActivity {
             }
         });
 
-        adapterListaServicios = new AdaptadorListaServicios(RealizarPedido.this, listaServicios);
-        recyclerView.setAdapter(adapterListaServicios);
 
     }
 
@@ -458,6 +449,8 @@ public class RealizarPedido extends AppCompatActivity {
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
 
+        ObtenerCodigoRsirAutomatico();
+
         String uid_String = user.getUid();
         String codigo_String = codigo_rsir;
         String aeropuerto_String = sp_aeropuertos.getSelectedItem().toString();
@@ -466,8 +459,8 @@ public class RealizarPedido extends AppCompatActivity {
         String destino_String = et_destino.getText().toString();
         String aeronave_String = sp_aeronaves.getSelectedItem().toString();
         String matricula_string = et_matricula.getText().toString();
-        //String area_string = sp_area.getSelectedItem().toString();
-       // String a_cargo_de_string = et_a_cargo_de.getText().toString();
+        String area_string = "";
+        String a_cargo_de_string = "";
         String fecha_llegada_string = btn_fecha_llegada.getText().toString();
         String hora_llegada_string = btn_hora_llegada.getText().toString();
         String nvuelo_llegada_string = et_nvuelo_llegada.getText().toString();
@@ -488,8 +481,8 @@ public class RealizarPedido extends AppCompatActivity {
         datosRsir.put("destino", destino_String);
         datosRsir.put("aeronave", aeronave_String);
         datosRsir.put("matricula", matricula_string);
-        //datosRsir.put("area", area_string);
-        //datosRsir.put("aCargoDe", a_cargo_de_string);
+        datosRsir.put("area", area_string);
+        datosRsir.put("aCargoDe", a_cargo_de_string);
         datosRsir.put("fechaLlegada", fecha_llegada_string);
         datosRsir.put("horaLlegada", hora_llegada_string);
         datosRsir.put("nvueloLlegada", nvuelo_llegada_string);
@@ -535,10 +528,14 @@ public class RealizarPedido extends AppCompatActivity {
 
         for(int i=0; i < listaServicios.size(); i++){
 
+            ObtenerCodigoServicioAutomatico();
+
+            codigo_servicio = darFormatoServicio(cantServicios);
+
             String uid_String = user.getUid();
             String codigo_RSIR_string = codigo_rsir;
             String nombre_string = listaServicios.get(i).getNombre_servicio();
-            String codigo_servicio_string = listaServicios.get(i).getCodigo_servicio();
+            String codigo_servicio_string = codigo_servicio;
             String hora_desde_llegada = listaServicios.get(i).getHora_desde_llegada();
             String hora_hasta_llegada = listaServicios.get(i).getHora_hasta_llegada();
             String cantidad_llegada_string = listaServicios.get(i).getCantidad_llegada();
@@ -560,6 +557,8 @@ public class RealizarPedido extends AppCompatActivity {
             datosServicio.put("horaHastaSalida", hora_hasta_salida);
             datosServicio.put("cantidadSalida", cantidad_salida_string);
             datosServicio.put("estado", "registrado");
+
+            cantServicios++;
 
             //Inicializamos la instancia a la base de datos
             FirebaseDatabase database = FirebaseDatabase.getInstance();

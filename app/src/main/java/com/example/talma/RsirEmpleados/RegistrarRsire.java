@@ -31,6 +31,7 @@ import com.example.talma.Adapters.AdaptadorListaServicios;
 import com.example.talma.Dashboard_empleados;
 import com.example.talma.Modelos.ModeloServicio;
 import com.example.talma.R;
+import com.example.talma.RealizarPedido;
 import com.example.talma.Registrar_empleados;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,8 +39,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -57,6 +61,9 @@ public class RegistrarRsire extends AppCompatActivity {
     Button btn_fecha_llegada, btn_fecha_salida, btn_hora_llegada, btn_hora_salida;
     Button btn_hora_desde_llegada, btn_hora_hasta_llegada, btn_hora_desde_salida, btn_hora_hasta_salida;
 
+    String codigo_rsir, codigo_servicio;
+    int cantRSIR = 0, cantServicios=0;
+
     private DatePickerDialog datePickerDialog;
 
     int hora,minuto;
@@ -73,11 +80,13 @@ public class RegistrarRsire extends AppCompatActivity {
     private ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
+    DatabaseReference bd_rsir;
+    DatabaseReference bd_servicios;
 
     private Spinner sp_servicios;
     private EditText et_codigo, et_cantidad_llegada, et_cantidad_salida;
     private EditText et_compañia, et_email_cliente,et_origen, et_destino, et_matricula, et_a_cargo_de, et_nvuelo_llegada, et_pea_llegada;
-    private EditText et_nvuelo_salida, et_pea_salida, et_codigo_rsir;
+    private EditText et_nvuelo_salida, et_pea_salida;
     private TextView tv_cantidad_total, tv_aeropuerto, tv_tipo_aeronave, tv_fechas, tv_compañia, tv_matricula, tv_origen_destino;
 
     @Override
@@ -104,7 +113,6 @@ public class RegistrarRsire extends AppCompatActivity {
         btn_hora_hasta_llegada = (Button) findViewById(R.id.btn_hora_hasta_llegada) ;
         btn_hora_desde_salida = (Button) findViewById(R.id.btn_hora_desde_salida) ;
         btn_hora_hasta_salida = (Button) findViewById(R.id.btn_hora_hasta_salida) ;
-        et_codigo_rsir = (EditText) findViewById(R.id.et_codigo_rsir);
         et_compañia = (EditText) findViewById(R.id.et_compañia);
         et_email_cliente = (EditText) findViewById(R.id.et_email_cliente);
         et_origen = (EditText) findViewById(R.id.et_origen);
@@ -149,6 +157,8 @@ public class RegistrarRsire extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         progressDialog = new ProgressDialog(RegistrarRsire.this);
+        bd_rsir = FirebaseDatabase.getInstance().getReference("rsir");
+        bd_servicios = FirebaseDatabase.getInstance().getReference("servicios");
 
         recyclerView = findViewById(R.id.rvListaServicios);
         recyclerView.setHasFixedSize(true);
@@ -358,20 +368,15 @@ public class RegistrarRsire extends AppCompatActivity {
 
                 if (ll_agregar_servicio.getVisibility() == View.GONE){
 
-                    if(TextUtils.isEmpty(et_codigo_rsir.getText().toString())){
-                        Toast.makeText(RegistrarRsire.this, "Por favor, primero complete los datos generales del vuelo", Toast.LENGTH_SHORT).show();
-                    }else {
-
                         ll_agregar_servicio.setVisibility(View.VISIBLE);
                         btn_agregar.setText("Guardar");
 
-                    }
 
                 }else if (ll_agregar_servicio.getVisibility() == View.VISIBLE){
 
                     //Una vez registrado el servicio, lo agregamos al rv
                     listaServicios.add(new ModeloServicio(user.getUid(),
-                            et_codigo_rsir.getText().toString(),
+                            codigo_rsir,
                             sp_servicios.getSelectedItem().toString(),
                             et_codigo.getText().toString(),
                             btn_hora_desde_llegada.getText().toString(),
@@ -406,7 +411,7 @@ public class RegistrarRsire extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Validacion de los campos
-                if(TextUtils.isEmpty(et_codigo_rsir.getText().toString())  || TextUtils.isEmpty(sp_aeropuertos.getSelectedItem().toString()) ||
+                if(TextUtils.isEmpty(sp_aeropuertos.getSelectedItem().toString()) ||
                         TextUtils.isEmpty(et_compañia.getText().toString()) || TextUtils.isEmpty(et_origen.getText().toString()) ||
                         TextUtils.isEmpty(et_destino.getText().toString()) || TextUtils.isEmpty(sp_aeronaves.getSelectedItem().toString()) ||
                         TextUtils.isEmpty(et_matricula.getText().toString()) || TextUtils.isEmpty(sp_area.getSelectedItem().toString()) ||
@@ -437,6 +442,7 @@ public class RegistrarRsire extends AppCompatActivity {
 
     }
 
+
     private void RegistrarRSIR(){
 
         progressDialog.setTitle("Registrando");
@@ -449,8 +455,10 @@ public class RegistrarRsire extends AppCompatActivity {
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
 
+        ObtenerCodigoRsirAutomatico();
+
         String uid_String = user.getUid();
-        String codigo_String = et_codigo_rsir.getText().toString();
+        String codigo_String = codigo_rsir;
         String aeropuerto_String = sp_aeropuertos.getSelectedItem().toString();
         String compañia_string = et_compañia.getText().toString();
         String email_cliente_string = et_email_cliente.getText().toString();
@@ -528,10 +536,13 @@ public class RegistrarRsire extends AppCompatActivity {
 
         for(int i=0; i < listaServicios.size(); i++){
 
+            ObtenerCodigoServicioAutomatico();
+            codigo_servicio = darFormatoServicio(cantServicios);
+
             String uid_String = user.getUid();
-            String codigo_RSIR_string = et_codigo_rsir.getText().toString();
+            String codigo_RSIR_string = codigo_rsir;
             String nombre_string = listaServicios.get(i).getNombre_servicio();
-            String codigo_servicio_string = listaServicios.get(i).getCodigo_servicio();
+            String codigo_servicio_string = codigo_servicio;
             String hora_desde_llegada = listaServicios.get(i).getHora_desde_llegada();
             String hora_hasta_llegada = listaServicios.get(i).getHora_hasta_llegada();
             String cantidad_llegada_string = listaServicios.get(i).getCantidad_llegada();
@@ -553,6 +564,8 @@ public class RegistrarRsire extends AppCompatActivity {
             datosServicio.put("horaHastaSalida", hora_hasta_salida);
             datosServicio.put("cantidadSalida", cantidad_salida_string);
             datosServicio.put("estado", "Pendiente");
+
+            cantServicios++;
 
             //Inicializamos la instancia a la base de datos
             FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -577,6 +590,101 @@ public class RegistrarRsire extends AppCompatActivity {
 
         }
 
+    }
+
+    private void ObtenerCodigoRsirAutomatico(){
+
+        bd_rsir.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    cantRSIR++;
+                }
+                cantRSIR++;
+                codigo_rsir = darFormatoRsir(cantRSIR);
+                Toast.makeText(RegistrarRsire.this, codigo_rsir, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    private void ObtenerCodigoServicioAutomatico(){
+
+        bd_servicios.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    cantServicios++;
+                }
+                codigo_servicio = darFormatoServicio(cantServicios);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    private  String darFormatoRsir(int cantidad){
+
+        String cantRsir = "";
+
+        if(cantidad <10){
+            cantRsir = "R0000000"+cantidad;
+        }else if(cantidad <100){
+            cantRsir = "R000000"+cantidad;
+        }else if(cantidad <1000){
+            cantRsir = "R00000"+cantidad;
+        }else if(cantidad <10000){
+            cantRsir = "R0000"+cantidad;
+        }else if(cantidad <100000){
+            cantRsir = "R000"+cantidad;
+        }else if(cantidad <1000000){
+            cantRsir = "R00"+cantidad;
+        }else if(cantidad <10000000){
+            cantRsir = "R0"+cantidad;
+        }else if(cantidad <100000000){
+            cantRsir = "R"+cantidad;
+        }else {
+            cantRsir = "R" + cantidad;
+        }
+
+        return cantRsir;
+    }
+
+    private String darFormatoServicio(int cant){
+        String cantServicios = "";
+
+        if(cant <10){
+            cantServicios = "S0000000"+cant;
+        }else if(cant <100){
+            cantServicios = "S000000"+cant;
+        }else if(cant <1000){
+            cantServicios = "S00000"+cant;
+        }else if(cant <10000){
+            cantServicios = "S0000"+cant;
+        }else if(cant <100000){
+            cantServicios = "S000"+cant;
+        }else if(cant <1000000){
+            cantServicios = "S00"+cant;
+        }else if(cant <10000000){
+            cantServicios = "S0"+cant;
+        }else if(cant <100000000){
+            cantServicios = "S"+cant;
+        }else {
+            cantServicios = "S" + cant;
+        }
+
+        return cantServicios;
     }
 
     private String makeDateString(int dayOfMonth, int month, int year){

@@ -54,25 +54,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/txt_datos_generales"
                     android:textColor="#000"
-                    android:textSize="18sp" />
-
-                <!--Codigo de RSIR-->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <EditText
-                        android:id="@+id/et_codigo_rsir"
-                        android:hint="@string/txt_codigo_rsir"
-                        android:inputType="textCapWords"
-                        android:textColorHint="#000"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:importantForAutofill="no"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
+                    android:textSize="18sp"/>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"

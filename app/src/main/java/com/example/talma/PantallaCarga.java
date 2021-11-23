@@ -50,7 +50,7 @@ public class PantallaCarga extends AppCompatActivity {
                 if(firebaseUser != null){
 
                     BASE_DATOS = FirebaseDatabase.getInstance().getReference("clientes");
-                    Query user2Query = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid());
+                    Query user2Query = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid()).limitToFirst(1);
 
                     user2Query.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -68,7 +68,7 @@ public class PantallaCarga extends AppCompatActivity {
                     });
 
                     BASE_DATOS = FirebaseDatabase.getInstance().getReference("empleados");
-                    Query userQuery = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid());
+                    Query userQuery = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid()).limitToFirst(1);
 
                     userQuery.addValueEventListener(new ValueEventListener() {
                         @Override
