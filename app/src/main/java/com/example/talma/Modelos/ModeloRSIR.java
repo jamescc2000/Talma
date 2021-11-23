@@ -3,31 +3,31 @@ package com.example.talma.Modelos;
 public class ModeloRSIR {
 
     //Usar los mismos nombres que en la base de datos
-    String uid,codigo, aeropuerto, compañia, email_cliente, origen, destino, tipo_aeronave, matricula, area,a_cargo_de, fecha_llegada, hora_llegada, nvuelo_llegada, pea_llegada, fecha_salida,hora_salida,nvuelo_salida,pea_salida, estado;
+    String uid,codigoRsir, aeropuerto, compania, emailCliente, origen, destino, aeronave, matricula, area,aCargoDe, fechaLlegada, horaLlegada, nvueloLlegada, peaLlegada, fechaSalida,horaSalida,nvueloSalida,peaSalida, estado;
 
     public ModeloRSIR() {
     }
 
-    public ModeloRSIR(String uid,String codigo, String aeropuerto, String compañia, String email_cliente,String origen, String destino, String tipo_aeronave, String matricula, String area, String a_cargo_de, String fecha_llegada, String hora_llegada, String nvuelo_llegada, String pea_llegada, String fecha_salida, String hora_salida, String nvuelo_salida, String pea_salida, String estado) {
+    public ModeloRSIR(String uid, String codigoRsir, String aeropuerto, String compania, String emailCliente, String origen, String destino, String aeronave, String matricula, String area, String aCargoDe, String fechaLlegada, String horaLlegada, String nvueloLlegada, String peaLlegada, String fechaSalida, String horaSalida, String nvueloSalida, String peaSalida, String estado) {
         this.uid = uid;
-        this.codigo = codigo;
+        this.codigoRsir = codigoRsir;
         this.aeropuerto = aeropuerto;
-        this.compañia = compañia;
-        this.email_cliente = email_cliente;
+        this.compania = compania;
+        this.emailCliente = emailCliente;
         this.origen = origen;
         this.destino = destino;
-        this.tipo_aeronave = tipo_aeronave;
+        this.aeronave = aeronave;
         this.matricula = matricula;
         this.area = area;
-        this.a_cargo_de = a_cargo_de;
-        this.fecha_llegada = fecha_llegada;
-        this.hora_llegada = hora_llegada;
-        this.nvuelo_llegada = nvuelo_llegada;
-        this.pea_llegada = pea_llegada;
-        this.fecha_salida = fecha_salida;
-        this.hora_salida = hora_salida;
-        this.nvuelo_salida = nvuelo_salida;
-        this.pea_salida = pea_salida;
+        this.aCargoDe = aCargoDe;
+        this.fechaLlegada = fechaLlegada;
+        this.horaLlegada = horaLlegada;
+        this.nvueloLlegada = nvueloLlegada;
+        this.peaLlegada = peaLlegada;
+        this.fechaSalida = fechaSalida;
+        this.horaSalida = horaSalida;
+        this.nvueloSalida = nvueloSalida;
+        this.peaSalida = peaSalida;
         this.estado = estado;
     }
 
@@ -39,20 +39,12 @@ public class ModeloRSIR {
         this.uid = uid;
     }
 
-    public String getArea() {
-        return area;
+    public String getCodigoRsir() {
+        return codigoRsir;
     }
 
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigoRsir(String codigoRsir) {
+        this.codigoRsir = codigoRsir;
     }
 
     public String getAeropuerto() {
@@ -63,20 +55,20 @@ public class ModeloRSIR {
         this.aeropuerto = aeropuerto;
     }
 
-    public String getCompañia() {
-        return compañia;
+    public String getCompania() {
+        return compania;
     }
 
-    public void setCompañia(String compañia) {
-        this.compañia = compañia;
+    public void setCompania(String compania) {
+        this.compania = compania;
     }
 
-    public String getEmail_cliente() {
-        return email_cliente;
+    public String getEmailCliente() {
+        return emailCliente;
     }
 
-    public void setEmail_cliente(String email_cliente) {
-        this.email_cliente = email_cliente;
+    public void setEmailCliente(String emailCliente) {
+        this.emailCliente = emailCliente;
     }
 
     public String getOrigen() {
@@ -95,12 +87,12 @@ public class ModeloRSIR {
         this.destino = destino;
     }
 
-    public String getTipo_aeronave() {
-        return tipo_aeronave;
+    public String getAeronave() {
+        return aeronave;
     }
 
-    public void setTipo_aeronave(String tipo_aeronave) {
-        this.tipo_aeronave = tipo_aeronave;
+    public void setAeronave(String aeronave) {
+        this.aeronave = aeronave;
     }
 
     public String getMatricula() {
@@ -111,76 +103,84 @@ public class ModeloRSIR {
         this.matricula = matricula;
     }
 
-    public String getA_cargo_de() {
-        return a_cargo_de;
+    public String getArea() {
+        return area;
     }
 
-    public void setA_cargo_de(String a_cargo_de) {
-        this.a_cargo_de = a_cargo_de;
+    public void setArea(String area) {
+        this.area = area;
     }
 
-    public String getFecha_llegada() {
-        return fecha_llegada;
+    public String getaCargoDe() {
+        return aCargoDe;
     }
 
-    public void setFecha_llegada(String fecha_llegada) {
-        this.fecha_llegada = fecha_llegada;
+    public void setaCargoDe(String aCargoDe) {
+        this.aCargoDe = aCargoDe;
     }
 
-    public String getHora_llegada() {
-        return hora_llegada;
+    public String getFechaLlegada() {
+        return fechaLlegada;
     }
 
-    public void setHora_llegada(String hora_llegada) {
-        this.hora_llegada = hora_llegada;
+    public void setFechaLlegada(String fechaLlegada) {
+        this.fechaLlegada = fechaLlegada;
     }
 
-    public String getNvuelo_llegada() {
-        return nvuelo_llegada;
+    public String getHoraLlegada() {
+        return horaLlegada;
     }
 
-    public void setNvuelo_llegada(String nvuelo_llegada) {
-        this.nvuelo_llegada = nvuelo_llegada;
+    public void setHoraLlegada(String horaLlegada) {
+        this.horaLlegada = horaLlegada;
     }
 
-    public String getPea_llegada() {
-        return pea_llegada;
+    public String getNvueloLlegada() {
+        return nvueloLlegada;
     }
 
-    public void setPea_llegada(String pea_llegada) {
-        this.pea_llegada = pea_llegada;
+    public void setNvueloLlegada(String nvueloLlegada) {
+        this.nvueloLlegada = nvueloLlegada;
     }
 
-    public String getFecha_salida() {
-        return fecha_salida;
+    public String getPeaLlegada() {
+        return peaLlegada;
     }
 
-    public void setFecha_salida(String fecha_salida) {
-        this.fecha_salida = fecha_salida;
+    public void setPeaLlegada(String peaLlegada) {
+        this.peaLlegada = peaLlegada;
     }
 
-    public String getHora_salida() {
-        return hora_salida;
+    public String getFechaSalida() {
+        return fechaSalida;
     }
 
-    public void setHora_salida(String hora_salida) {
-        this.hora_salida = hora_salida;
+    public void setFechaSalida(String fechaSalida) {
+        this.fechaSalida = fechaSalida;
     }
 
-    public String getNvuelo_salida() {
-        return nvuelo_salida;
+    public String getHoraSalida() {
+        return horaSalida;
     }
 
-    public void setNvuelo_salida(String nvuelo_salida) {
-        this.nvuelo_salida = nvuelo_salida;
+    public void setHoraSalida(String horaSalida) {
+        this.horaSalida = horaSalida;
     }
 
-    public String getPea_salida() {
-        return pea_salida;
+    public String getNvueloSalida() {
+        return nvueloSalida;
     }
 
-    public void setPea_salida(String pea_salida) {
-        this.pea_salida = pea_salida;
+    public void setNvueloSalida(String nvueloSalida) {
+        this.nvueloSalida = nvueloSalida;
+    }
+
+    public String getPeaSalida() {
+        return peaSalida;
+    }
+
+    public void setPeaSalida(String peaSalida) {
+        this.peaSalida = peaSalida;
     }
 
     public String getEstado() {

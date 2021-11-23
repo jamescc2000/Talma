@@ -20,12 +20,14 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
 
     Context context;
     List<ModeloServicio> listaServicios;
+    String tipo;
     ImageButton ib_editar_servicio, ib_eliminar_servicio;
 
 
-    public AdaptadorListaServicios(Context context, List<ModeloServicio> listaServicios) {
+    public AdaptadorListaServicios(Context context, List<ModeloServicio> listaServicios, String tipo) {
         this.context = context;
         this.listaServicios = listaServicios;
+        this.tipo = tipo;
     }
 
     @NonNull
@@ -37,22 +39,31 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
 
     @Override
     public void onBindViewHolder(@NonNull final ServicioViewHolder servicioViewHolder, @SuppressLint("RecyclerView") int i) {
-        servicioViewHolder.tv_nombre_servicio.setText(listaServicios.get(i).getNombre_servicio());
-        servicioViewHolder.tv_codigo.setText(listaServicios.get(i).getCodigo_servicio());
-        servicioViewHolder.tv_horas_servicios.setText(listaServicios.get(i).getHora_desde_llegada() + " - " + listaServicios.get(i).getHora_hasta_salida());
 
-       int cantidad_total = Integer.valueOf(listaServicios.get(i).getCantidad_llegada()) + Integer.valueOf(listaServicios.get(i).getCantidad_salida());
-       String string_cantidad_total = String.valueOf(cantidad_total);
+        if(tipo == "revisar"){
 
-        servicioViewHolder.tv_cantidad_total_servicios.setText(string_cantidad_total);
+            servicioViewHolder.tv_nombre_servicio.setText(listaServicios.get(i).getNombre_servicio());
+            servicioViewHolder.tv_codigo.setText(listaServicios.get(i).getCodigo_servicio());
+            servicioViewHolder.tv_horas_servicios.setText(listaServicios.get(i).getHora_desde_llegada() + " - " + listaServicios.get(i).getHora_hasta_salida());
 
-        ib_eliminar_servicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listaServicios.remove(i);
-                context.notify();
-            }
-        });
+            int cantidad_total = Integer.valueOf(listaServicios.get(i).getCantidad_llegada()) + Integer.valueOf(listaServicios.get(i).getCantidad_salida());
+            String string_cantidad_total = String.valueOf(cantidad_total);
+
+            servicioViewHolder.tv_cantidad_total_servicios.setText(string_cantidad_total);
+
+        }else if(tipo == "registro"){
+
+            servicioViewHolder.tv_cantidad_total_servicios.setVisibility(View.GONE);
+
+            servicioViewHolder.tv_nombre_servicio.setText(listaServicios.get(i).getNombre_servicio());
+            servicioViewHolder.tv_horas_servicios.setText(listaServicios.get(i).getHora_desde_llegada() + " - " + listaServicios.get(i).getHora_hasta_salida());
+
+            int cantidad_total = Integer.valueOf(listaServicios.get(i).getCantidad_llegada()) + Integer.valueOf(listaServicios.get(i).getCantidad_salida());
+            String string_cantidad_total = String.valueOf(cantidad_total);
+
+            servicioViewHolder.tv_codigo.setText(string_cantidad_total);
+
+        }
 
     }
 

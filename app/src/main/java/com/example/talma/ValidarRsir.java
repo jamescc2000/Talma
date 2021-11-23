@@ -21,7 +21,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,6 @@ public class ValidarRsir extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        obtenerDatosCliente();
 
         rv_rsir_pendiente = findViewById(R.id.rv_rsir_pendiente);
         rv_rsir_pendiente.setHasFixedSize(true);
@@ -70,6 +71,12 @@ public class ValidarRsir extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         bd_rsir = FirebaseDatabase.getInstance().getReference("rsir");
+        bd_clientes = FirebaseDatabase.getInstance().getReference("clientes");
+
+        ObtenerRSIRPendientes();
+        ObtenerRSIRValidados();
+
+        email_cliente = user.getEmail();
 
         btn_rsir_pendientes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +84,6 @@ public class ValidarRsir extends AppCompatActivity {
 
                 if(rv_rsir_pendiente.getVisibility() == View.GONE){
 
-                    ObtenerRSIRPendientes();
                     rv_rsir_pendiente.setVisibility(View.VISIBLE);
                     btn_rsir_pendientes.setText("Ocultar");
 
@@ -96,7 +102,6 @@ public class ValidarRsir extends AppCompatActivity {
 
                 if(rv_rsir_validados.getVisibility() == View.GONE){
 
-                    ObtenerRSIRValidados();
                     rv_rsir_validados.setVisibility(View.VISIBLE);
                     btn_rsir_validados.setText("Ocultar");
 
@@ -113,7 +118,9 @@ public class ValidarRsir extends AppCompatActivity {
 
     private void ObtenerRSIRPendientes() {
 
-        bd_rsir.addValueEventListener(new ValueEventListener() {
+        Query rsirQuery = bd_rsir.orderByChild("emailCliente").equalTo(user.getEmail());
+
+        rsirQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -121,14 +128,16 @@ public class ValidarRsir extends AppCompatActivity {
 
                     ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
 
-                    if(rsir.getUid().equals(user.getUid()) && rsir.getEstado().equals("pendiente")){
+                    if(rsir.getEstado().equals("pendiente")){
 
                         //Obtenemos los datos
                         String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();
+                        String uid_string = ""+ ds.child("uid").getValue();
                         String aeropuerto_string = ""+ ds.child("aeropuerto").getValue();
                         String compañia_string = ""+ ds.child("compania").getValue();
                         String origen_string = ""+ ds.child("origen").getValue();
                         String destino_string = ""+ ds.child("destino").getValue();
+                        String email_cliente_string = ""+ ds.child("emailCliente").getValue();
                         String aeronave_string = ""+ ds.child("aeronave").getValue();
                         String matricula_string = ""+ ds.child("matricula").getValue();
                         String area_string = ""+ ds.child("area").getValue();
@@ -144,15 +153,12 @@ public class ValidarRsir extends AppCompatActivity {
                         String estado_string = ""+ ds.child("estado").getValue();
 
                         //Colocamos los datos
-                        rsirsValidadosList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente,origen_string, destino_string,
+                        rsirsPendienteList.add(new ModeloRSIR(uid_string, codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente_string, origen_string, destino_string,
                                 aeronave_string, matricula_string, area_string, a_cargo_de_string, fecha_llegada_string, hora_llegada_string,
-                                nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string));
+                                nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string, estado_string));
 
                         adaptadorRsirPendientes = new AdaptadorRsir(ValidarRsir.this, rsirsPendienteList, "cliente");
-                        adaptadorRsirValidados.notifyDataSetChanged();
                         rv_rsir_pendiente.setAdapter(adaptadorRsirPendientes);
-
-
 
                     }
 
@@ -166,26 +172,32 @@ public class ValidarRsir extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void ObtenerRSIRValidados() {
 
-        bd_rsir.addValueEventListener(new ValueEventListener() {
+        Query rsirQuery = bd_rsir.orderByChild("emailCliente").equalTo(user.getEmail());
+
+        rsirQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
 
                 for (DataSnapshot ds: snapshot.getChildren()) {
 
                     ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
 
-                    if(rsir.getUid().equals(user.getUid()) && (rsir.getEstado().equals("validado") || rsir.getEstado().equals("registrado"))){
+                    if (rsir.getEstado().equals("registrado") || rsir.getEstado().equals("validado")) {
 
                         //Obtenemos los datos
                         String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();
+                        String uid_string = ""+ ds.child("uid").getValue();
                         String aeropuerto_string = ""+ ds.child("aeropuerto").getValue();
                         String compañia_string = ""+ ds.child("compania").getValue();
                         String origen_string = ""+ ds.child("origen").getValue();
                         String destino_string = ""+ ds.child("destino").getValue();
+                        String email_cliente_string = ""+ ds.child("emailCliente").getValue();
                         String aeronave_string = ""+ ds.child("aeronave").getValue();
                         String matricula_string = ""+ ds.child("matricula").getValue();
                         String area_string = ""+ ds.child("area").getValue();
@@ -201,7 +213,7 @@ public class ValidarRsir extends AppCompatActivity {
                         String estado_string = ""+ ds.child("estado").getValue();
 
                         //Colocamos los datos
-                        rsirsValidadosList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente,origen_string, destino_string,
+                        rsirsValidadosList.add(new ModeloRSIR(uid_string,codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente_string,origen_string, destino_string,
                                 aeronave_string, matricula_string, area_string, a_cargo_de_string, fecha_llegada_string, hora_llegada_string,
                                 nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string));
 
@@ -209,10 +221,7 @@ public class ValidarRsir extends AppCompatActivity {
                         adaptadorRsirValidados.notifyDataSetChanged();
                         rv_rsir_validados.setAdapter(adaptadorRsirValidados);
 
-
-
                     }
-
                 }
 
             }
@@ -225,29 +234,6 @@ public class ValidarRsir extends AppCompatActivity {
 
     }
 
-    private void obtenerDatosCliente(){
-
-        bd_clientes = FirebaseDatabase.getInstance().getReference("clientes");
-
-        bd_clientes.child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-
-                    //Obtenemos los datos de firebase
-                    email_cliente = ""+ snapshot.child("email").getValue();
-                    Toast.makeText(ValidarRsir.this, email_cliente, Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

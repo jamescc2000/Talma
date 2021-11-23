@@ -43,9 +43,9 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
         if (tipo_usuario == "empleado"){
 
             rsirViewHolder.tv_estado.setText(listaRSIR.get(i).getEstado());
-            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
-            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
-            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
+            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getAeronave());
+            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFechaSalida() + " - " + listaRSIR.get(i).getFechaLlegada());
+            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigoRsir());
             rsirViewHolder.tv_area.setText(listaRSIR.get(i).getArea());
             rsirViewHolder.tv_origen_destino.setText(listaRSIR.get(i).getOrigen() + " - " + listaRSIR.get(i).getDestino());
 
@@ -54,7 +54,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
                 public void onClick(View view) {
 
                     Intent intent = new Intent(context, RevisarServicios.class);
-                    intent.putExtra("codigoRsir", listaRSIR.get(i).getCodigo());
+                    intent.putExtra("codigoRsir", listaRSIR.get(i).getCodigoRsir());
                     context.startActivity(intent);
 
                 }
@@ -62,9 +62,9 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
 
         }else if (tipo_usuario == "cliente"){
             rsirViewHolder.tv_estado.setText(listaRSIR.get(i).getEstado());
-            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
-            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
-            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
+            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getAeronave());
+            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFechaSalida() + " - " + listaRSIR.get(i).getFechaLlegada());
+            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigoRsir());
             rsirViewHolder.tv_area.setText(listaRSIR.get(i).getArea());
             rsirViewHolder.tv_origen_destino.setText(listaRSIR.get(i).getOrigen() + " - " + listaRSIR.get(i).getDestino());
 

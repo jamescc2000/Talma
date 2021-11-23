@@ -391,7 +391,7 @@ public class RealizarPedido extends AppCompatActivity {
                     et_cantidad_llegada.setText("");
                     et_cantidad_salida.setText("");
 
-                    adapterListaServicios = new AdaptadorListaServicios(RealizarPedido.this, listaServicios);
+                    adapterListaServicios = new AdaptadorListaServicios(RealizarPedido.this, listaServicios, "registro");
                     recyclerView.setAdapter(adapterListaServicios);
 
                     btn_agregar.setText("Agregar servicio");
@@ -447,8 +447,6 @@ public class RealizarPedido extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
 
@@ -480,6 +478,7 @@ public class RealizarPedido extends AppCompatActivity {
         datosRsir.put("codigoRsir", codigo_String);
         datosRsir.put("aeropuerto", aeropuerto_String);
         datosRsir.put("compania", compañia_string);
+        datosRsir.put("emailCliente", user.getEmail());
         datosRsir.put("origen", origen_String);
         datosRsir.put("destino", destino_String);
         datosRsir.put("aeronave", aeronave_String);
@@ -494,6 +493,7 @@ public class RealizarPedido extends AppCompatActivity {
         datosRsir.put("horaSalida", hora_salida_string);
         datosRsir.put("nvueloSalida", nvuelo_salida_string);
         datosRsir.put("peaSalida", pea_salida_string);
+        datosRsir.put("estado", "registrado");
 
         //Inicializamos la instancia a la base de datos
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -523,7 +523,6 @@ public class RealizarPedido extends AppCompatActivity {
     }
 
     private void RegistrarServicios(){
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
@@ -621,7 +620,6 @@ public class RealizarPedido extends AppCompatActivity {
                 }
                 cantRSIR++;
                 codigo_rsir = darFormatoRsir(cantRSIR);
-                Toast.makeText(RealizarPedido.this, codigo_rsir, Toast.LENGTH_SHORT).show();
             }
 
             @Override

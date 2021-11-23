@@ -30,11 +30,11 @@ public class ValidarServicios extends AppCompatActivity {
         List<ModeloServicio> listaServicios = new ArrayList<>();
 
         listaServicios.add(new ModeloServicio("dsf5sd4s6","R0000001","Counter", "CT49863", "10:00", "11:00",
-                "17:00", "18:00", "4", "6", "registrado"));
+                "17:00", "18:00", "4", "6", "revisar"));
 
 
 
-        adapterListaServicios = new AdaptadorListaServicios(ValidarServicios.this, listaServicios);
+        adapterListaServicios = new AdaptadorListaServicios(ValidarServicios.this, listaServicios, "registro");
         recyclerView.setAdapter(adapterListaServicios);
     }
 }

@@ -386,7 +386,7 @@ public class RegistrarRsire extends AppCompatActivity {
                             btn_hora_desde_salida.getText().toString(),
                             btn_hora_hasta_salida.getText().toString(),
                             et_cantidad_llegada.getText().toString(),
-                            et_cantidad_salida.getText().toString(), "Pendiente"));
+                            et_cantidad_salida.getText().toString(), "pendiente"));
 
                     cantServicios++;
                     codigo_servicio = darFormatoServicio(cantServicios);
@@ -399,7 +399,7 @@ public class RegistrarRsire extends AppCompatActivity {
                     et_cantidad_llegada.setText("");
                     et_cantidad_salida.setText("");
 
-                    adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios);
+                    adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios, "registro");
                     recyclerView.setAdapter(adapterListaServicios);
 
                     btn_agregar.setText("Agregar servicio");
@@ -454,8 +454,6 @@ public class RegistrarRsire extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
 
@@ -501,6 +499,7 @@ public class RegistrarRsire extends AppCompatActivity {
         datosRsir.put("horaSalida", hora_salida_string);
         datosRsir.put("nvueloSalida", nvuelo_salida_string);
         datosRsir.put("peaSalida", pea_salida_string);
+        datosRsir.put("estado", "pendiente");
 
         bd_rsir.child(codigo_String).setValue(datosRsir).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -525,8 +524,6 @@ public class RegistrarRsire extends AppCompatActivity {
     }
 
     private void RegistrarServicios(){
-
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         //Aqui van los datos que queremos registrar
         assert user != null; //Afirmamos que el usuario no sea nulo
@@ -557,7 +554,7 @@ public class RegistrarRsire extends AppCompatActivity {
             datosServicio.put("horaDesdeSalida", hora_desde_salida);
             datosServicio.put("horaHastaSalida", hora_hasta_salida);
             datosServicio.put("cantidadSalida", cantidad_salida_string);
-            datosServicio.put("estado", "Pendiente");
+            datosServicio.put("estado", "pendiente");
 
 
             bd_servicios.child(codigo_servicio_string).setValue(datosServicio).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -594,7 +591,6 @@ public class RegistrarRsire extends AppCompatActivity {
                 }
                 cantRSIR++;
                 codigo_rsir = darFormatoRsir(cantRSIR);
-                Toast.makeText(RegistrarRsire.this, codigo_rsir, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -615,7 +611,6 @@ public class RegistrarRsire extends AppCompatActivity {
                     cantServicios++;
                 }
                 codigo_servicio = darFormatoServicio(cantServicios);
-                Toast.makeText(RegistrarRsire.this, codigo_servicio, Toast.LENGTH_SHORT).show();
             }
 
             @Override
