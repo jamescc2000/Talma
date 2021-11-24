@@ -22,24 +22,24 @@
             android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/Reclamo" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
-                android:layout_marginStart="10dp"
-                android:text="Codigo de RSIR: "
-                android:textColor="#000"
-                android:textSize="17sp" />
             <EditText
                 android:id="@+id/et_codigo_rsir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:hint=""
+                android:hint="Código de Rsir"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -48,37 +48,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:layout_marginStart="10dp"
-                android:text="Área vincula: "
-                android:textColor="#000"
-                android:textSize="17sp" />
             <EditText
                 android:id="@+id/et_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:hint="Área"
+                android:hint="Área vinculada"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
-            android:text="Motivo o razón de reclamo: "
-            android:textColor="#000"
-            android:textSize="19sp" />
+
         <EditText
             android:id="@+id/et_motivo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:hint="Escribanos sus motivos del reclamo"/>
 
         <Button

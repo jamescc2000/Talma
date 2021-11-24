@@ -17,7 +17,6 @@ import com.example.talma.Adapters.AdaptadorReclamo;
 import com.example.talma.Adapters.AdaptadorRsir;
 import com.example.talma.Modelos.ModeloReclamo;
 import com.example.talma.R;
-import com.example.talma.RsirEmpleados.RevisarRsir;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

@@ -15,7 +15,6 @@ import com.example.talma.MainActivity;
 import com.example.talma.R;
 import com.example.talma.RealizarPedido;
 import com.example.talma.RealizarReclam;
-import com.example.talma.RealizarReclamo;
 import com.example.talma.ValidarRsir;
 import com.google.firebase.auth.FirebaseAuth;
 
