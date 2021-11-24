@@ -50,6 +50,7 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:hint="Correo electrónico" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -99,6 +100,7 @@
         android:layout_height="wrap_content"
         android:text="Registrar"
         app:backgroundTint="@color/teal_700"
+        android:background="@drawable/btn_personalizado"
         android:layout_marginTop="20dp"
         />
 
