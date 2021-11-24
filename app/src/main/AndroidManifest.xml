@@ -27,7 +27,7 @@
             android:name=".ValidarRsir"
             android:exported="true" />
         <activity
-            android:name=".RsirEmpleados.Facturacion"
+            android:name=".Facturacion"
             android:exported="false" />
         <activity
             android:name=".RealizarPedido"
