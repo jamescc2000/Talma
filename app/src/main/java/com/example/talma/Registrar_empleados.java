@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.talma.RsirEmpleados.RegistrarRsire;
@@ -33,13 +36,16 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Registrar_empleados extends AppCompatActivity {
 
     private EditText et_email, et_id_empleado, et_contraseña,et_nombres, et_apellidos,et_dni,et_fecha_nacimiento ;
     private Spinner sp_tipo_cargo, sp_area;
-    private Button btn_registrar,btn_cancelar;
+    private Button btn_fecha_registro, btn_registrar;
+
+    int hora, minuto;
 
     private ProgressDialog progressDialog;
 
@@ -62,11 +68,11 @@ public class Registrar_empleados extends AppCompatActivity {
         et_nombres = (EditText) findViewById(R.id.et_nombres);
         et_apellidos = (EditText) findViewById(R.id.et_apellidos);
         et_dni = (EditText) findViewById(R.id.et_dni);
-        et_fecha_nacimiento = (EditText) findViewById(R.id.et_fecha_nacimiento);
         sp_tipo_cargo = (Spinner) findViewById(R.id.sp_tipo_cargo);
         sp_area= (Spinner) findViewById(R.id.sp_area);
+        btn_fecha_registro = (Button) findViewById(R.id.btn_fecha_registro);
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
-        btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
+
 
         String [] opciones_tipo_cargo = {"Encargado de area","Encargado de facturacion","Coordinador de operaciones", ""};
         ArrayAdapter<String> adapter_tipo_cargo = new ArrayAdapter<String>(Registrar_empleados.this, R.layout.spinner,opciones_tipo_cargo);
@@ -125,7 +131,7 @@ public class Registrar_empleados extends AppCompatActivity {
                             String nombres_string = et_nombres.getText().toString();
                             String apellidos_String = et_apellidos.getText().toString();
                             String dni_String = et_dni.getText().toString();
-                            String fechNac_string = et_fecha_nacimiento.getText().toString();
+
                             String tipo_cargo_string = sp_tipo_cargo.getSelectedItem().toString();
                             String area_string = sp_area.getSelectedItem().toString();
 
@@ -139,7 +145,6 @@ public class Registrar_empleados extends AppCompatActivity {
                             datosUser.put("nombres", nombres_string);
                             datosUser.put("apellidos", apellidos_String);
                             datosUser.put("dni", dni_String);
-                            datosUser.put("fechaNac", fechNac_string);
                             datosUser.put("tipoCargo", tipo_cargo_string);
                             datosUser.put("area", area_string);
 
@@ -165,6 +170,24 @@ public class Registrar_empleados extends AppCompatActivity {
                                                    Toast.makeText(Registrar_empleados.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                                }
                                            });
+
+        btn_fecha_registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        hora = hourOfDay;
+                        minuto = minute;
+                        btn_fecha_registro.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
+                    }};
+                int style = AlertDialog.THEME_HOLO_LIGHT;
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(Registrar_empleados.this, style,listener, hora, minuto, true);
+                timePickerDialog.show();
+
+            }
+        });
 
     }
 
