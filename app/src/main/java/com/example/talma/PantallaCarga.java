@@ -36,8 +36,6 @@ public class PantallaCarga extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        int caso = 0;
-
 
         //Tiempo que durara la pantalla de cargar, en segundos
         final int duracion = 2500;
@@ -50,7 +48,7 @@ public class PantallaCarga extends AppCompatActivity {
                 if(firebaseUser != null){
 
                     BASE_DATOS = FirebaseDatabase.getInstance().getReference("clientes");
-                    Query user2Query = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid()).limitToFirst(1);
+                    Query user2Query = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid());
 
                     user2Query.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -68,7 +66,7 @@ public class PantallaCarga extends AppCompatActivity {
                     });
 
                     BASE_DATOS = FirebaseDatabase.getInstance().getReference("empleados");
-                    Query userQuery = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid()).limitToFirst(1);
+                    Query userQuery = BASE_DATOS.orderByChild("uid").equalTo(firebaseUser.getUid());
 
                     userQuery.addValueEventListener(new ValueEventListener() {
                         @Override
