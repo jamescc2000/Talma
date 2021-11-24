@@ -3,7 +3,9 @@ package com.example.talma;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -11,8 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -23,14 +27,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class registrar_clientes extends AppCompatActivity {
 
     private EditText et_email, et_id_cliente, et_contraseña,et_aerolinea, et_fecha_registro ;
-    private Button btn_registrar,btn_cancelar;
+    private Button btn_fecha_registro, btn_registrar;
 
     private ProgressDialog progressDialog;
+    int hora, minuto;
 
     FirebaseAuth firebaseAuth;
 
@@ -43,9 +49,9 @@ public class registrar_clientes extends AppCompatActivity {
         et_id_cliente = (EditText) findViewById(R.id.et_id_cliente);
         et_contraseña = (EditText) findViewById(R.id.et_contraseña);
         et_aerolinea = (EditText) findViewById(R.id.et_aerolinea);
-        et_fecha_registro = (EditText) findViewById(R.id.et_fecha_registro);
+        btn_fecha_registro = (Button) findViewById(R.id.btn_fecha_registro);
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
-        btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(registrar_clientes.this);
@@ -132,6 +138,24 @@ public class registrar_clientes extends AppCompatActivity {
             }
         });
 
+        btn_fecha_registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        hora = hourOfDay;
+                        minuto = minute;
+                        btn_fecha_registro.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
+                    }};
+                    int style = AlertDialog.THEME_HOLO_LIGHT;
+
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(registrar_clientes.this, style,listener, hora, minuto, true);
+                    timePickerDialog.show();
+
+            }
+        });
+
     }
 
     //Habilitamos la accion para retroceder
@@ -140,5 +164,6 @@ public class registrar_clientes extends AppCompatActivity {
         onBackPressed();
         return super.onSupportNavigateUp();
     }
+
 
 }

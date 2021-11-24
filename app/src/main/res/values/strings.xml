@@ -161,4 +161,7 @@
 
     <string name="btn_cerrar_sesion">Cerrar Sesión</string>
 
+    <!--Boton Registro de clientes-->
+    <string name="btn_fecha_registro">Fecha de registro</string>
+
 </resources>
