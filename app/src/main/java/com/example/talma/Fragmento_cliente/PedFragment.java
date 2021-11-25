@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class PedFragment extends Fragment {
 
-    Button btn_realizar_pedido, btn_validar_servicio,btn_realizar_reclamo, btn_cerrar_sesion;
+    Button btn_realizar_pedido, btn_validar_servicio, btn_cerrar_sesion;
 
     FirebaseAuth firebaseAuth;
 
@@ -46,7 +46,6 @@ public class PedFragment extends Fragment {
 
         btn_realizar_pedido = (Button) view.findViewById(R.id.btn_realizar_pedido);
         btn_validar_servicio = (Button) view.findViewById(R.id.btn_validar_servicio);
-        btn_realizar_reclamo = (Button) view.findViewById(R.id.btn_realizar_reclamo);
         btn_cerrar_sesion = (Button) view.findViewById(R.id.btn_mis_facturas);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -67,13 +66,6 @@ public class PedFragment extends Fragment {
             }
         });
 
-        btn_realizar_reclamo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), RealizarReclam.class);
-                startActivity(intent);
-            }
-        });
 
         btn_cerrar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override

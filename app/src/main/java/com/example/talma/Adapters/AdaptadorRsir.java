@@ -61,6 +61,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
             });
 
         }else if (tipo_usuario == "cliente"){
+
             rsirViewHolder.tv_estado.setText(listaRSIR.get(i).getEstado());
             rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getAeronave());
             rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFechaSalida() + " - " + listaRSIR.get(i).getFechaLlegada());
@@ -73,6 +74,7 @@ public class AdaptadorRsir extends RecyclerView.Adapter<AdaptadorRsir.RsirViewHo
                 public void onClick(View view) {
 
                     Intent intent = new Intent(context, ValidarServicios.class);
+                    intent.putExtra("codigoRsir", listaRSIR.get(i).getCodigoRsir());
                     context.startActivity(intent);
 
                 }

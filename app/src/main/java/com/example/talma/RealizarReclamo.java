@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class RealizarReclamo extends AppCompatActivity {
 
-    private EditText et_codigo_rsir, et_area, et_motivo;
+    private EditText et_codigo_rsir, et_motivo;
     private Button btn_enviar, btn_cancelar;
     AdaptadorReclamo adaptadorReclamo;
     List<ModeloReclamo> modeloReclamoList;
@@ -52,7 +52,6 @@ public class RealizarReclamo extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         et_codigo_rsir = (EditText) findViewById(R.id.et_codigo_rsir);
-        et_area = (EditText) findViewById(R.id.et_area);
         et_motivo = (EditText) findViewById(R.id.et_motivo);
         btn_enviar = (Button) findViewById(R.id.btn_enviar);
         btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
@@ -90,8 +89,6 @@ public class RealizarReclamo extends AppCompatActivity {
         String codigo_reclamo_string = "R_"+ et_codigo_rsir.getText().toString();
         String uid_string = user.getUid();
         String rsir_string = et_codigo_rsir.getText().toString();
-        String area_string = et_area.getText().toString();
-        String fecha_string = et_area.getText().toString();
         String estado_string = "Pendiente";
         String motivo_string = et_motivo.getText().toString();
 
@@ -100,8 +97,6 @@ public class RealizarReclamo extends AppCompatActivity {
         datosReclamo.put("codigo_reclamo", codigo_reclamo_string);
         datosReclamo.put("uid", uid_string);
         datosReclamo.put("rsir", rsir_string);
-        datosReclamo.put("area", area_string);
-        datosReclamo.put("fecha", fecha_string);
         datosReclamo.put("estado", estado_string);
         datosReclamo.put("motivo", motivo_string);
 

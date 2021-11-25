@@ -24,12 +24,13 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
             app:srcCompat="@drawable/reclamo" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -38,51 +39,262 @@
                 android:id="@+id/et_codigo_rsir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:hint="Código de Rsir"
+                android:editable="false"
                 android:textColor="#000"
-                android:textSize="17sp" />
-        </LinearLayout>
+                android:textSize="17sp"
+                tools:ignore="Deprecated" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/et_area"
+                android:id="@+id/et_codigo_servicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:hint="Área vinculada"
+                android:hint="Código de Servicio"
+                android:editable="false"
                 android:textColor="#000"
-                android:textSize="17sp" />
-        </LinearLayout>
+                android:textSize="17sp"
+                tools:ignore="Deprecated" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_nombre_servicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tipo de Servicio"
+                android:editable="false"
+                android:textColor="#000"
+                android:textSize="17sp"
+                tools:ignore="Deprecated" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <!--Datos del Llegada-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="#fff"
+            android:layout_weight="1"
+            android:outlineAmbientShadowColor="@color/black"
+            app:cardUseCompatPadding="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <!--Titulo-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/txt_datos_llegada"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:paddingBottom="5dp"/>
+
+                <!--Hora desde-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hora desde:"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_hora_desde_llegada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Hora Hasta-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hora hasta"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_hora_hasta_llegada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Cantidad-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad:"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_cantidad_llegada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Datos del Salida-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="#fff"
+            android:outlineAmbientShadowColor="@color/black"
+            app:cardUseCompatPadding="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <!--Titulo-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/txt_datos_salida"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:paddingBottom="5dp"/>
+
+                <!--Hora desde-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hora desde:"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_hora_desde_salida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Hora hasta-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hora hasta:"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_hora_hasta_salida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Cantidad-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad:"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_cantidad_salida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         <EditText
             android:id="@+id/et_motivo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:hint="Escribanos sus motivos del reclamo"/>
 
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="Enviar"
+            android:background="@drawable/btn_personalizado"
             app:backgroundTint="@color/teal_700"
             />
 
-        <Button
-            android:id="@+id/btn_cancelar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            app:backgroundTint="@color/teal_700"
-            />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
