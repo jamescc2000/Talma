@@ -165,7 +165,7 @@ public class RealizarReclam extends AppCompatActivity {
                 Intent intent = new Intent(RealizarReclam.this, RevisarServicios.class);
                 intent.putExtra("codigoRsir",codigo_rsir);
                 startActivity(intent);
-
+                prepararNotificacion(codigo_reclamo_string);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -299,7 +299,7 @@ public class RealizarReclam extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError{
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Content-type", "application/json");
-                headers.put("Authorization", "key=");
+                headers.put("Authorization", "key=AAAAe6WsjPQ:APA91bFw_DIRzSmwHUk-PXF1gqptAyDKRfUVaYtM8vIv0Up6PqcGnurpF-cA7qho-F5-vD5GMiQ1NmlaUWl4c8ruuhHxwxzWHeRpixSSPLR5w1BYHOTWME0zLrzwhe97nCG31_InIbVD");
 
                 return headers;
             }
