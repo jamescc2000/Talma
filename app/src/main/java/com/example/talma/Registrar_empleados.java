@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -158,6 +159,8 @@ public class Registrar_empleados extends AppCompatActivity {
 
                             //Una vez registrado, pasamos a la pantalla de dashboard
                             startActivity(new Intent(Registrar_empleados.this, Dashboard_empleados.class));
+
+                            // FirebaseMessaging.getInstance().subscribeToTopic("Empleado");
                         } else {
                             progressDialog.dismiss(); // El progresss se cierra
                             Toast.makeText(Registrar_empleados.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();

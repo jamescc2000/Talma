@@ -4,6 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.talma.Adapters.AdaptadorListaServicios;
 import com.example.talma.Adapters.AdaptadorReclamo;
 import com.example.talma.Dashboard_cliente;
@@ -35,6 +40,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.sql.Time;
 import java.time.Clock;
@@ -247,6 +254,61 @@ public class RealizarReclam extends AppCompatActivity {
 
         return makeDateString(dia, mes, ano);
     }
+
+    private void prepararNotificacion(String reclamo_id){
+        //Cuando el cliente realize un reclamo, se enviará esta notificación
+        String Topico = "/topics/GESTOR_RECLAMO";
+        String n_titulo = "Nuevo reclamo "+reclamo_id;
+        String tipo = "Reclamo";
+        //preparando el json ("qué" enviar y a "quién")
+        JSONObject notificacionjo = new JSONObject();
+        JSONObject notificacionBodyjo = new JSONObject();
+        try{
+            notificacionBodyjo.put("tipo",tipo);
+            notificacionBodyjo.put("clienteUid",FirebaseAuth.getInstance().getUid());
+            notificacionBodyjo.put("empleadoUid","sadasdasd");
+            notificacionBodyjo.put("n_titulo",n_titulo);
+            notificacionBodyjo.put("reclamo_id",reclamo_id);
+
+
+            notificacionjo.put("to",Topico);
+            notificacionjo.put("data",reclamo_id);
+
+
+        }
+        catch (Exception e){
+            Toast.makeText(this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        enviarNotificacion(notificacionjo, reclamo_id);
+    }
+
+    private void enviarNotificacion(JSONObject notificacionjo, String reclamo_id) {
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://fcm.googleapis.com/fcm/send", notificacionjo, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError{
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-type", "application/json");
+                headers.put("Authorization", "key=");
+
+                return headers;
+            }
+
+        };
+
+        Volley.newRequestQueue(this).add(jsonObjectRequest);
+    }
+
 
     private String makeDateString(int dayOfMonth, int month, int year){
         return dayOfMonth + "/" + month + "/" + year;
