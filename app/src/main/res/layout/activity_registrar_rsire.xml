@@ -500,7 +500,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-
+            android:visibility="gone"
             android:padding="5dp">
 
             <TextView

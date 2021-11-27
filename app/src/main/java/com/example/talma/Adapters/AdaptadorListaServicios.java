@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.talma.Modelos.ModeloServicio;
 import com.example.talma.R;
 import com.example.talma.RealizarReclam;
-import com.example.talma.RealizarReclamo;
 
 import java.util.List;
 
@@ -25,15 +24,16 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
 
     Context context;
     List<ModeloServicio> listaServicios;
-    String tipo;
+    String tipo, usuario;
     ImageButton ib_editar_servicio, ib_eliminar_servicio;
     CardView cardView;
 
 
-    public AdaptadorListaServicios(Context context, List<ModeloServicio> listaServicios, String tipo) {
+    public AdaptadorListaServicios(Context context, List<ModeloServicio> listaServicios, String tipo, String usuario) {
         this.context = context;
         this.listaServicios = listaServicios;
         this.tipo = tipo;
+        this.usuario = usuario;
     }
 
     @NonNull
@@ -46,39 +46,49 @@ public class AdaptadorListaServicios extends RecyclerView.Adapter<AdaptadorLista
     @Override
     public void onBindViewHolder(@NonNull final ServicioViewHolder servicioViewHolder, @SuppressLint("RecyclerView") int i) {
 
-        if(tipo == "revisar"){
+        if(tipo.equals("revisar")){
 
             servicioViewHolder.tv_nombre_servicio.setText(listaServicios.get(i).getNombre_servicio());
             servicioViewHolder.tv_codigo.setText(listaServicios.get(i).getCodigo_servicio());
             servicioViewHolder.tv_horas_servicios.setText(listaServicios.get(i).getHora_desde_llegada() + " - " + listaServicios.get(i).getHora_hasta_salida());
+            servicioViewHolder.tv_cantidad_total_servicios.setText(listaServicios.get(i).getEstado());
 
-            int cantidad_total = Integer.valueOf(listaServicios.get(i).getCantidad_llegada()) + Integer.valueOf(listaServicios.get(i).getCantidad_salida());
-            String string_cantidad_total = String.valueOf(cantidad_total);
+            if(usuario.equals("cliente")){
 
-            servicioViewHolder.tv_cantidad_total_servicios.setText(string_cantidad_total);
+                ib_eliminar_servicio.setVisibility(View.GONE);
+                 ib_editar_servicio.setImageResource(R.drawable.reclamar_icon_1);
 
-            ib_eliminar_servicio.setVisibility(View.GONE);
+                if(listaServicios.get(i).getEstado().equals("reclamado")){
 
-            if(listaServicios.get(i).getEstado().equals("reclamado")){
+                    cardView.setCardBackgroundColor(Color.parseColor("#ADB3B2"));
+                    ib_editar_servicio.setVisibility(View.GONE);
 
-                cardView.setCardBackgroundColor(Color.parseColor("#ADB3B2"));
+                }else if(listaServicios.get(i).getEstado().equals("corregido")){
+
+                    cardView.setCardBackgroundColor(Color.parseColor("#FFC122"));
+                    ib_editar_servicio.setVisibility(View.GONE);
+
+                } else {
+
+                    ib_editar_servicio.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(context, RealizarReclam.class);
+                            intent.putExtra("codigoRsir", listaServicios.get(i).getCodigo_rsir());
+                            intent.putExtra("codigoServicio", listaServicios.get(i).getCodigo_servicio());
+                            context.startActivity(intent);
+                        }
+                    });
+
+                }
+
+            }else if (usuario.equals("empleado")){
+
                 ib_editar_servicio.setVisibility(View.GONE);
-
-            }else {
-
-                ib_editar_servicio.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(context, RealizarReclam.class);
-                        intent.putExtra("codigoRsir", listaServicios.get(i).getCodigo_rsir());
-                        intent.putExtra("codigoServicio", listaServicios.get(i).getCodigo_servicio());
-                        context.startActivity(intent);
-                    }
-                });
-
+                ib_eliminar_servicio.setVisibility(View.GONE);
             }
 
-        }else if(tipo == "registro"){
+        }else if(tipo.equals("registro")){
 
             servicioViewHolder.tv_cantidad_total_servicios.setVisibility(View.GONE);
 

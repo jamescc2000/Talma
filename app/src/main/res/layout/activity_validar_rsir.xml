@@ -39,7 +39,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/btn_personalizado"
             app:backgroundTint="@color/teal_700"
-            android:text="@string/btn_rsir_validados" />
+            android:text="RSIR RECLAMADOS" />
 
         <!--RV RSIR Validados-->
         <androidx.recyclerview.widget.RecyclerView

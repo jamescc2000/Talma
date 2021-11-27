@@ -391,7 +391,7 @@ public class RealizarPedido extends AppCompatActivity {
                     et_cantidad_llegada.setText("");
                     et_cantidad_salida.setText("");
 
-                    adapterListaServicios = new AdaptadorListaServicios(RealizarPedido.this, listaServicios, "registro");
+                    adapterListaServicios = new AdaptadorListaServicios(RealizarPedido.this, listaServicios, "registro", "cliente");
                     recyclerView.setAdapter(adapterListaServicios);
 
                     btn_agregar.setText("Agregar servicio");

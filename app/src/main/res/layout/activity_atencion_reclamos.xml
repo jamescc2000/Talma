@@ -24,7 +24,7 @@
             android:textStyle="bold"/>
 
     </LinearLayout>
-
+<!--
     <TableLayout
         android:layout_width="301dp"
         android:layout_height="wrap_content"
@@ -259,7 +259,22 @@
 
         </TableRow>
     </TableLayout>
+-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rv_atencion_reclamos">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </ScrollView>
 
 
 </LinearLayout>

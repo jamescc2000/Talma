@@ -62,6 +62,28 @@
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
+                <!--Estado RSIR-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estado:"
+                        android:textSize="14sp"
+                        android:textColor="#2B2B2B"/>
+
+                    <TextView
+                        android:id="@+id/tv_estado_rsir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="8dp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
                 <!--Aeropuerto-->
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -488,6 +510,61 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ly_reclamo"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!--Titulo-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="@string/reclamo"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_motivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Escribanos sus motivos del reclamo"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_reclamar_datos_generales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_personalizado"
+            app:backgroundTint="@color/teal_700"
+            android:text="Reclamar Datos Generales"/>
+
+        <Button
+            android:id="@+id/btn_reclamar_datos_generales_gris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            android:background="@drawable/btn_personalizado"
+            app:backgroundTint="#ADB3B2"
+            android:text="Reclamar Datos Generales"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -512,6 +589,16 @@
             tools:ignore="MissingConstraints">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/btn_confirmar_pedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_personalizado"
+            app:backgroundTint="@color/teal_700"
+            android:text="Confirmar pedido" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

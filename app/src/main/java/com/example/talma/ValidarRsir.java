@@ -74,7 +74,7 @@ public class ValidarRsir extends AppCompatActivity {
         bd_clientes = FirebaseDatabase.getInstance().getReference("clientes");
 
         ObtenerRSIRPendientes();
-        ObtenerRSIRValidados();
+        ObtenerRSIRReclamados();
 
         email_cliente = user.getEmail();
 
@@ -108,7 +108,7 @@ public class ValidarRsir extends AppCompatActivity {
                 }else if (rv_rsir_validados.getVisibility() == View.VISIBLE){
 
                     rv_rsir_validados.setVisibility(View.GONE);
-                    btn_rsir_validados.setText("RSIR VALIDADOS");
+                    btn_rsir_validados.setText("RSIR RECLAMADOS");
 
                 }
             }
@@ -117,6 +117,8 @@ public class ValidarRsir extends AppCompatActivity {
     }
 
     private void ObtenerRSIRPendientes() {
+
+        rsirsPendienteList.clear();
 
         Query rsirQuery = bd_rsir.orderByChild("emailCliente").equalTo(user.getEmail());
 
@@ -128,7 +130,7 @@ public class ValidarRsir extends AppCompatActivity {
 
                     ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
 
-                    if(rsir.getEstado().equals("pendiente")){
+                    if(rsir.getEstado().equals("pendiente") || rsir.getEstado().equals("reclamado parcial")){
 
                         //Obtenemos los datos
                         String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();
@@ -175,7 +177,7 @@ public class ValidarRsir extends AppCompatActivity {
 
     }
 
-    private void ObtenerRSIRValidados() {
+    private void ObtenerRSIRReclamados() {
 
         Query rsirQuery = bd_rsir.orderByChild("emailCliente").equalTo(user.getEmail());
 
@@ -188,7 +190,7 @@ public class ValidarRsir extends AppCompatActivity {
 
                     ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
 
-                    if (rsir.getEstado().equals("registrado") || rsir.getEstado().equals("validado")) {
+                    if (rsir.getEstado().equals("reclamado")) {
 
                         //Obtenemos los datos
                         String codigo_rsir_string = ""+ ds.child("codigoRsir").getValue();

@@ -40,10 +40,10 @@ public class AdaptadorReclamo extends RecyclerView.Adapter<AdaptadorReclamo.Recl
     public void onBindViewHolder(@NonNull ReclamoViewHolder holder, int i) {
         if (tipo_usuario == "empleado"){
 
-            holder.tv_cod_reclamo.setText(listaReclamo.get(i).getCodigo_reclamo());
-            holder.tv_rsir.setText(listaReclamo.get(i).getRsir());
-            holder.tv_fecha.setText(listaReclamo.get(i).getFecha());
-            holder.tv_area.setText(listaReclamo.get(i).getArea());
+            holder.tv_cod_reclamo.setText(listaReclamo.get(i).getCodigoReclamo());
+            holder.tv_rsir.setText(listaReclamo.get(i).getCodigoRsir());
+            holder.tv_fecha.setText(listaReclamo.get(i).getFechaRegistro());
+            holder.tv_area.setText(listaReclamo.get(i).getCodigoServicio());
             holder.tv_estado.setText(listaReclamo.get(i).getEstado());
              /*
             holder.itemView.setOnClickListener(new View.OnClickListener() {

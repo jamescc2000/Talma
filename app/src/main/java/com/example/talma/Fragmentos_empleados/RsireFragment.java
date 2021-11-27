@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.talma.R;
 import com.example.talma.Facturacion;
+import com.example.talma.RsirEmpleados.Atencion_reclamos;
 import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.example.talma.RsirEmpleados.RevisarRsir;
 
@@ -70,7 +71,15 @@ public class RsireFragment extends Fragment {
             }
         });
 
+        btn_atender_reclamos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(view.getContext(), Atencion_reclamos.class);
+                startActivity(intent);
+
+            }
+        });
 
         return view;
     }

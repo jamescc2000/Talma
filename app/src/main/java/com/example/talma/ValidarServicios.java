@@ -6,15 +6,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.talma.Adapters.AdaptadorListaServicios;
 import com.example.talma.Modelos.ModeloServicio;
 import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.example.talma.RsirEmpleados.RevisarServicios;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,27 +36,34 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ValidarServicios extends AppCompatActivity {
 
     RecyclerView rv_lista_servicios;
     AdaptadorListaServicios adaptadorListaServicios;
     ActionBar actionBar;
+    private ProgressDialog progressDialog;
 
-    TextView tv_codigo_rsir, tv_aeropuerto, tv_compañia, tv_origen, tv_destino, tv_aeronaves, tv_matricula, tv_area, tv_a_cargo_de;
+    TextView tv_codigo_rsir, tv_estado_rsir,tv_aeropuerto, tv_compañia, tv_origen, tv_destino, tv_aeronaves, tv_matricula, tv_area, tv_a_cargo_de;
     TextView tv_fecha_llegada, tv_hora_llegada, tv_nvuelo_llegada, tv_pea_llegada;
     TextView tv_fecha_salida, tv_hora_salida, tv_nvuelo_salida, tv_pea_salida;
+    EditText et_motivo;
+    Button btn_reclamar_datos_generales, btn_confirmar_pedido, btn_reclamar_datos_generales_gris;
+    LinearLayout ly_reclamo;
 
     List<ModeloServicio> listaServicios = new ArrayList<>();
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
+    String codigo_rsir, estado_rsir;
+
     DatabaseReference bd_rsir;
     DatabaseReference bd_servicios;
-
-    String codigo_rsir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +76,7 @@ public class ValidarServicios extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         tv_codigo_rsir = (TextView) findViewById(R.id.tv_codigo_rsir);
+        tv_estado_rsir = (TextView) findViewById(R.id.tv_estado_rsir);
         tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
         tv_compañia = (TextView) findViewById(R.id.tv_compañia);
         tv_origen = (TextView) findViewById(R.id.tv_origen);
@@ -74,6 +93,11 @@ public class ValidarServicios extends AppCompatActivity {
         tv_hora_salida = (TextView) findViewById(R.id.tv_hora_salida);
         tv_nvuelo_salida = (TextView) findViewById(R.id.tv_nvuelo_salida);
         tv_pea_salida = (TextView) findViewById(R.id.tv_pea_salida);
+        et_motivo = (EditText) findViewById(R.id.et_motivo);
+        btn_reclamar_datos_generales = (Button) findViewById(R.id.btn_reclamar_datos_generales);
+        btn_reclamar_datos_generales_gris = (Button) findViewById(R.id.btn_reclamar_datos_generales_gris);
+        btn_confirmar_pedido = (Button) findViewById(R.id.btn_confirmar_pedido);
+        ly_reclamo = (LinearLayout) findViewById(R.id.ly_reclamo);
         rv_lista_servicios = findViewById(R.id.rv_lista_servicios);
 
         rv_lista_servicios.setHasFixedSize(true);
@@ -81,6 +105,7 @@ public class ValidarServicios extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+        progressDialog = new ProgressDialog(ValidarServicios.this);
 
         Intent intent = getIntent();
         codigo_rsir = intent.getStringExtra("codigoRsir");
@@ -113,9 +138,13 @@ public class ValidarServicios extends AppCompatActivity {
                     String hora_salida_string = ""+ ds.child("horaSalida").getValue();
                     String nvuelo_salida_string = ""+ ds.child("nvueloSalida").getValue();
                     String pea_salida_string = ""+ ds.child("peaSalida").getValue();
+                    String estado_string = ""+ ds.child("estado").getValue();
+
+                    estado_rsir = estado_string;
 
                     //Colocamos los datos
                     tv_codigo_rsir.setText(codigo_rsir_string);
+                    tv_estado_rsir.setText(estado_string);
                     tv_aeropuerto.setText(aeropuerto_string);
                     tv_compañia.setText(compañia_string);
                     tv_origen.setText(origen_string);
@@ -146,9 +175,196 @@ public class ValidarServicios extends AppCompatActivity {
         ObtenerServicios();
 
 
+        btn_reclamar_datos_generales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(estado_rsir.equals("reclamado parcial")){
+
+                    btn_reclamar_datos_generales.setVisibility(View.GONE);
+                    btn_reclamar_datos_generales_gris.setVisibility(View.VISIBLE);
+
+                }else {
+
+                    if (ly_reclamo.getVisibility() == View.GONE){
+
+                        ly_reclamo.setVisibility(View.VISIBLE);
+                        btn_reclamar_datos_generales.setText("Enviar");
+
+                    }else if (ly_reclamo.getVisibility() == View.VISIBLE){
+
+                        actualizarEstadoRSIR();
+                        RegistrarReclamo();
+
+                        ly_reclamo.setVisibility(View.GONE);
+                        btn_reclamar_datos_generales.setText("Reclamar Datos Generales");
+                    }
+
+                }
+
+            }
+        });
+
+        btn_confirmar_pedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                actualizarEstadoPedido();
+
+            }
+        });
+
+    }
+
+    private void RegistrarReclamo(){
+
+        //Aqui van los datos que queremos registrar
+        assert user != null; //Afirmamos que el usuario no sea nulo
+
+        String codigo_reclamo_string = "R_"+ codigo_rsir;
+        String uid_string = user.getUid();
+        String rsir_string = codigo_rsir;
+        String fecha_string = obtnerFechaActual();
+        String estado_string = "pendiente";
+        String motivo_string = et_motivo.getText().toString();
+
+        /*Creamos un Hashmap para mandar los datos a firebase*/
+        Map<String, Object> datosReclamo = new HashMap<>();
+
+        datosReclamo.put("codigoReclamo", codigo_reclamo_string);
+        datosReclamo.put("uid", uid_string);
+        datosReclamo.put("codigoRsir", rsir_string);
+        datosReclamo.put("codigoServicio", "");
+        datosReclamo.put("fechaRegistro", fecha_string);
+        datosReclamo.put("tipoReclamo", "datos generales");
+        datosReclamo.put("estado", estado_string);
+        datosReclamo.put("motivo", motivo_string);
+
+
+        //Inicializamos la instancia a la base de datos
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference reference = database.getReference("reclamo"); // Este es el nombre de la tabla
+        reference.child(codigo_reclamo_string).setValue(datosReclamo).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                Toast.makeText(ValidarServicios.this, "Enviado", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                Toast.makeText(ValidarServicios.this, "Algo ha salido mal, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+    }
+
+    private void actualizarEstadoRSIR(){
+
+        HashMap<String, Object> resultado = new HashMap<>();
+        resultado.put("estado", "reclamado parcial");
+
+        bd_rsir.child(codigo_rsir).updateChildren(resultado)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(ValidarServicios.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+    }
+
+    private void actualizarEstadoPedido(){
+
+        progressDialog.setTitle("Confirmando");
+        progressDialog.setMessage("Espere por favor...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        //Aqui van los datos que queremos registrar
+        assert user != null; //Afirmamos que el usuario no sea nulo
+
+        for(int i=0; i < listaServicios.size(); i++){
+
+                HashMap<String, Object> resultado = new HashMap<>();
+                resultado.put("estado", "validado");
+
+                bd_servicios.child(listaServicios.get(i).getCodigo_servicio()).updateChildren(resultado)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+
+
+
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                                Toast.makeText(ValidarServicios.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+        }
+
+        HashMap<String, Object> resultado = new HashMap<>();
+        resultado.put("estado", "validado");
+
+        bd_rsir.child(codigo_rsir).updateChildren(resultado)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(ValidarServicios.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        progressDialog.dismiss(); // El progresss se cierra
+        Toast.makeText(ValidarServicios.this, "Confirmacion exitosa", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(ValidarServicios.this, Dashboard_cliente.class));
+
+    }
+
+    private String obtnerFechaActual(){
+
+        Calendar cal = Calendar.getInstance();
+        cal.getTimeZone();
+        int ano = cal.get(Calendar.YEAR);
+        int mes = cal.get(Calendar.MONTH);
+        mes = mes + 1;
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+
+        return makeDateString(dia, mes, ano);
+    }
+
+    private String makeDateString(int dayOfMonth, int month, int year){
+        return dayOfMonth + "/" + month + "/" + year;
     }
 
     private void ObtenerServicios(){
+
+        listaServicios.clear();
 
         Query servicioQuery = bd_servicios.orderByChild("codigoRSIR").equalTo(codigo_rsir);
 
@@ -173,7 +389,7 @@ public class ValidarServicios extends AppCompatActivity {
                     listaServicios.add(new ModeloServicio(user.getUid(), codigo_rsir,nombre_string, codigo_servicio_string, hora_desde_llegada_string, hora_hasta_llegada_string,
                             hora_desde_salida_string, hora_hasta_salida_string, cantidad_llegada_string, cantidad_salida_string, estado_string));
 
-                    adaptadorListaServicios = new AdaptadorListaServicios(ValidarServicios.this, listaServicios, "revisar");
+                    adaptadorListaServicios = new AdaptadorListaServicios(ValidarServicios.this, listaServicios, "revisar", "cliente");
                     adaptadorListaServicios.notifyDataSetChanged();
                     rv_lista_servicios.setAdapter(adaptadorListaServicios);
 

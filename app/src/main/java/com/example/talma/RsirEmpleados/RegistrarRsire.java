@@ -399,7 +399,7 @@ public class RegistrarRsire extends AppCompatActivity {
                     et_cantidad_llegada.setText("");
                     et_cantidad_salida.setText("");
 
-                    adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios, "registro");
+                    adapterListaServicios = new AdaptadorListaServicios(RegistrarRsire.this, listaServicios, "registro", "empleado");
                     recyclerView.setAdapter(adapterListaServicios);
 
                     btn_agregar.setText("Agregar servicio");

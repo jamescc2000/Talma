@@ -81,10 +81,10 @@ public class ReclamFragment extends Fragment {
                     ModeloReclamo reclamo = ds.getValue(ModeloReclamo.class);
 
                     if (reclamo.getUid().equals(user.getUid())){
-                        String codigo_reclamo_string = ""+ ds.child("codigo_reclamo").getValue();
-                        String rsir_string = ""+ ds.child("rsir").getValue();
-                        String area_string = ""+ ds.child("area").getValue();
-                        String fecha_string = "14/11/2021";
+                        String codigo_reclamo_string = ""+ ds.child("codigoReclamo").getValue();
+                        String rsir_string = ""+ ds.child("codigoRsir").getValue();
+                        String area_string = ""+ ds.child("codigoServicio").getValue();
+                        String fecha_string = ""+ ds.child("fechaRegistro").getValue();;
                         String estado_string =""+ ds.child("estado").getValue();
 
                         ListmodeloReclamo.add(new ModeloReclamo(codigo_reclamo_string, user.getUid(), rsir_string,area_string,fecha_string,estado_string,""));

@@ -2,27 +2,28 @@ package com.example.talma.Modelos;
 
 public class ModeloReclamo {
 
-    String codigo_reclamo,uid, rsir, area, fecha,estado, motivo;
+    String codigoReclamo, uid, codigoRsir, codigoServicio, fechaRegistro, estado, motivo;
 
 
     public ModeloReclamo() {
     }
-    public ModeloReclamo(String codigo_reclamo, String uid, String rsir, String area, String fecha, String estado, String motivo) {
-        this.codigo_reclamo = codigo_reclamo;
+
+    public ModeloReclamo(String codigoReclamo, String uid, String codigoRsir, String codigoServicio, String fechaRegistro, String estado, String motivo) {
+        this.codigoReclamo = codigoReclamo;
         this.uid = uid;
-        this.rsir = rsir;
-        this.area = area;
-        this.fecha = fecha;
+        this.codigoRsir = codigoRsir;
+        this.codigoServicio = codigoServicio;
+        this.fechaRegistro = fechaRegistro;
         this.estado = estado;
         this.motivo = motivo;
     }
 
-    public String getCodigo_reclamo() {
-        return codigo_reclamo;
+    public String getCodigoReclamo() {
+        return codigoReclamo;
     }
 
-    public void setCodigo_reclamo(String codigo_reclamo) {
-        this.codigo_reclamo = codigo_reclamo;
+    public void setCodigoReclamo(String codigoReclamo) {
+        this.codigoReclamo = codigoReclamo;
     }
 
     public String getUid() {
@@ -33,28 +34,28 @@ public class ModeloReclamo {
         this.uid = uid;
     }
 
-    public String getRsir() {
-        return rsir;
+    public String getCodigoRsir() {
+        return codigoRsir;
     }
 
-    public void setRsir(String rsir) {
-        this.rsir = rsir;
+    public void setCodigoRsir(String codigoRsir) {
+        this.codigoRsir = codigoRsir;
     }
 
-    public String getArea() {
-        return area;
+    public String getCodigoServicio() {
+        return codigoServicio;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setCodigoServicio(String codigoServicio) {
+        this.codigoServicio = codigoServicio;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getFechaRegistro() {
+        return fechaRegistro;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 
     public String getEstado() {

@@ -183,7 +183,7 @@ public class RevisarServicios extends AppCompatActivity {
                         listaServicios.add(new ModeloServicio(user.getUid(), codigo_rsir,nombre_string, codigo_servicio_string, hora_desde_llegada_string, hora_hasta_llegada_string,
                                 hora_desde_salida_string, hora_hasta_salida_string, cantidad_llegada_string, cantidad_salida_string, estado_string));
 
-                        adaptadorListaServicios = new AdaptadorListaServicios(RevisarServicios.this, listaServicios, "revisar");
+                        adaptadorListaServicios = new AdaptadorListaServicios(RevisarServicios.this, listaServicios, "revisar", "empleado");
                         adaptadorListaServicios.notifyDataSetChanged();
                         rv_lista_servicios.setAdapter(adaptadorListaServicios);
 
@@ -226,7 +226,7 @@ public class RevisarServicios extends AppCompatActivity {
                     listaServicios.add(new ModeloServicio(user.getUid(), codigo_rsir,nombre_string, codigo_servicio_string, hora_desde_llegada_string, hora_hasta_llegada_string,
                             hora_desde_salida_string, hora_hasta_salida_string, cantidad_llegada_string, cantidad_salida_string, estado_string));
 
-                    adaptadorListaServicios = new AdaptadorListaServicios(RevisarServicios.this, listaServicios, "revisar");
+                    adaptadorListaServicios = new AdaptadorListaServicios(RevisarServicios.this, listaServicios, "revisar", "empleado");
                     adaptadorListaServicios.notifyDataSetChanged();
                     rv_lista_servicios.setAdapter(adaptadorListaServicios);
 
