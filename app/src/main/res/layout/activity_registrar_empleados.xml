@@ -155,15 +155,6 @@
 
 
             <Button
-                android:id="@+id/btn_fecha_registro_empleados"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="?android:spinnerStyle"
-                android:textColor="#555555"
-                android:text="Fecha de registro"
-                app:backgroundTint="#555555"/>
-
-            <Button
                 android:id="@+id/btn_registrar"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"

@@ -52,7 +52,6 @@ public class registrar_clientes extends AppCompatActivity {
         et_id_cliente = (EditText) findViewById(R.id.et_id_cliente);
         et_contraseña = (EditText) findViewById(R.id.et_contraseña);
         et_aerolinea = (EditText) findViewById(R.id.et_aerolinea);
-        btn_fecha_registro_clientes = (Button) findViewById(R.id.btn_fecha_registro_clientes);
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
 
 
@@ -104,7 +103,7 @@ public class registrar_clientes extends AppCompatActivity {
                             String email_String = et_email.getText().toString();
                             String password_String = et_contraseña.getText().toString();
                             String aerolinea_string = et_aerolinea.getText().toString();
-                            String fechRegistro_string = et_fecha_registro.getText().toString();
+                            String fechRegistro_string = obtenerFechaActual();
 
 
                             /*Creamos un Hashmap para mandar los datos a firebase*/
@@ -141,34 +140,50 @@ public class registrar_clientes extends AppCompatActivity {
             }
         });
 
-        btn_fecha_registro_clientes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        String fecha = makeDateString(dayOfMonth, month, year);
-                        btn_fecha_registro_clientes.setText(fecha);
-                    }
-                };
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int moth = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int style  = AlertDialog.THEME_HOLO_LIGHT;
-
-                datePickerDialog = new DatePickerDialog(registrar_clientes.this, style, dateSetListener, year, moth, day);
-                datePickerDialog.show();
-
-            }
-        });
 
     }
 
     private String makeDateString(int dayOfMonth, int month, int year){
         return dayOfMonth + "/" + month + "/" + year;
+    }
+
+    private String obtenerFechaActual(){
+
+        Calendar cal = Calendar.getInstance();
+        cal.getTimeZone();
+        int ano = cal.get(Calendar.YEAR);
+        int mes = cal.get(Calendar.MONTH);
+        mes = mes + 1;
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+
+        return makeDateString(dia, mes, ano);
+    }
+
+    private  String darFormatoIDCliente(int cantidad){
+
+        String cantCliente = "";
+
+        if(cantidad <10){
+            cantCliente = "C00000"+cantidad;
+        }else if(cantidad <100){
+            cantCliente = "C00000"+cantidad;
+        }else if(cantidad <1000){
+            cantCliente = "C00000"+cantidad;
+        }else if(cantidad <10000){
+            cantCliente = "C0000"+cantidad;
+        }else if(cantidad <100000){
+            cantCliente = "C000"+cantidad;
+        }else if(cantidad <1000000){
+            cantCliente = "C00"+cantidad;
+        }else if(cantidad <10000000){
+            cantCliente = "C0"+cantidad;
+        }else if(cantidad <100000000){
+            cantCliente = "C"+cantidad;
+        }else {
+            cantCliente = "C" + cantidad;
+        }
+
+        return cantCliente;
     }
 
     //Habilitamos la accion para retroceder

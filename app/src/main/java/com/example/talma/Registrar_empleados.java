@@ -47,7 +47,7 @@ public class Registrar_empleados extends AppCompatActivity {
 
     private EditText et_email, et_id_empleado, et_contraseña,et_nombres, et_apellidos,et_dni,et_fecha_nacimiento ;
     private Spinner sp_tipo_cargo, sp_area;
-    private Button btn_fecha_registro_empleados, btn_registrar;
+    private Button  btn_registrar;
 
     int hora, minuto;
 
@@ -76,7 +76,6 @@ public class Registrar_empleados extends AppCompatActivity {
         et_dni = (EditText) findViewById(R.id.et_dni);
         sp_tipo_cargo = (Spinner) findViewById(R.id.sp_tipo_cargo);
         sp_area= (Spinner) findViewById(R.id.sp_area);
-        btn_fecha_registro_empleados = (Button) findViewById(R.id.btn_fecha_registro_empleados);
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
 
 
@@ -137,6 +136,7 @@ public class Registrar_empleados extends AppCompatActivity {
                             String nombres_string = et_nombres.getText().toString();
                             String apellidos_String = et_apellidos.getText().toString();
                             String dni_String = et_dni.getText().toString();
+                            String fechRegistro_string = obtenerFechaActual();
 
                             String tipo_cargo_string = sp_tipo_cargo.getSelectedItem().toString();
                             String area_string = sp_area.getSelectedItem().toString();
@@ -179,29 +179,6 @@ public class Registrar_empleados extends AppCompatActivity {
                                                                              }
                                            });
 
-        btn_fecha_registro_empleados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        String fecha = makeDateString(dayOfMonth, month, year);
-                        btn_fecha_registro_empleados.setText(fecha);
-                    }
-                };
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int moth = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int style  = AlertDialog.THEME_HOLO_LIGHT;
-
-                datePickerDialog = new DatePickerDialog(Registrar_empleados.this, style, dateSetListener, year, moth, day);
-                datePickerDialog.show();
-
-            }
-        });
 
 
 
@@ -209,6 +186,18 @@ public class Registrar_empleados extends AppCompatActivity {
 
     private String makeDateString(int dayOfMonth, int month, int year){
         return dayOfMonth + "/" + month + "/" + year;
+    }
+
+    private String obtenerFechaActual(){
+
+        Calendar cal = Calendar.getInstance();
+        cal.getTimeZone();
+        int ano = cal.get(Calendar.YEAR);
+        int mes = cal.get(Calendar.MONTH);
+        mes = mes + 1;
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+
+        return makeDateString(dia, mes, ano);
     }
 
     //Habilitamos la accion para retroceder
