@@ -7,6 +7,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -36,6 +38,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -44,11 +47,13 @@ public class Registrar_empleados extends AppCompatActivity {
 
     private EditText et_email, et_id_empleado, et_contraseña,et_nombres, et_apellidos,et_dni,et_fecha_nacimiento ;
     private Spinner sp_tipo_cargo, sp_area;
-    private Button btn_fecha_registro, btn_registrar;
+    private Button btn_fecha_registro_empleados, btn_registrar;
 
     int hora, minuto;
 
     private ProgressDialog progressDialog;
+
+    private DatePickerDialog datePickerDialog;
 
     FirebaseAuth firebaseAuth;
 
@@ -71,7 +76,7 @@ public class Registrar_empleados extends AppCompatActivity {
         et_dni = (EditText) findViewById(R.id.et_dni);
         sp_tipo_cargo = (Spinner) findViewById(R.id.sp_tipo_cargo);
         sp_area= (Spinner) findViewById(R.id.sp_area);
-        btn_fecha_registro = (Button) findViewById(R.id.btn_fecha_registro);
+        btn_fecha_registro_empleados = (Button) findViewById(R.id.btn_fecha_registro_empleados);
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
 
 
@@ -171,27 +176,39 @@ public class Registrar_empleados extends AppCompatActivity {
                                                public void onFailure(@NonNull Exception e) {
                                                    progressDialog.dismiss(); // El progresss se cierra
                                                    Toast.makeText(Registrar_empleados.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                               }
+                                                                             }
                                            });
 
-        btn_fecha_registro.setOnClickListener(new View.OnClickListener() {
+        btn_fecha_registro_empleados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        hora = hourOfDay;
-                        minuto = minute;
-                        btn_fecha_registro.setText(String.format(Locale.getDefault(), "%02d:%02d", hora, minuto));
-                    }};
-                int style = AlertDialog.THEME_HOLO_LIGHT;
 
-                TimePickerDialog timePickerDialog = new TimePickerDialog(Registrar_empleados.this, style,listener, hora, minuto, true);
-                timePickerDialog.show();
+                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month + 1;
+                        String fecha = makeDateString(dayOfMonth, month, year);
+                        btn_fecha_registro_empleados.setText(fecha);
+                    }
+                };
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int moth = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int style  = AlertDialog.THEME_HOLO_LIGHT;
+
+                datePickerDialog = new DatePickerDialog(Registrar_empleados.this, style, dateSetListener, year, moth, day);
+                datePickerDialog.show();
 
             }
         });
 
+
+
+    }
+
+    private String makeDateString(int dayOfMonth, int month, int year){
+        return dayOfMonth + "/" + month + "/" + year;
     }
 
     //Habilitamos la accion para retroceder

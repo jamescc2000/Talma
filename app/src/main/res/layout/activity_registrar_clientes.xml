@@ -82,17 +82,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/et_fecha_registro"
+        <Button
+            android:id="@+id/btn_fecha_registro_clientes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha de registro" />
+            style="?android:spinnerStyle"
+            android:textColor="#555555"
+            android:text="Fecha de registro"
+            app:backgroundTint="#555555"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_registrar"
@@ -104,13 +103,7 @@
         android:layout_marginTop="20dp"
         />
 
-    <Button
-        android:id="@+id/btn_cancelar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        app:backgroundTint="@color/teal_700"
-        />
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
