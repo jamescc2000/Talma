@@ -45,9 +45,6 @@
             android:name=".RsirEmpleados.RegistrarRsire"
             android:exported="true" />
         <activity
-            android:name=".Registro_usuarios"
-            android:exported="false" />
-        <activity
             android:name=".RsirEmpleados.Atencion_reclamos"
             android:exported="false" />
         <activity
