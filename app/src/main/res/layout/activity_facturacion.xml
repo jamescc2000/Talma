@@ -144,13 +144,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/btn_personalizado"
-            android:text="Cancelar"
-            app:backgroundTint="@color/teal_700" />
+
 
 
     </LinearLayout>
