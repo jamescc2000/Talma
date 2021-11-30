@@ -57,9 +57,6 @@ public class RealizarReclam extends AppCompatActivity {
 
     TextView tv_hora_desde_llegada, tv_hora_hasta_llegada, tv_cantidad_llegada, tv_hora_desde_salida, tv_hora_hasta_salida, tv_cantidad_salida;
 
-    AdaptadorReclamo adaptadorReclamo;
-    List<ModeloReclamo> modeloReclamoList;
-
     ActionBar actionBar;
     private ProgressDialog progressDialog;
     FirebaseAuth firebaseAuth;
@@ -162,10 +159,11 @@ public class RealizarReclam extends AppCompatActivity {
 
 
                 //Una vez registrado, volvemos
-                Intent intent = new Intent(RealizarReclam.this, RevisarServicios.class);
+                Intent intent = new Intent(RealizarReclam.this, ValidarServicios.class);
                 intent.putExtra("codigoRsir",codigo_rsir);
                 startActivity(intent);
-                prepararNotificacion(codigo_reclamo_string);
+                finish();
+               //prepararNotificacion(codigo_reclamo_string);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -296,7 +294,7 @@ public class RealizarReclam extends AppCompatActivity {
             }
         }){
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError{
+            public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Content-type", "application/json");
                 headers.put("Authorization", "key=AAAAe6WsjPQ:APA91bFw_DIRzSmwHUk-PXF1gqptAyDKRfUVaYtM8vIv0Up6PqcGnurpF-cA7qho-F5-vD5GMiQ1NmlaUWl4c8ruuhHxwxzWHeRpixSSPLR5w1BYHOTWME0zLrzwhe97nCG31_InIbVD");

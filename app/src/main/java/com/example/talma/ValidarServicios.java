@@ -250,8 +250,6 @@ public class ValidarServicios extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 Toast.makeText(ValidarServicios.this, "Enviado", Toast.LENGTH_SHORT).show();
-                finish();
-                startActivity(getIntent());
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -363,8 +361,6 @@ public class ValidarServicios extends AppCompatActivity {
     }
 
     private void ObtenerServicios(){
-
-        listaServicios.clear();
 
         Query servicioQuery = bd_servicios.orderByChild("codigoRSIR").equalTo(codigo_rsir);
 

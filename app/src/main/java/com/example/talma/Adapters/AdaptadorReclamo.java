@@ -58,18 +58,14 @@ public class AdaptadorReclamo extends RecyclerView.Adapter<AdaptadorReclamo.Recl
 
             }); */
 
-        } /* else if (tipo_usuario == "cliente"){
-            rsirViewHolder.tv_aeropuerto.setText(listaRSIR.get(i).getAeropuerto());
-            rsirViewHolder.tv_tipo_aeronave.setText(listaRSIR.get(i).getTipo_aeronave());
-            rsirViewHolder.tv_fechas.setText(listaRSIR.get(i).getFecha_salida() + " - " + listaRSIR.get(i).getFecha_llegada());
-            rsirViewHolder.tv_codigo_rsir.setText(listaRSIR.get(i).getCodigo());
-            rsirViewHolder.tv_area.setText(listaRSIR.get(i).getArea());
-            rsirViewHolder.tv_origen_destino.setText(listaRSIR.get(i).getOrigen() + " - " + listaRSIR.get(i).getDestino());
+        }  else if (tipo_usuario == "cliente"){
+            holder.tv_cod_reclamo.setText(listaReclamo.get(i).getCodigoReclamo());
+            holder.tv_rsir.setText(listaReclamo.get(i).getCodigoRsir());
+            holder.tv_fecha.setText(listaReclamo.get(i).getFechaRegistro());
+            holder.tv_area.setText(listaReclamo.get(i).getCodigoServicio());
+            holder.tv_estado.setText(listaReclamo.get(i).getEstado());
 
-
-
-
-        }*/
+        }
 
     }
 
