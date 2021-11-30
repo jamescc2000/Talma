@@ -1,6 +1,7 @@
 package com.example.talma.RsirEmpleados;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -12,10 +13,12 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -45,6 +48,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -83,12 +91,13 @@ public class RegistrarRsire extends AppCompatActivity {
     DatabaseReference bd_rsir;
     DatabaseReference bd_servicios;
 
-    private Spinner sp_servicios;
+    private Spinner sp_tipo_servicio, sp_subtipo_servicio, sp_nombre_servicio;
     private EditText et_cantidad_llegada, et_cantidad_salida;
-    private EditText et_compañia, et_email_cliente,et_origen, et_destino, et_matricula, et_a_cargo_de, et_nvuelo_llegada, et_pea_llegada;
+    private EditText et_compañia, et_email_cliente,et_origen, et_destino, et_matricula, et_a_cargo_de, et_nvuelo_llegada, et_pea_llegada, et_peso;
     private EditText et_nvuelo_salida, et_pea_salida;
     private TextView tv_cantidad_total, tv_aeropuerto, tv_tipo_aeronave, tv_fechas, tv_compañia, tv_matricula, tv_origen_destino;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,22 +117,25 @@ public class RegistrarRsire extends AppCompatActivity {
         btn_fecha_salida = (Button) findViewById(R.id.btn_fecha_salida);
         btn_hora_salida = (Button) findViewById(R.id.btn_hora_salida);
         btn_hora_llegada = (Button) findViewById(R.id.btn_hora_llegada);
-        btn_fecha_llegada = (Button) findViewById(R.id.btn_fecha_llegada) ;
-        btn_hora_desde_llegada = (Button) findViewById(R.id.btn_hora_desde_llegada) ;
-        btn_hora_hasta_llegada = (Button) findViewById(R.id.btn_hora_hasta_llegada) ;
-        btn_hora_desde_salida = (Button) findViewById(R.id.btn_hora_desde_salida) ;
-        btn_hora_hasta_salida = (Button) findViewById(R.id.btn_hora_hasta_salida) ;
+        btn_fecha_llegada = (Button) findViewById(R.id.btn_fecha_llegada);
+        btn_hora_desde_llegada = (Button) findViewById(R.id.btn_hora_desde_llegada);
+        btn_hora_hasta_llegada = (Button) findViewById(R.id.btn_hora_hasta_llegada);
+        btn_hora_desde_salida = (Button) findViewById(R.id.btn_hora_desde_salida);
+        btn_hora_hasta_salida = (Button) findViewById(R.id.btn_hora_hasta_salida);
         et_compañia = (EditText) findViewById(R.id.et_compañia);
         et_email_cliente = (EditText) findViewById(R.id.et_email_cliente);
         et_origen = (EditText) findViewById(R.id.et_origen);
         et_destino = (EditText) findViewById(R.id.et_destino);
         et_matricula = (EditText) findViewById(R.id.et_matricula);
+        et_peso = (EditText) findViewById(R.id.et_peso);
         et_a_cargo_de = (EditText) findViewById(R.id.et_a_cargo_de);
         et_nvuelo_llegada = (EditText) findViewById(R.id.et_nvuelo_llegada);
         et_pea_llegada = (EditText) findViewById(R.id.et_pea_llegada);
         et_nvuelo_salida = (EditText) findViewById(R.id.et_nvuelo_salida);
         et_pea_salida = (EditText) findViewById(R.id.et_pea_salida);
-        sp_servicios = (Spinner) findViewById(R.id.sp_servicios);
+        sp_tipo_servicio = (Spinner) findViewById(R.id.sp_tipo_servicio);
+        sp_subtipo_servicio = (Spinner) findViewById(R.id.sp_subtipo_servicio);
+        sp_nombre_servicio = (Spinner) findViewById(R.id.sp_nombre_servicio);
         et_cantidad_llegada = (EditText) findViewById(R.id.et_cantidad_llegada);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
         tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
@@ -136,9 +148,102 @@ public class RegistrarRsire extends AppCompatActivity {
         cv_datos_rsire = (CardView) findViewById(R.id.cv_datos_rsire);
         ll_registrar_rsire = (LinearLayout) findViewById(R.id.ll_registrar_rsire);
 
-        String [] opciones_servicios = {"Montacarga","Tractor","Estibador"};
-        ArrayAdapter<String> adapter_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner,opciones_servicios);
-        sp_servicios.setAdapter(adapter_servicios);
+
+        String[] opciones_tipos_servicios = {"Carga", "Adicionales"};
+        ArrayAdapter<String> adapter_tipos_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_tipos_servicios);
+        sp_tipo_servicio.setAdapter(adapter_tipos_servicios);
+
+        sp_tipo_servicio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if(position == 0){
+
+                    String[] opciones_subtipos_servicios = {"Carga general", "Carga peligorsa", "Carga perecible", "Carga valorada", "Carga mixta", "Carga mascota", "Carga temperada", "Carga farmaceutica", "Carga maritima"};
+                    ArrayAdapter<String> adapter_subtipos_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_subtipos_servicios);
+                    sp_subtipo_servicio.setAdapter(adapter_subtipos_servicios);
+
+                    sp_subtipo_servicio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+
+                            if(i == 0){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 1){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 2){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 3){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 4){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 5){
+
+                            }else if(i == 6){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 7){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 8){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje marítimo", "Servicio de carga marítima", "Manipuleo marítimo", "Reconocimiento previo maritimo", "Reconocimiento físico maritimo", "Control y manejo de carga marítima"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
+                }else if(position == 1){
+
+                    String[] opciones_subtipos_servicios = {"Estibador", "Reconocimiento fisico", "Extraccion de muestras", "Montacarga", "Inspeccion"};
+                    ArrayAdapter<String> adapter_subtipos_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_subtipos_servicios);
+                    sp_subtipo_servicio.setAdapter(adapter_subtipos_servicios);
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
 
         String [] opciones_aeropuertos = {"Jorge Cahvez","Alfredo Rodríguez Ballón","Alfredo Mendívil Duarte","Armando Revoredo Iglesias", "Chiclayo", "Alejandro Velasco Astete de Cusco"};
@@ -379,7 +484,7 @@ public class RegistrarRsire extends AppCompatActivity {
                     //Una vez registrado el servicio, lo agregamos al rv
                     listaServicios.add(new ModeloServicio(user.getUid(),
                             codigo_rsir,
-                            sp_servicios.getSelectedItem().toString(),
+                            sp_nombre_servicio.getSelectedItem().toString(),
                             codigo_servicio,
                             btn_hora_desde_llegada.getText().toString(),
                             btn_hora_hasta_llegada.getText().toString(),
@@ -466,6 +571,7 @@ public class RegistrarRsire extends AppCompatActivity {
         String destino_String = et_destino.getText().toString();
         String aeronave_String = sp_aeronaves.getSelectedItem().toString();
         String matricula_string = et_matricula.getText().toString();
+        String peso_string = et_peso.getText().toString();
         String area_string = sp_area.getSelectedItem().toString();
         String a_cargo_de_string = et_a_cargo_de.getText().toString();
         String fecha_llegada_string = btn_fecha_llegada.getText().toString();
@@ -489,6 +595,7 @@ public class RegistrarRsire extends AppCompatActivity {
         datosRsir.put("destino", destino_String);
         datosRsir.put("aeronave", aeronave_String);
         datosRsir.put("matricula", matricula_string);
+        datosRsir.put("peso", peso_string);
         datosRsir.put("area", area_string);
         datosRsir.put("aCargoDe", a_cargo_de_string);
         datosRsir.put("fechaLlegada", fecha_llegada_string);

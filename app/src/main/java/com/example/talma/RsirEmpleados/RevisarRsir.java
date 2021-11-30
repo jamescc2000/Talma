@@ -103,11 +103,12 @@ public class RevisarRsir extends AppCompatActivity {
                         String nvuelo_salida_string = ""+ ds.child("nvueloSalida").getValue();
                         String pea_salida_string = ""+ ds.child("peaSalida").getValue();
                         String estado_string = ""+ ds.child("estado").getValue();
+                        String peso_string = ""+ ds.child("peso").getValue();
 
                         //Colocamos los datos
                         rsirsList.add(new ModeloRSIR(user.getUid(),codigo_rsir_string, aeropuerto_string, compañia_string, email_cliente_string,origen_string, destino_string,
                                 aeronave_string, matricula_string, area_string, a_cargo_de_string, fecha_llegada_string, hora_llegada_string,
-                                nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string));
+                                nvuelo_llegada_string, pea_llegada_string, fecha_salida_string, hora_salida_string, nvuelo_salida_string, pea_salida_string,estado_string, peso_string));
 
                         adaptadorRsir = new AdaptadorRsir(RevisarRsir.this, rsirsList,"empleado");
                         adaptadorRsir.notifyDataSetChanged();

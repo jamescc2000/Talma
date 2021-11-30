@@ -3,12 +3,12 @@ package com.example.talma.Modelos;
 public class ModeloRSIR {
 
     //Usar los mismos nombres que en la base de datos
-    String uid,codigoRsir, aeropuerto, compania, emailCliente, origen, destino, aeronave, matricula, area,aCargoDe, fechaLlegada, horaLlegada, nvueloLlegada, peaLlegada, fechaSalida,horaSalida,nvueloSalida,peaSalida, estado;
+    String uid,codigoRsir, aeropuerto, compania, emailCliente, origen, destino, aeronave, matricula, area,aCargoDe, fechaLlegada, horaLlegada, nvueloLlegada, peaLlegada, fechaSalida,horaSalida,nvueloSalida,peaSalida, estado, peso;
 
     public ModeloRSIR() {
     }
 
-    public ModeloRSIR(String uid, String codigoRsir, String aeropuerto, String compania, String emailCliente, String origen, String destino, String aeronave, String matricula, String area, String aCargoDe, String fechaLlegada, String horaLlegada, String nvueloLlegada, String peaLlegada, String fechaSalida, String horaSalida, String nvueloSalida, String peaSalida, String estado) {
+    public ModeloRSIR(String uid, String codigoRsir, String aeropuerto, String compania, String emailCliente, String origen, String destino, String aeronave, String matricula, String area, String aCargoDe, String fechaLlegada, String horaLlegada, String nvueloLlegada, String peaLlegada, String fechaSalida, String horaSalida, String nvueloSalida, String peaSalida, String estado, String peso) {
         this.uid = uid;
         this.codigoRsir = codigoRsir;
         this.aeropuerto = aeropuerto;
@@ -29,6 +29,7 @@ public class ModeloRSIR {
         this.nvueloSalida = nvueloSalida;
         this.peaSalida = peaSalida;
         this.estado = estado;
+        this.peso = peso;
     }
 
     public String getUid() {
@@ -189,5 +190,13 @@ public class ModeloRSIR {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
 }

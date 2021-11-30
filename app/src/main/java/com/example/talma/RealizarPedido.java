@@ -56,7 +56,7 @@ public class RealizarPedido extends AppCompatActivity {
     Button btn_fecha_llegada, btn_fecha_salida, btn_hora_llegada, btn_hora_salida;
     Button btn_hora_desde_llegada, btn_hora_hasta_llegada, btn_hora_desde_salida, btn_hora_hasta_salida;
 
-    private EditText et_nombre;
+    private EditText et_peso;
     private DatePickerDialog datePickerDialog;
 
     int hora,minuto;
@@ -110,6 +110,7 @@ public class RealizarPedido extends AppCompatActivity {
         et_origen = (EditText) findViewById(R.id.et_origen);
         et_destino = (EditText) findViewById(R.id.et_destino);
         et_matricula = (EditText) findViewById(R.id.et_matricula);
+        et_peso = (EditText) findViewById(R.id.et_peso);
         et_nvuelo_llegada = (EditText) findViewById(R.id.et_nvuelo_llegada);
         et_pea_llegada = (EditText) findViewById(R.id.et_pea_llegada);
         et_nvuelo_salida = (EditText) findViewById(R.id.et_nvuelo_salida);
@@ -460,6 +461,7 @@ public class RealizarPedido extends AppCompatActivity {
         String destino_String = et_destino.getText().toString();
         String aeronave_String = sp_aeronaves.getSelectedItem().toString();
         String matricula_string = et_matricula.getText().toString();
+        String peso_string = et_peso.getText().toString();
         String area_string = "";
         String a_cargo_de_string = "";
         String fecha_llegada_string = btn_fecha_llegada.getText().toString();
@@ -483,6 +485,7 @@ public class RealizarPedido extends AppCompatActivity {
         datosRsir.put("destino", destino_String);
         datosRsir.put("aeronave", aeronave_String);
         datosRsir.put("matricula", matricula_string);
+        datosRsir.put("peso", peso_string);
         datosRsir.put("area", area_string);
         datosRsir.put("aCargoDe", a_cargo_de_string);
         datosRsir.put("fechaLlegada", fecha_llegada_string);
