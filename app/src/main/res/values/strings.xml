@@ -70,6 +70,7 @@
     <string name="txt_destino">Destino</string>
     <string name="txt_aeronave">Aeronave </string>
     <string name="txt_matricula">Matricula</string>
+    <string name="txt_peso">Peso (kg)</string>
     <string name="txt_a_cargo_de">A cargo de</string>
     <string name="txt_area">Area: </string>
     <string name="txt_fecha">Fecha dd/mm/yyyy</string>
@@ -97,6 +98,7 @@
     <!--Agregar de servicio-->
     <string name="txt_agregar_servicio">Agregar servicio</string>
     <string name="txt_nombre_servicio">Nombre: </string>
+    <string name="txt_subtipo_servicio">Subtipo: </string>
     <string name="txt_Codigo">Codigo </string>
     <string name="btn_guardar_servicio">Guardar</string>
     <string name="txt_hora_desde">Hora desde hh:mm</string>

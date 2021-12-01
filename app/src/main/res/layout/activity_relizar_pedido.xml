@@ -164,6 +164,23 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!--Peso-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_peso"
+                        android:hint="@string/txt_peso"
+                        android:inputType="textCapWords"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
             </LinearLayout>
 
             <!--Datos de llegada-->

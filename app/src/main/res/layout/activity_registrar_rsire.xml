@@ -181,6 +181,22 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!--Peso-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_peso"
+                        android:hint="@string/txt_peso"
+                        android:inputType="numberDecimal"
+                        android:textColorHint="#000"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <!--Area-->
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -500,7 +516,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
+
             android:padding="5dp">
 
             <TextView
@@ -521,6 +537,48 @@
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical">
 
+                <!--Tipo del servicio-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_tipo_servicio"
+                        android:textSize="17sp" />
+
+                    <Spinner
+                        android:id="@+id/sp_tipo_servicio"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Subtipo del servicio-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_subtipo_servicio"
+                        android:textSize="17sp" />
+
+                    <Spinner
+                        android:id="@+id/sp_subtipo_servicio"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
                 <!--Nombre del servicio-->
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -535,7 +593,7 @@
                         android:textSize="17sp" />
 
                     <Spinner
-                        android:id="@+id/sp_servicios"
+                        android:id="@+id/sp_nombre_servicio"
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>

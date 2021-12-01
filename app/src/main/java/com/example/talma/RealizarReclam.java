@@ -53,7 +53,7 @@ import java.util.Map;
 public class RealizarReclam extends AppCompatActivity {
 
     private EditText et_codigo_rsir, et_motivo, et_codigo_servicio, et_nombre_servicio;
-    private Button btn_enviar;
+    private Button btn_enviar, btn_cancelar;
 
     TextView tv_hora_desde_llegada, tv_hora_hasta_llegada, tv_cantidad_llegada, tv_hora_desde_salida, tv_hora_hasta_salida, tv_cantidad_salida;
 
@@ -86,6 +86,7 @@ public class RealizarReclam extends AppCompatActivity {
         et_nombre_servicio = (EditText) findViewById(R.id.et_nombre_servicio);
         et_motivo = (EditText) findViewById(R.id.et_motivo);
         btn_enviar = (Button) findViewById(R.id.btn_enviar);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         bd_servicio = FirebaseDatabase.getInstance().getReference("servicios");
@@ -139,7 +140,6 @@ public class RealizarReclam extends AppCompatActivity {
         datosReclamo.put("codigoRsir", rsir_string);
         datosReclamo.put("codigoServicio", codigo_servicio);
         datosReclamo.put("fechaRegistro", fecha_string);
-        datosReclamo.put("tipoReclamo", "servicio");
         datosReclamo.put("estado", estado_string);
         datosReclamo.put("motivo", motivo_string);
 
