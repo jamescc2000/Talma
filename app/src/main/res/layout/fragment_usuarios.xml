@@ -6,14 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragmentos_empleados.UsuariosFragment">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
-        tools:context=".Registro_usuarios" >
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tv_registro_usuarios"
@@ -36,9 +33,7 @@
             android:textSize="24dp"
             />
 
-
-
-        <!--Imágenes-->
+        <!--Clientes-->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,48 +44,50 @@
             android:outlineAmbientShadowColor="@color/black"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:text="Clientes"
+                    android:textSize="20dp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Clientes"
-                        android:textSize="20dp" />
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/avion" />
 
-                </LinearLayout>
+                    <Button
+                        android:id="@+id/Btn_registrar_clientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@drawable/btn_personalizado"
+                        android:text="Registrar clientes"
+                        app:backgroundTint="@color/teal_700" />
 
-                <Button
-                    android:id="@+id/Btn_registrar_clientes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="75dp"
-                    android:layout_marginRight="25dp"
-                    android:text="Registrar clientes"
-                    android:background="@drawable/btn_personalizado"
-                    app:backgroundTint="@color/teal_700" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         </androidx.cardview.widget.CardView>
 
 
+
+        <!--Empleados-->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,23 +98,26 @@
             android:outlineAmbientShadowColor="@color/black"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:orientation="horizontal">
+                android:layout_height="178dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <LinearLayout
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Empleados"
+                    android:textSize="20dp" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Empleados"
-                        android:textSize="20dp" />
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -125,25 +125,26 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/empleados" />
 
-                </LinearLayout>
+                    <Button
+                        android:id="@+id/Btn_registrar_empleados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_personalizado"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginRight="25dp"
+                        android:text="Registrar empleados"
+                        app:backgroundTint="@color/teal_700" />
 
-                <Button
-                    android:id="@+id/Btn_registrar_empleados"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_personalizado"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="75dp"
-                    android:layout_marginRight="25dp"
-                    android:text="Registrar empleados"
-                    app:backgroundTint="@color/teal_700" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
         </androidx.cardview.widget.CardView>
 
 
-
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </ScrollView>
