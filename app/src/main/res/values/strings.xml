@@ -169,4 +169,16 @@
     <!--Boton Registro de clientes-->
     <string name="btn_fecha_registro_empleados">Fecha de registro</string>
 
+    <!--Nueva factura-->
+    <string name="et_RSIR">RSIR</string>
+    <string name="et_encargado_facturacion">Encargado de facturación</string>
+    <string name="btn_fecha_emision">Fecha de emisión</string>
+
+    <string name="tv_Servicios">Servicios</string>
+    <string name="tv_Precio">Precio</string>
+    <string name="btn_registrar_factura">Registrar</string>
+
+
+
+
 </resources>

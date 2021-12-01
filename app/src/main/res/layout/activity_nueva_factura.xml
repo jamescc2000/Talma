@@ -1,216 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".Nueva_factura">
 
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Nueva factura"
-        android:textSize="34sp"
-        android:textColor="#000"
-        android:textStyle="bold"
-        />
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-
-        <EditText
-            android:id="@+id/et_fecha_emision"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha de emisión"
+            android:gravity="center"
+            android:text="Nueva factura"
+            android:textSize="34sp"
+            android:textColor="#000"
+            android:textStyle="bold"
             />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <EditText
+                        android:id="@+id/et_RSIR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="RSIR"
+                        android:inputType="text"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <EditText
+                        android:id="@+id/et_encargado_facturacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Encargado de facturación"
+                        android:inputType="text"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_fecha_emision"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:spinnerStyle"
+                    android:textColor="#555555"
+                    android:text="Fecha de emisión"
+                    app:backgroundTint="#555555"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/verde">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Servicios"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Precio"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:gravity="center"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Servicio1"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Precio1"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Servicio2"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Precio2"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Servicio3"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Precio3"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Servicio4"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Precio4"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Servicio5"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/et_Precio5"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+
+
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+        <Button
+            android:id="@+id/btn_registrar_factura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID del Cliente"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Encargado de facturación"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="3dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/teal_700">
-
-            <TextView
-                android:layout_width="82dp"
-                android:layout_height="wrap_content"
-                android:text="Recursos"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="97dp"
-                android:layout_height="wrap_content"
-                android:text="Operación"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="95dp"
-                android:layout_height="wrap_content"
-                android:text="Horario"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="66dp"
-                android:layout_height="wrap_content"
-                android:text="Cantidad"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="59dp"
-                android:layout_height="wrap_content"
-                android:text="Monto "
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Auxiliares"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fragileros"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="08:00 - 13:00"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="15"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1500"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Operadores"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tractoristas"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="15:00 - 17:00"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="10"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2000"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-    </TableLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
-
-        <EditText
-            android:id="@+id/ID_factura"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Monto total"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/btn_personalizado"
-        android:text="Guardar"
-        app:backgroundTint="@color/teal_700"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/btn_personalizado"
-        android:text="Cancelar"
-        app:backgroundTint="@color/teal_700"/>
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_personalizado"
+            android:text="Registrar "
+            app:backgroundTint="@color/teal_700"/>
 
 
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-    </LinearLayout>
+</ScrollView>
 
