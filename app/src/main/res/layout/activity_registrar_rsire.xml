@@ -516,7 +516,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
-
+            android:visibility="gone"
             android:padding="5dp">
 
             <TextView
@@ -559,15 +559,17 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <!--Subtipo del servicio-->
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:id="@+id/ll_subtipo_servicio"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tv_subtipo_servicio"
                         android:text="@string/txt_subtipo_servicio"
                         android:textSize="17sp" />
 
@@ -577,13 +579,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
                 <!--Nombre del servicio-->
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:id="@+id/ll_nombre_servicio"
                     android:orientation="horizontal">
 
                     <TextView
@@ -598,7 +601,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
