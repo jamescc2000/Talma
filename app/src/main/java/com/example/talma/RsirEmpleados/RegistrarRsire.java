@@ -68,6 +68,7 @@ public class RegistrarRsire extends AppCompatActivity {
     Button btn_editar_datos_generales, btn_agregar, btn_finalizar;
     Button btn_fecha_llegada, btn_fecha_salida, btn_hora_llegada, btn_hora_salida;
     Button btn_hora_desde_llegada, btn_hora_hasta_llegada, btn_hora_desde_salida, btn_hora_hasta_salida;
+    TextView tv_subtipo_servicio;
 
     String codigo_rsir, codigo_servicio;
     int cantRSIR = 0, cantServicios=0;
@@ -76,13 +77,13 @@ public class RegistrarRsire extends AppCompatActivity {
 
     int hora,minuto;
 
-    LinearLayout ll_registrar_rsire;
+    LinearLayout ll_registrar_rsire, ll_subtipo_servicio;
     CardView cv_datos_rsire;
 
     RecyclerView recyclerView;
     AdaptadorListaServicios adapterListaServicios;
     List<ModeloServicio> listaServicios = new ArrayList<>();
-    LinearLayout ll_agregar_servicio;
+    LinearLayout ll_agregar_servicio, ll_nombre_servicio;
 
     ActionBar actionBar;
     private ProgressDialog progressDialog;
@@ -138,15 +139,18 @@ public class RegistrarRsire extends AppCompatActivity {
         sp_nombre_servicio = (Spinner) findViewById(R.id.sp_nombre_servicio);
         et_cantidad_llegada = (EditText) findViewById(R.id.et_cantidad_llegada);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
+        tv_subtipo_servicio = (TextView) findViewById(R.id.tv_subtipo_servicio);
         tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
         tv_tipo_aeronave = (TextView) findViewById(R.id.tv_tipo_aeronave);
         tv_matricula = (TextView) findViewById(R.id.tv_matricula);
         tv_fechas = (TextView) findViewById(R.id.tv_fechas);
         tv_origen_destino = (TextView) findViewById(R.id.tv_origen_destino);
         tv_compañia = (TextView) findViewById(R.id.tv_compañia);
+        ll_nombre_servicio = (LinearLayout) findViewById(R.id.ll_nombre_servicio);
         ll_agregar_servicio = (LinearLayout) findViewById(R.id.ll_agregar_servicio);
         cv_datos_rsire = (CardView) findViewById(R.id.cv_datos_rsire);
         ll_registrar_rsire = (LinearLayout) findViewById(R.id.ll_registrar_rsire);
+        ll_subtipo_servicio = (LinearLayout) findViewById(R.id.ll_subtipo_servicio);
 
 
         String[] opciones_tipos_servicios = {"Carga", "Adicionales"};
@@ -158,6 +162,8 @@ public class RegistrarRsire extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 if(position == 0){
+
+                    ll_subtipo_servicio.setVisibility(View.VISIBLE);
 
                     String[] opciones_subtipos_servicios = {"Carga general", "Carga peligorsa", "Carga perecible", "Carga valorada", "Carga mixta", "Carga mascota", "Carga temperada", "Carga farmaceutica", "Carga maritima"};
                     ArrayAdapter<String> adapter_subtipos_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_subtipos_servicios);
@@ -230,9 +236,11 @@ public class RegistrarRsire extends AppCompatActivity {
 
                 }else if(position == 1){
 
-                    String[] opciones_subtipos_servicios = {"Estibador", "Reconocimiento fisico", "Extraccion de muestras", "Montacarga", "Inspeccion"};
-                    ArrayAdapter<String> adapter_subtipos_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_subtipos_servicios);
-                    sp_subtipo_servicio.setAdapter(adapter_subtipos_servicios);
+                    ll_subtipo_servicio.setVisibility(View.GONE);
+
+                    String[] opciones_nombre_servicios =  {"Estibador", "Reconocimiento fisico", "Extraccion de muestras", "Montacarga", "Inspeccion"};
+                    ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
+                    sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
 
                 }
 
