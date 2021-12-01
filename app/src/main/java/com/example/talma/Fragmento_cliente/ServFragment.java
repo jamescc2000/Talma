@@ -12,9 +12,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.talma.Adapters.AdaptadorReclamo;
 import com.example.talma.Adapters.AdaptadorRsir;
 import com.example.talma.Modelos.ModeloRSIR;
+import com.example.talma.Modelos.ModeloReclamo;
 import com.example.talma.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +47,9 @@ public class ServFragment extends Fragment {
     RecyclerView recyclerView;
     AdaptadorRsir adaptadorRsir;
     List<ModeloRSIR> modeloRSIRList;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    DatabaseReference bd_serv;
 
     public ServFragment() {
         // Required empty public constructor
@@ -88,19 +99,59 @@ public class ServFragment extends Fragment {
         return view;
 
     }
+
     private void ObtenerRSIR() {
 
-
         modeloRSIRList.clear();
-        modeloRSIRList.add(new ModeloRSIR("a54fas65d4as","RISR1654", "Jorge Chavez", "LATAM","pepe123@latam.com", "Lima", "Cuzco",
-                "avion comercial", "DS84FS6", "Frio aereo", "Jose Luna", "15/11/2021",
-                "10:00", "125", "651519", "16/11/2021", "10:00", "178", "52635", "registrado", "80"));
 
+        bd_serv.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    ModeloRSIR rsir = ds.getValue(ModeloRSIR.class);
 
+                    if (rsir.getEmailCliente().equals(user.getEmail())){
+                        String rsir_string = ""+ ds.child("codigoRsir").getValue();
+                        String aeropuerto_string = ""+ ds.child("aeropuerto").getValue();
+                        String compania_string = ""+ ds.child("compania").getValue();
+                        String email_string = ""+ ds.child("emailCliente").getValue();
+                        String origen_string = ""+ ds.child("origen").getValue();
+                        String destino_string = ""+ ds.child("destino").getValue();
+                        String aeronave_string = ""+ ds.child("aeronave").getValue();
+                        String matricula_string = ""+ ds.child("matricula").getValue();
+                        String area_string = ""+ ds.child("area").getValue();
+                        String cargo_string = ""+ ds.child("aCargoDe").getValue();
+                        String fechaL_string = ""+ ds.child("fechaLlegada").getValue();
+                        String hora_string = ""+ ds.child("horaLlegada").getValue();
+                        String nvuelo_string = ""+ ds.child("nVueloLlegada").getValue();
+                        String pea_string = ""+ ds.child("peaLlegada").getValue();
+                        String fechaS_string = ""+ ds.child("fechaSalida").getValue();
+                        String horaS_string = ""+ ds.child("horaSalida").getValue();
+                        String nvueloS_string = ""+ ds.child("nVueloSalida").getValue();
+                        String peaS_string = ""+ ds.child("peaSalida").getValue();
+                        String estado_string =""+ ds.child("estado").getValue();
+                        String peso_string =""+ ds.child("peso").getValue();
 
-        adaptadorRsir = new AdaptadorRsir(getActivity(), modeloRSIRList, "empleado");
-        recyclerView.setAdapter(adaptadorRsir);
+                        modeloRSIRList.add(new ModeloRSIR(user.getUid(), rsir_string,aeropuerto_string,compania_string,email_string,origen_string,destino_string,
+                                aeronave_string,matricula_string,area_string,cargo_string,fechaL_string,hora_string,nvuelo_string,pea_string,
+                                fechaS_string,horaS_string,nvueloS_string,peaS_string,estado_string,peso_string));
+                        adaptadorRsir = new AdaptadorRsir(getContext(), modeloRSIRList,"empleado");
+                        adaptadorRsir.notifyDataSetChanged();
+                        recyclerView.setAdapter(adaptadorRsir);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
