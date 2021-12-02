@@ -1,7 +1,11 @@
 package com.example.talma;
 
+
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -14,6 +18,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.talma.Adapters.AdaptadorReclamo;
+import com.example.talma.Adapters.AdaptadorServFacturas;
+import com.example.talma.Modelos.ModeloServicio;
 import com.example.talma.RsirEmpleados.RegistrarRsire;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,7 +35,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
+import java.util.EventListener;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Nueva_factura extends AppCompatActivity {
@@ -41,6 +50,13 @@ public class Nueva_factura extends AppCompatActivity {
     DatabaseReference bd_facturas;
     DatePickerDialog datePickerDialog;
     ProgressDialog progressDialog;
+    ModeloServicio modeloServicio;
+    List<ModeloServicio> modeloServicioList;
+    DatabaseReference databaseReference;
+    RecyclerView recyclerView;
+    AdaptadorServFacturas adaptadorServFacturas;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +70,10 @@ public class Nueva_factura extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         progressDialog = new ProgressDialog(Nueva_factura.this);
+
+        recyclerView = findViewById(R.id.rvListaServicios);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(Nueva_factura.this));
 
         bd_facturas = FirebaseDatabase.getInstance().getReference("facturas");
 
@@ -78,7 +98,7 @@ public class Nueva_factura extends AppCompatActivity {
             }
         });
 
-
+        ObtenerServicios1();
     }
 
     private void RegistrarFactura (){
@@ -136,6 +156,36 @@ public class Nueva_factura extends AppCompatActivity {
 
     private String makeDateString(int dayOfMonth, int month, int year){
         return dayOfMonth + "/" + month + "/" + year;
+    }
+
+
+
+    private void ObtenerServicios1(){
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    ModeloServicio servicio = ds.getValue(ModeloServicio.class);
+
+                    if (servicio.getCodigo_rsir().equals(et_RSIR)){
+                        String nom_serv = ""+ds.child("nombre_servicio");
+                        String cod_serv = ""+ds.child("codigo_servicio");
+                        String pre_serv = "12";
+
+                        modeloServicioList.add(new ModeloServicio("","",nom_serv,cod_serv,"","","","",pre_serv,"",""));
+                        adaptadorServFacturas = new AdaptadorServFacturas(Nueva_factura.this, modeloServicioList,"empleado");
+                        adaptadorServFacturas.notifyDataSetChanged();
+                        recyclerView.setAdapter(adaptadorServFacturas);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     /*private void ObtenerServicios () {
