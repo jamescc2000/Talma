@@ -38,7 +38,7 @@ public class Nueva_factura extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
-    DatabaseReference bd_facturas;
+    DatabaseReference bd_servicios;
     DatePickerDialog datePickerDialog;
     ProgressDialog progressDialog;
 
@@ -55,7 +55,7 @@ public class Nueva_factura extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         progressDialog = new ProgressDialog(Nueva_factura.this);
 
-        bd_facturas = FirebaseDatabase.getInstance().getReference("facturas");
+        bd_servicios = FirebaseDatabase.getInstance().getReference("facturas");
 
         btn_fecha_emision.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +111,7 @@ public class Nueva_factura extends AppCompatActivity {
         datosNuevaFactura.put("EncargadoFacturacion", encargado_facturacion_String);
         datosNuevaFactura.put("FechaEmision", fecha_emision_String);
 
-        bd_facturas.child(uid_String).setValue(datosNuevaFactura).addOnCompleteListener(new OnCompleteListener<Void>() {
+        bd_servicios.child(uid_String).setValue(datosNuevaFactura).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
@@ -140,7 +140,7 @@ public class Nueva_factura extends AppCompatActivity {
 
     /*private void ObtenerServicios () {
 
-        bd_facturas.addValueEventListener(new ValueEventListener() {
+        bd_servicios.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()){
