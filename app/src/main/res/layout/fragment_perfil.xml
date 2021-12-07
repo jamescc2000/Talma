@@ -7,17 +7,25 @@
     tools:context=".Fragmentos_empleados.PerfilFragment">
 
 
-    <!--Boton Cerrar Sesion-->
-    <Button
-        android:id="@+id/btn_cerrar_sesion"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_personalizado"
-        android:text="Cerrar Sesion"
-        app:backgroundTint="@color/teal_700"
-        android:textColor="#ffff" />
+        android:orientation="vertical">
 
 
+
+
+        <!--Boton Cerrar Sesion-->
+        <Button
+            android:id="@+id/btn_cerrar_sesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_personalizado"
+            android:text="Cerrar Sesion"
+            app:backgroundTint="@color/teal_700"
+            android:textColor="#ffff" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </FrameLayout>

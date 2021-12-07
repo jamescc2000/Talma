@@ -95,7 +95,7 @@ public class ServFragment extends Fragment {
 
         modeloRSIRList = new ArrayList<>();
 
-        ObtenerRSIR();
+        //ObtenerRSIR();
         return view;
 
     }

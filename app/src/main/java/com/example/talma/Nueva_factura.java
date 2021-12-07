@@ -98,7 +98,7 @@ public class Nueva_factura extends AppCompatActivity {
             }
         });
 
-        ObtenerServicios1();
+       // ObtenerServicios1();
     }
 
     private void RegistrarFactura (){
@@ -159,7 +159,7 @@ public class Nueva_factura extends AppCompatActivity {
     }
 
 
-
+/*
     private void ObtenerServicios1(){
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -187,6 +187,8 @@ public class Nueva_factura extends AppCompatActivity {
         });
 
     }
+
+ */
 
     /*private void ObtenerServicios () {
 

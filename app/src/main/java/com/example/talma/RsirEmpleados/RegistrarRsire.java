@@ -237,6 +237,7 @@ public class RegistrarRsire extends AppCompatActivity {
                 }else if(position == 1){
 
                     ll_subtipo_servicio.setVisibility(View.GONE);
+                    sp_subtipo_servicio.getSelectedItem().equals("");
 
                     String[] opciones_nombre_servicios =  {"Estibador", "Reconocimiento fisico", "Extraccion de muestras", "Montacarga", "Inspeccion"};
                     ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RegistrarRsire.this, R.layout.spinner, opciones_nombre_servicios);
@@ -492,6 +493,8 @@ public class RegistrarRsire extends AppCompatActivity {
                     //Una vez registrado el servicio, lo agregamos al rv
                     listaServicios.add(new ModeloServicio(user.getUid(),
                             codigo_rsir,
+                            sp_tipo_servicio.getSelectedItem().toString(),
+                            sp_subtipo_servicio.getSelectedItem().toString(),
                             sp_nombre_servicio.getSelectedItem().toString(),
                             codigo_servicio,
                             btn_hora_desde_llegada.getText().toString(),
@@ -647,6 +650,8 @@ public class RegistrarRsire extends AppCompatActivity {
 
             String uid_String = user.getUid();
             String codigo_RSIR_string = codigo_rsir;
+            String tipo_string = listaServicios.get(i).getTipo();
+            String subtipo_string = listaServicios.get(i).getSubtipo();
             String nombre_string = listaServicios.get(i).getNombre_servicio();
             String codigo_servicio_string = listaServicios.get(i).getCodigo_servicio();
             String hora_desde_llegada = listaServicios.get(i).getHora_desde_llegada();
@@ -662,6 +667,8 @@ public class RegistrarRsire extends AppCompatActivity {
             datosServicio.put("codigoServicio", codigo_servicio_string);
             datosServicio.put("uid", uid_String);
             datosServicio.put("codigoRSIR", codigo_RSIR_string);
+            datosServicio.put("tipo", tipo_string);
+            datosServicio.put("subtipo", subtipo_string);
             datosServicio.put("nombre", nombre_string);
             datosServicio.put("horaDesdeLlegada", hora_desde_llegada);
             datosServicio.put("horaHastaLlegada", hora_hasta_llegada);

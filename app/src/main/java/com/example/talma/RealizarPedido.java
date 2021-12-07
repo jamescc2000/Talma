@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -63,8 +64,9 @@ public class RealizarPedido extends AppCompatActivity {
     String codigo_rsir, codigo_servicio;
     int cantRSIR = 0, cantServicios=0;
 
-    LinearLayout ll_registrar_rsire;
+    LinearLayout ll_registrar_rsire, ll_subtipo_servicio;
     CardView cv_datos_rsire;
+    private Spinner sp_tipo_servicio, sp_subtipo_servicio, sp_nombre_servicio;
     private ProgressDialog progressDialog;
 
     FirebaseAuth firebaseAuth;
@@ -115,7 +117,9 @@ public class RealizarPedido extends AppCompatActivity {
         et_pea_llegada = (EditText) findViewById(R.id.et_pea_llegada);
         et_nvuelo_salida = (EditText) findViewById(R.id.et_nvuelo_salida);
         et_pea_salida = (EditText) findViewById(R.id.et_pea_salida);
-        sp_servicios = (Spinner) findViewById(R.id.sp_servicios);
+        sp_tipo_servicio = (Spinner) findViewById(R.id.sp_tipo_servicio);
+        sp_subtipo_servicio = (Spinner) findViewById(R.id.sp_subtipo_servicio);
+        sp_nombre_servicio = (Spinner) findViewById(R.id.sp_nombre_servicio);
         et_cantidad_llegada = (EditText) findViewById(R.id.et_cantidad_llegada);
         et_cantidad_salida = (EditText) findViewById(R.id.et_cantidad_salida);
         tv_aeropuerto = (TextView) findViewById(R.id.tv_aeropuerto);
@@ -131,10 +135,107 @@ public class RealizarPedido extends AppCompatActivity {
         ll_agregar_servicio = (LinearLayout) findViewById(R.id.ll_agregar_servicio);
         cv_datos_rsire = (CardView) findViewById(R.id.cv_datos_rsire);
         ll_registrar_rsire = (LinearLayout) findViewById(R.id.ll_registrar_rsire);
+        ll_subtipo_servicio = (LinearLayout) findViewById(R.id.ll_subtipo_servicio);
 
-        String [] opciones_servicios = {"Montacarga","Tractor","Estibador"};
-        ArrayAdapter<String> adapter_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner,opciones_servicios);
-        sp_servicios.setAdapter(adapter_servicios);
+        String[] opciones_tipos_servicios = {"Carga", "Adicionales"};
+        ArrayAdapter<String> adapter_tipos_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_tipos_servicios);
+        sp_tipo_servicio.setAdapter(adapter_tipos_servicios);
+
+        sp_tipo_servicio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if(position == 0){
+
+                    ll_subtipo_servicio.setVisibility(View.VISIBLE);
+
+                    String[] opciones_subtipos_servicios = {"Carga general", "Carga peligorsa", "Carga perecible", "Carga valorada", "Carga mixta", "Carga mascota", "Carga temperada", "Carga farmaceutica", "Carga maritima"};
+                    ArrayAdapter<String> adapter_subtipos_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_subtipos_servicios);
+                    sp_subtipo_servicio.setAdapter(adapter_subtipos_servicios);
+
+                    sp_subtipo_servicio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+
+                            if(i == 0){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 1){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 2){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 3){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 4){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 5){
+
+                            }else if(i == 6){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 7){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje", "Manipuleo aeroportuario", "Descarga", "Monitoreo y control de carga", "Salvaguardia"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }else if(i == 8){
+
+                                String[] opciones_nombre_servicios = {"Almacenaje marítimo", "Servicio de carga marítima", "Manipuleo marítimo", "Reconocimiento previo maritimo", "Reconocimiento físico maritimo", "Control y manejo de carga marítima"};
+                                ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                                sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
+                }else if(position == 1){
+
+                    ll_subtipo_servicio.setVisibility(View.GONE);
+
+                    String[] opciones_nombre_servicios =  {"Estibador", "Reconocimiento fisico", "Extraccion de muestras", "Montacarga", "Inspeccion"};
+                    ArrayAdapter<String> adapter_nombre_servicios = new ArrayAdapter<String>(RealizarPedido.this, R.layout.spinner, opciones_nombre_servicios);
+                    sp_nombre_servicio.setAdapter(adapter_nombre_servicios);
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
 
         String [] opciones_aeropuertos = {"Jorge Cahvez","Alfredo Rodríguez Ballón","Alfredo Mendívil Duarte","Armando Revoredo Iglesias", "Chiclayo", "Alejandro Velasco Astete de Cusco"};
@@ -372,6 +473,8 @@ public class RealizarPedido extends AppCompatActivity {
                     //Una vez registrado el servicio, lo agregamos al rv
                     listaServicios.add(new ModeloServicio(user.getUid(),
                             codigo_rsir,
+                            sp_tipo_servicio.getSelectedItem().toString(),
+                            sp_subtipo_servicio.getSelectedItem().toString(),
                             sp_servicios.getSelectedItem().toString(),
                             codigo_servicio,
                             btn_hora_desde_llegada.getText().toString(),

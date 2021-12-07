@@ -486,7 +486,7 @@
 
                 android:orientation="vertical">
 
-                <!--Tipo de servicio-->
+                <!--Tipo del servicio-->
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -496,16 +496,61 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_tipo_servicio"
+                        android:text="Tipo:"
                         android:textSize="17sp" />
 
                     <Spinner
-                        android:id="@+id/sp_servicios"
+                        android:id="@+id/sp_tipo_servicio"
                         android:layout_marginLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--Subtipo del servicio-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/ll_subtipo_servicio"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_subtipo_servicio"
+                        android:text="@string/txt_subtipo_servicio"
+                        android:textSize="17sp" />
+
+                    <Spinner
+                        android:id="@+id/sp_subtipo_servicio"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <!--Nombre del servicio-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/ll_nombre_servicio"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_nombre_servicio"
+                        android:textSize="17sp" />
+
+                    <Spinner
+                        android:id="@+id/sp_nombre_servicio"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
