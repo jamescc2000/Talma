@@ -97,26 +97,6 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <!--Boton Facturacion-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_facturacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_personalizado"
-                    android:text="@string/btn_facturacion"
-                    android:textAlignment="center"
-                    app:backgroundTint="@color/teal_700" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </RelativeLayout>

@@ -13,13 +13,13 @@
         android:theme="@style/Theme.Talma">
         <activity
             android:name=".RealizarReclam"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Registrar_empleados"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".registrar_clientes"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ValidarServicios"
             android:exported="true" />
@@ -28,7 +28,7 @@
             android:exported="true" />
         <activity
             android:name=".Facturacion"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".RealizarPedido"
             android:exported="true" />
@@ -40,19 +40,19 @@
             android:exported="true" />
         <activity
             android:name=".Dashboard_cliente"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".RsirEmpleados.RegistrarRsire"
             android:exported="true" />
         <activity
             android:name=".RsirEmpleados.Atencion_reclamos"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Dashboard_empleados"
             android:exported="true" />
         <activity
             android:name=".LoginClientes"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginEmpleados"
             android:exported="true" />
@@ -74,12 +74,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <service
-            android:name=".MyFirebaseInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
+
     </application>
 
 </manifest>

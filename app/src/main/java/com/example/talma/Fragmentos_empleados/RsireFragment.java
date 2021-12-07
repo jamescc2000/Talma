@@ -19,7 +19,7 @@ import com.example.talma.RsirEmpleados.RevisarRsir;
 
 public class RsireFragment extends Fragment {
 
-    Button btn_registrar_rsire, btn_revisar_servicios, btn_atender_reclamos,btn_facturacion;
+    Button btn_registrar_rsire, btn_revisar_servicios, btn_atender_reclamos;
 
 
 
@@ -43,7 +43,6 @@ public class RsireFragment extends Fragment {
         btn_registrar_rsire = (Button) view.findViewById(R.id.btn_registrar_rsire);
         btn_revisar_servicios = (Button) view.findViewById(R.id.btn_revisar_servicios);
         btn_atender_reclamos = (Button) view.findViewById(R.id.btn_atender_reclamos);
-        btn_facturacion = (Button) view.findViewById(R.id.btn_facturacion);
 
         btn_registrar_rsire.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +58,6 @@ public class RsireFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(view.getContext(), RevisarRsir.class);
-                startActivity(intent);
-            }
-        });
-
-        btn_facturacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), Facturacion.class);
                 startActivity(intent);
             }
         });

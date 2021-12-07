@@ -372,6 +372,8 @@ public class ValidarServicios extends AppCompatActivity {
 
                     //Obtenemos los datos
                     String codigo_servicio_string = ""+ ds.child("codigoServicio").getValue();
+                    String tipo_string = ""+ ds.child("tipo").getValue();
+                    String subtipo_string = ""+ ds.child("subtipo").getValue();
                     String nombre_string = ""+ ds.child("nombre").getValue();
                     String hora_desde_llegada_string = ""+ ds.child("horaDesdeLlegada").getValue();
                     String hora_hasta_llegada_string = ""+ ds.child("horaHastaLlegada").getValue();
@@ -382,7 +384,7 @@ public class ValidarServicios extends AppCompatActivity {
                     String estado_string = ""+ ds.child("estado").getValue();
 
                     //Colocamos los datos
-                    listaServicios.add(new ModeloServicio(user.getUid(), codigo_rsir,nombre_string, codigo_servicio_string, hora_desde_llegada_string, hora_hasta_llegada_string,
+                    listaServicios.add(new ModeloServicio(user.getUid(), codigo_rsir, tipo_string, subtipo_string,nombre_string, codigo_servicio_string, hora_desde_llegada_string, hora_hasta_llegada_string,
                             hora_desde_salida_string, hora_hasta_salida_string, cantidad_llegada_string, cantidad_salida_string, estado_string));
 
                     adaptadorListaServicios = new AdaptadorListaServicios(ValidarServicios.this, listaServicios, "revisar", "cliente");

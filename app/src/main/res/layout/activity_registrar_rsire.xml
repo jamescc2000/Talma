@@ -547,7 +547,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/txt_tipo_servicio"
+                        android:text="Tipo:"
                         android:textSize="17sp" />
 
                     <Spinner
